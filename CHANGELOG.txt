@@ -1,0 +1,19 @@
+VIDEOTAVOLO - CHANGELOG (12-01-2014)
+
+videotavolo-v1.2 -------------------
+- migliorato la gestione del sonoro (uso alternato di LibPD e PD via OSC ora possibile e stabile)
+- inserito lo sfondo con i loghi 
+- implementato una routine per eliminare i suoni residui eventualmente ancora in riproduzione presso la patch di PD nel caso la si utilizzi via OSC e si chiuda l'appicativo OF prima di togliere i fiducia da sopra la superficie (succedeva nel caso dei Pads).
+
+videotavolo-v1.3 -------------------
+- migliorata la routine per l'eliminazione dei suoni residui (cancellazione e pulizia dei vettori)
+- migliorato il debug (aggiunta di informazioni in merito al numero di fiducials presenti)
+- liste sostituite con vettori
+- rinominati alcuni degli oggetti e delel liste (sint_list -> synth_vec; pads -> synth; etc...)
+- ora la dilatazione/compressione della grafica del PAD si muove in sincronia con il BPM
+- ridotta l'espansione del fiducial Bass;
+TODO: 
+- occorre ancora implementare un sistema che renda la variazione di BPM meno brusca sull'animazione del fiducial - provare a cambiare il BPM mentre sul tavolo è disposto il fiducial Synth
+- resta ancora da capire come possibile migliorare la rotazione affinchè la grafica dei fiducial resti associata ad essi anche nel ruotare (forse un problema causato dall'inclinazione del proiettore).
+ 
+

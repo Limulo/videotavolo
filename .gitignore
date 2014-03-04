@@ -1,0 +1,19 @@
+# ignora i seguenti oggetti
+
+build/
+*.plist
+*.xcconfig
+*.xcodeproj
+
+# evitiamo di memorizzare nel repo i file con le seguneti estensioni
+bin/**/*.png
+bin/**/*.jpg
+bin/**/*.tif
+bin/**/*.tiff
+bin/**/*.TTF
+bin/**/*.txt
+bin/**/*.wav
+bin/**/*.aiff
+
+# i progetti compilati
+bin/videotavolo*/

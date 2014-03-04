@@ -1,0 +1,47 @@
+#N canvas 488 158 663 324 10;
+#X obj 27 17 inlet note_vel;
+#X obj 27 98 mtof;
+#X floatatom 27 120 5 0 0 0 - - -;
+#X obj 27 143 phasor~;
+#X obj 135 66 sel 0;
+#X msg 66 118 0;
+#X obj 27 167 -~ 0.5;
+#X obj 27 193 *~ 2;
+#X msg 100 118 1;
+#X msg 135 119 0;
+#X obj 27 230 *~;
+#X obj 27 286 outlet~;
+#X obj 27 62 t f b b b;
+#X obj 135 17 inlet trigger_zero;
+#X obj 100 166 tabread4~ dbtorms;
+#X text 286 19 SINGLE VOICE ricevuta una nuova nota midi in ingresso
+\, 1) rilascia la nota precedente e comincia l'attacco per la nota
+successiva \;;
+#X text 288 81 2) sincronizza in fase il fasore che \, subito dopo
+comincia a riprodurre la frequenza della nota midi in ingresso.;
+#X text 286 121 3) viene applicato la parte iniziale dell'inviluppo
+alla nota (attacco e decay). Il suono si attesta ad un volume pari
+al valore di sustain fino a che non viene messa in riproduzione un'altra
+nota oppure non si invii \, a livello globale \, un messaggio "0".
+;
+#X obj 100 142 adsr 100 10 30 90 400;
+#X obj 27 258 *~ 0.6;
+#X connect 0 0 12 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 6 0;
+#X connect 4 0 9 0;
+#X connect 5 0 3 1;
+#X connect 6 0 7 0;
+#X connect 7 0 10 0;
+#X connect 8 0 18 0;
+#X connect 9 0 18 0;
+#X connect 10 0 19 0;
+#X connect 12 0 1 0;
+#X connect 12 1 5 0;
+#X connect 12 2 8 0;
+#X connect 12 3 9 0;
+#X connect 13 0 4 0;
+#X connect 14 0 10 1;
+#X connect 18 0 14 0;
+#X connect 19 0 11 0;
