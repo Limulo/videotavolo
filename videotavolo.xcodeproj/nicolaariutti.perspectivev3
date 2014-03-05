@@ -280,13 +280,11 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>3</integer>
-									<integer>1</integer>
-									<integer>0</integer>
+									<integer>50</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {276, 664}}</string>
+							<string>{{0, 407}, {276, 664}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -321,7 +319,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>F406CEB41881565900A8993E</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>CHANGELOG.txt</string>
+								<string>testApp.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -329,11 +327,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>F406CEB51881565900A8993E</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>CHANGELOG.txt</string>
+										<string>testApp.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F482368818C729A600F7841F</string>
+										<string>F482369E18C7415200F7841F</string>
 										<key>history</key>
 										<array>
 											<string>F450B084188173BB00332FC9</string>
@@ -350,16 +348,12 @@
 											<string>F47633FB1882C179004F4272</string>
 											<string>F47633FC1882C179004F4272</string>
 											<string>F4BA9D0B18C706CA00E17F79</string>
-											<string>F4BA9D0C18C706CA00E17F79</string>
-											<string>F4BA9D0D18C706CA00E17F79</string>
 											<string>F4BA9D0E18C706CA00E17F79</string>
 											<string>F4BA9D0F18C706CA00E17F79</string>
 											<string>F4BA9D1018C706CA00E17F79</string>
 											<string>F4BA9D1118C706CA00E17F79</string>
 											<string>F4BA9D1218C706CA00E17F79</string>
 											<string>F4BA9D1318C706CA00E17F79</string>
-											<string>F4BA9D1418C706CA00E17F79</string>
-											<string>F4BA9D1518C706CA00E17F79</string>
 											<string>F4BA9D1618C706CA00E17F79</string>
 											<string>F4BA9D1718C706CA00E17F79</string>
 											<string>F4BA9D1818C706CA00E17F79</string>
@@ -376,8 +370,12 @@
 											<string>F4BA9D2318C706CA00E17F79</string>
 											<string>F4BA9D2418C706CA00E17F79</string>
 											<string>F4BA9D2518C706CA00E17F79</string>
-											<string>F4BA9D2F18C70A0400E17F79</string>
-											<string>F482368718C729A600F7841F</string>
+											<string>F482369618C7415200F7841F</string>
+											<string>F482369718C7415200F7841F</string>
+											<string>F482369818C7415200F7841F</string>
+											<string>F482369918C7415200F7841F</string>
+											<string>F482369A18C7415200F7841F</string>
+											<string>F4DE94341882C88A0062DBF8</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -653,14 +651,14 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>F443A2191882EF1A00B70DCC</string>
+				<string>F482369018C73D4300F7841F</string>
 				<string>1CCC7628064C1048000F2A68</string>
 				<string>1CCC7629064C1048000F2A68</string>
-				<string>F443A21A1882EF1A00B70DCC</string>
-				<string>F443A21B1882EF1A00B70DCC</string>
-				<string>F443A21C1882EF1A00B70DCC</string>
-				<string>F443A21D1882EF1A00B70DCC</string>
-				<string>F406CEB41881565900A8993E</string>
+				<string>F482369118C73D4300F7841F</string>
+				<string>F482369218C73D4300F7841F</string>
+				<string>F482369318C73D4300F7841F</string>
+				<string>F482369418C73D4300F7841F</string>
+				<string>F482369518C73D4300F7841F</string>
 			</array>
 			<key>ToolbarConfigUserDefaultsMinorVersion</key>
 			<string>2</string>
@@ -694,6 +692,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>F482369C18C7415200F7841F</string>
+		<string>F482369D18C7415200F7841F</string>
 		<string>/Users/nicolaariutti/Documents/Open_Frameworks/of_v0074_osx_release_2/apps/myApps/videotavolo-v1.4_da_vale/videotavolo.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
