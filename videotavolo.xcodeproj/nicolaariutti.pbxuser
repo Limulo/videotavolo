@@ -330,6 +330,8 @@
 			F47633FB1882C179004F4272 = F47633FB1882C179004F4272 /* PBXTextBookmark */;
 			F47633FC1882C179004F4272 = F47633FC1882C179004F4272 /* PlistBookmark */;
 			F482368318C70DA800F7841F /* PBXTextBookmark */ = F482368318C70DA800F7841F /* PBXTextBookmark */;
+			F482368718C729A600F7841F /* PBXTextBookmark */ = F482368718C729A600F7841F /* PBXTextBookmark */;
+			F482368818C729A600F7841F /* PBXTextBookmark */ = F482368818C729A600F7841F /* PBXTextBookmark */;
 			F4BA9D0B18C706CA00E17F79 = F4BA9D0B18C706CA00E17F79 /* PBXTextBookmark */;
 			F4BA9D0C18C706CA00E17F79 = F4BA9D0C18C706CA00E17F79 /* PBXTextBookmark */;
 			F4BA9D0D18C706CA00E17F79 = F4BA9D0D18C706CA00E17F79 /* PBXTextBookmark */;
@@ -421,7 +423,7 @@
 		fRef = F47633EF1882C15F004F4272 /* CHANGELOG.txt */;
 		name = "CHANGELOG.txt: 13";
 		rLen = 0;
-		rLoc = 1096;
+		rLoc = 2369;
 		rType = 0;
 		vrLen = 2410;
 		vrLoc = 0;
@@ -431,7 +433,7 @@
 		fRef = F47633EF1882C15F004F4272 /* CHANGELOG.txt */;
 		name = "CHANGELOG.txt: 12";
 		rLen = 0;
-		rLoc = 1094;
+		rLoc = 2367;
 		rType = 0;
 		vrLen = 2410;
 		vrLoc = 0;
@@ -512,9 +514,9 @@
 	};
 	F47633EF1882C15F004F4272 /* CHANGELOG.txt */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {2091, 645}}";
-			sepNavSelRange = "{1094, 0}";
-			sepNavVisRange = "{0, 2410}";
+			sepNavIntBoundsRect = "{{0, 0}, {2091, 663}}";
+			sepNavSelRange = "{2329, 0}";
+			sepNavVisRange = "{0, 3683}";
 		};
 	};
 	F47633F61882C179004F4272 /* PBXTextBookmark */ = {
@@ -593,9 +595,29 @@
 		fRef = F47633EF1882C15F004F4272 /* CHANGELOG.txt */;
 		name = "CHANGELOG.txt: 12";
 		rLen = 0;
-		rLoc = 1094;
+		rLoc = 2367;
 		rType = 0;
 		vrLen = 2410;
+		vrLoc = 0;
+	};
+	F482368718C729A600F7841F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F47633EF1882C15F004F4272 /* CHANGELOG.txt */;
+		name = "CHANGELOG.txt: 12";
+		rLen = 0;
+		rLoc = 2367;
+		rType = 0;
+		vrLen = 2410;
+		vrLoc = 0;
+	};
+	F482368818C729A600F7841F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F47633EF1882C15F004F4272 /* CHANGELOG.txt */;
+		name = "CHANGELOG.txt: 27";
+		rLen = 0;
+		rLoc = 2329;
+		rType = 0;
+		vrLen = 3683;
 		vrLoc = 0;
 	};
 	F4BA9D0618C6FE6400E17F79 /* README.txt */ = {

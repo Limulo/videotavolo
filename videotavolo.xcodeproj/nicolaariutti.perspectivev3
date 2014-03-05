@@ -321,7 +321,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>F406CEB41881565900A8993E</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>CHANGELOG</string>
+								<string>CHANGELOG.txt</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -329,11 +329,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>F406CEB51881565900A8993E</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>CHANGELOG</string>
+										<string>CHANGELOG.txt</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>F482368318C70DA800F7841F</string>
+										<string>F482368818C729A600F7841F</string>
 										<key>history</key>
 										<array>
 											<string>F450B084188173BB00332FC9</string>
@@ -377,7 +377,7 @@
 											<string>F4BA9D2418C706CA00E17F79</string>
 											<string>F4BA9D2518C706CA00E17F79</string>
 											<string>F4BA9D2F18C70A0400E17F79</string>
-											<string>F43E25EB18C70D9800F69337</string>
+											<string>F482368718C729A600F7841F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
