@@ -1042,7 +1042,10 @@ void testApp::objectAdded(ofxTuioObject & tuioObject)
 	angolo = tuioObject.getAngle() * (-1);			// passo anche il (-1) perchè da reactivision, l'angolo è invertito
 	rot_vel = tuioObject.getRotationSpeed() * (-1);	// passo anche il (-1) perchè da reactivision, l'angolo è invertito
 	// calcolo la posizione del fiducial per disegnarla graficamente
-	pos.x = wQuadro * tuioObject.getX();		// i valori tuioObject.getX() e tuioObject.getY() variano tra 0 e 1
+	// i valori tuioObject.getX() e tuioObject.getY() variano tra 0 e 1 se la calibrazione è fatta "male"
+	//pos.x = wQuadro * tuioObject.getX();
+	// i valori tuioObject.getX() e tuioObject.getY() variano tra 0.125 e 0.875 se la calibrazione è fatta "bene"
+	pos.x = wQuadro * ( (tuioObject.getX()-0.125f) /0.75);		
 	pos.y = hQuadro * tuioObject.getY();
 	
 
@@ -1470,7 +1473,10 @@ void testApp::objectUpdated(ofxTuioObject & tuioObject)
 
 	angolo = tuioObject.getAngle() * (-1);			// passo anche il (-1) perchè da reactivision, l'angolo è invertito
 	rot_vel = tuioObject.getRotationSpeed() * (-1);	// passo anche il (-1) perchè da reactivision, l'angolo è invertito
-	pos.x = wQuadro * tuioObject.getX();
+	// i valori tuioObject.getX() e tuioObject.getY() variano tra 0 e 1 se la calibrazione è fatta "male"
+	//pos.x = wQuadro * tuioObject.getX();
+	// i valori tuioObject.getX() e tuioObject.getY() variano tra 0.125 e 0.875 se la calibrazione è fatta "bene"
+	pos.x = wQuadro * ( (tuioObject.getX()-0.125f) /0.75);
 	pos.y = hQuadro * tuioObject.getY();	
 	
 	switch(fiducial_id)
