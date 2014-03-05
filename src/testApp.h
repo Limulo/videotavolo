@@ -1,35 +1,27 @@
 /*
- * videoTavolo
- * ===========
+ *  testApp.h
+ *  Prototipo3
  *
- * INFO
- * ===========
- * videoTavolo è un prototipo di superficie interattiva. 
- * Vengono qui rilasciati i codici sorgente e le patches di PureData del progetto. 
- * Il progetto è curato da Limulo ( http://www.limulo.net ) con i seguenti contributi esterni:
+ *  Created by Limulo.
+ *  http://www.limulo.net 
+ *  con contributi esterni:
  *
- * 1) ofxPd
- * Copyright (c) Dan Wilcox 2011-2013
- * BSD Simplified License.
- * https://github.com/danomatika/ofxPd
- * 
- * 2) ofxTuio
- * permette di creare e gestire direttamente nell'ambiente 
- * di sviluppo di openFrameworks un server e un client che 
- * comunicano tramite protocollo TUIO
- * https://github.com/patriciogonzalezvivo/ofxTuio
- * 
- * LICENZA
- * ===========
- * ad eccezione degli elementi elencati qui sopra, tutto il codice è rilasciato da Limulo secondo la licenza 
- * Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). Per prendere visione di una copia 
- * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
- * 
+ *	1) ofxPd
+ *  Copyright (c) Dan Wilcox 2011-2013
+ *  BSD Simplified License.
+ *	https://github.com/danomatika/ofxPd
+ *  
+ *	2) ofxTuio
+ *	permette di creare e gestire direttamente nell'ambiente 
+ *	di sviluppo di openFrameworks un server e un client che 
+ *	comunicano tramite protocollo TUIO
+ *	https://github.com/patriciogonzalezvivo/ofxTuio
+ *
  */
 
 #pragma once
 
-//h#define _LIBPD
+//#define _LIBPD
 
 #include <list>
 #include <cassert>
@@ -178,19 +170,20 @@ public:
 
 
 	// variabili e strutture dati per la manipolazione dei fiducials
-	Fid_Rot *rotativo;
-	Fid_Sqr *quadrato;
-	Fid_Round *rotondo;
-	Fid_Bass *basso;
-	Fid_Synth *synth;
-	Fid_Chords * accordo;
-	Finger *dito;
-	vector<Fid_Rot*> rot_vec;
-	vector<Fid_Sqr*> sqr_vec;
-	vector<Fid_Round*> rnd_vec;
-	vector<Fid_Bass*> bass_vec;
-	vector<Fid_Synth*> synth_vec;
-	vector<Finger*> dito_vec;
+	Fid_Rot		*rotativo;	
+	Fid_Sqr		*quadrato;	
+	Fid_Round	*rotondo;	
+	Fid_Bass	*basso;		
+	Fid_Synth	*synth;		
+	Fid_Chords	*accordo;	
+	Finger		*dito;		
+	
+	vector<Fid_Rot*>	rot_vec;
+	vector<Fid_Sqr*>	sqr_vec;
+	vector<Fid_Round*>	rnd_vec;
+	vector<Fid_Bass*>	bass_vec;
+	vector<Fid_Synth*>	synth_vec;
+	vector<Finger*>		dito_vec;
 	vector<Fid_Chords*> chords_vec;
 	ofVec2f		centro;	// centro del tavolo
 	ofVec2f		pos;	// posizione (x, y) del fiducial nella resa grafica a display
@@ -209,6 +202,9 @@ public:
 	// utility varie
 	bool bDebug; 
 	void backgroundGradient(const ofColor& start, const ofColor& end, int w_, int h_); // funzione per disegnare lo sfondo
+	// per il salvataggio delle impostazioni su file
+	FILE* fp;
+	char* filename;
 	
 	Digit			digit;
 	ofxTuioClient	tuio;

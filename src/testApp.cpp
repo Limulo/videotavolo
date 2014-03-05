@@ -1,30 +1,22 @@
 /*
- * videoTavolo
- * ===========
+ *  testApp.cpp
+ *  Prototipo3
  *
- * INFO
- * ===========
- * videoTavolo è un prototipo di superficie interattiva. 
- * Vengono qui rilasciati i codici sorgente e le patches di PureData del progetto. 
- * Il progetto è curato da Limulo ( http://www.limulo.net ) con i seguenti contributi esterni:
+ *  Created by Limulo.
+ *  http://www.limulo.net 
+ *  con contributi esterni:
  *
- * 1) ofxPd
- * Copyright (c) Dan Wilcox 2011-2013
- * BSD Simplified License.
- * https://github.com/danomatika/ofxPd
- * 
- * 2) ofxTuio
- * permette di creare e gestire direttamente nell'ambiente 
- * di sviluppo di openFrameworks un server e un client che 
- * comunicano tramite protocollo TUIO
- * https://github.com/patriciogonzalezvivo/ofxTuio
- * 
- * LICENZA
- * ===========
- * ad eccezione degli elementi elencati qui sopra, tutto il codice è rilasciato da Limulo secondo la licenza 
- * Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). Per prendere visione di una copia 
- * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
- * 
+ *	1) ofxPd
+ *  Copyright (c) Dan Wilcox 2011-2013
+ *  BSD Simplified License.
+ *	https://github.com/danomatika/ofxPd
+ *  
+ *	2) ofxTuio
+ *	permette di creare e gestire direttamente nell'ambiente 
+ *	di sviluppo di openFrameworks un server e un client che 
+ *	comunicano tramite protocollo TUIO
+ *	https://github.com/patriciogonzalezvivo/ofxTuio
+ *
  */
 
 #include "testApp.h"
@@ -97,7 +89,8 @@ void testApp::setup()
 	
 	// inizializzazione variabili di temporizzazione e gestione della messa in play
 	initial_time = ofGetSystemTime();
-	bpm = 120; // BPM di default
+	bpm = 120;					// BPM di default
+	Fid_Synth::synth_bpm = bpm; // BPM di default
 	croma_time=(60000 / (bpm*2)); // tempo di una croma in millisecondi 
 	// 1 minuto = 60000 ms; 
 	// 60000 ms / bpm = tempo di 1 semiminima; 
@@ -163,7 +156,7 @@ void testApp::setup()
 	wWindow = ofGetWindowWidth();
 	hWindow = ofGetWindowHeight();
 	
-	meshReset();
+	meshReset(); // inizializzo i valori della mesh a quelli hard coded
 
 	// mesh
 	mesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
@@ -320,7 +313,7 @@ void testApp::update()
 			(*it)->update_continuos(playHeadPosition);
 		
 		for (vector<Fid_Synth*>::iterator it=synth_vec.begin(); it !=synth_vec.end(); ++it) 
-			(*it)->update_continuos(bpm);
+			(*it)->update_continuos();
 		
 		for (vector<Fid_Chords*>::iterator it=chords_vec.begin(); it !=chords_vec.end(); ++it) 
 			(*it)->update_continuos(playHeadPosition);
@@ -453,7 +446,7 @@ void testApp::draw()
 #endif
 			ofDrawBitmapString("TUIO port: " + ofToString(TUIO_PORT),	cibX, cibY + 40);
 			ofDrawBitmapString("FPS:       " + ofToString(ofGetFrameRate()),	cibX, cibY + 60);
-			ofDrawBitmapString("Rotation:           " + ofToString(meshRotation),		cibX, cibY + 100);
+			ofDrawBitmapString("Mesh Rotation:      " + ofToString(meshRotation),		cibX, cibY + 100);
 			ofDrawBitmapString("Mesh Center X:      " + ofToString(meshCenterX),		cibX, cibY + 120);
 			ofDrawBitmapString("Mesh X Scale:       " + ofToString(meshScaleX),			cibX, cibY + 140);
 			ofDrawBitmapString("Mesh Y Scale:       " + ofToString(meshScaleY),			cibX, cibY + 160);
@@ -1097,10 +1090,10 @@ void testApp::objectAdded(ofxTuioObject & tuioObject)
 			rot_vec.push_back(rotativo);
 			rot_vec.back()->setup(&pos, &centro, angolo, memoria_bpm_angle, color_bpm, color_bpm_corona);
 			rot_vec.back()->added();
-			rot_vec.back()->update_interrupt(&pos, &centro, angolo, rot_vel); //commentarlo?
-			// aggiorno la mamoria dell'angolo per poterlo riutilizzare la prossima creazione di uno stsso tipo d'oggetto
+			rot_vec.back()->update_interrupt(&pos, &centro, angolo, rot_vel); 
+			// aggiorno la memoria dell'angolo per poterlo riutilizzare la prossima creazione di uno setsso tipo d'oggetto
 			memoria_bpm_angle = rot_vec.back()->get_lim_angle(); 
-			digit.set_bpm(bpm);
+			digit.set_bpm(bpm); // mostro i digit non appena posiziono il Fid_Rod per avere un riscontro immediato
 			break;
 
 		}
@@ -1542,6 +1535,7 @@ void testApp::objectUpdated(ofxTuioObject & tuioObject)
 			}
 			
 			bpm = ofMap(memoria_bpm_angle, -FIDUCIAL_MER, FIDUCIAL_MER, 30, 260, true);
+			Fid_Synth::synth_bpm = bpm;
 			digit.set_bpm(bpm);
 			break;
 

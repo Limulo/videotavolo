@@ -1,30 +1,9 @@
 /*
- * videoTavolo
- * ===========
+ *  Fid_Synth.cpp
+ *  Prototipo3
  *
- * INFO
- * ===========
- * videoTavolo è un prototipo di superficie interattiva. 
- * Vengono qui rilasciati i codici sorgente e le patches di PureData del progetto. 
- * Il progetto è curato da Limulo ( http://www.limulo.net ) con i seguenti contributi esterni:
- *
- * 1) ofxPd
- * Copyright (c) Dan Wilcox 2011-2013
- * BSD Simplified License.
- * https://github.com/danomatika/ofxPd
- * 
- * 2) ofxTuio
- * permette di creare e gestire direttamente nell'ambiente 
- * di sviluppo di openFrameworks un server e un client che 
- * comunicano tramite protocollo TUIO
- * https://github.com/patriciogonzalezvivo/ofxTuio
- * 
- * LICENZA
- * ===========
- * ad eccezione degli elementi elencati qui sopra, tutto il codice è rilasciato da Limulo secondo la licenza 
- * Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). Per prendere visione di una copia 
- * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
- * 
+ *  Created by Limulo.
+ *  http://www.limulo.net 
  */
 
 #include "Fid_Synth.h"
@@ -36,6 +15,7 @@ Fid_Synth::Fid_Synth(int _fid, int _sid)
 {
 	
 	std::cout << "FID SYNTH: Constructing derived!\n" << std::endl;
+	std::cout << synth_bpm << std::endl;
 	
 	fid = _fid;
 	sid = _sid;
@@ -56,6 +36,26 @@ Fid_Synth::Fid_Synth(int _fid, int _sid)
 	aTrigger = 80;		// ampiezza di dilatazione della forma del fiducial quando venga triggerato
 	startFrame = 0;
 	marginTrigger = 30;	// raggio di un cerchio immaginario, tracciato contrandolo sulla posizione del fiducial.
+	
+	f = new_f = ( synth_bpm/(4.0f * 60.0f) );
+	
+   /* 
+	* il valore della frequenza è calcolato in modo tale che un intero ciclo di sinusoide si 
+	* completi all'interno della battuta ( 4 quarti per un intero ciclo ).
+	*
+	* | --- 1 BAR --- |
+	* |   __          |
+	* |  /  \         |
+	* | /    \        |
+	* +/______\_______| 
+	* |        \     /
+	* |         \   /
+	* |          \_/
+	* |
+	*/
+	
+	
+	
 }
 
 
@@ -92,7 +92,11 @@ void Fid_Synth::update_interrupt(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fi
 	fid_angle = _fid_angle;
 }
 
-void Fid_Synth::update_continuos(int bpm_) 
+void Fid_Synth::update_continuos(int playHeadPos_) {
+	update_continuos();
+}
+
+void Fid_Synth::update_continuos() 
 {
 	float A = 1.0;
 	// STATE UPDATE -----------------------------------------------
@@ -125,9 +129,12 @@ void Fid_Synth::update_continuos(int bpm_)
 	else 
 	{
 		// se sono nello stato STABLE valuto r_osc. Questa variabile contiene un valore che oscilla come un seno
-		float f = bpm_ / (4 * 60.0f); // 60 secondi in un minuto
-		float t = ( ofGetFrameNum() / 60.0f ); // 60 = è il FPS
-		r_osc = A * sin( 2*PI * f * t ); // f *
+		new_f = synth_bpm / (4.0f * 60.0f); // 60 secondi in un minuto
+		if (r_osc < 0.03 && r_osc > -0.03) 
+			f = new_f;
+		//float t = ( ofGetFrameNum() / 60.0f ); // vecchia versione per la temporizzazione dell'animazione basata su FPS
+		float t = ofGetElapsedTimef(); //tempo in secondi
+		r_osc = A * sin( 2*PI * f * t ); 
 	}
 
 	f_color.set(r, g, b, transparency);
@@ -194,7 +201,7 @@ void Fid_Synth::debug()
 	// RIQUADRO 1 -----------------------------------------------
 	ofPushMatrix(); 
 	ofTranslate(-50, -120 , 0);
-	ofDrawBitmapString("SYNTH\nFid_Pos X: " + ofToString(fid_pos.x) + "\nFid_Pos Y: " + ofToString(fid_pos.y) + "\nFid_Angle: " + ofToString(fid_angle), 0, 0);
+	ofDrawBitmapString("SYNTH\nFid_Pos X: " + ofToString(fid_pos.x) + "\nFid_Pos Y: " + ofToString(fid_pos.y) + "\nFid_Angle: " + ofToString(fid_angle) + "\nsbpm: " + ofToString(synth_bpm) + "\nf: " + ofToString(f), 0, 0);
 	ofPopMatrix();
 	
 	// RIQUADRO 4 -----------------------------------------------
