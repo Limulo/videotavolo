@@ -1,9 +1,9 @@
 # ignora i seguenti oggetti
 
 build/
-*.plist
-*.xcconfig
-*.xcodeproj
+#*.plist
+#*.xcconfig
+#*.xcodeproj
 
 # evitiamo di memorizzare nel repo i file con le seguneti estensioni
 bin/**/*.png

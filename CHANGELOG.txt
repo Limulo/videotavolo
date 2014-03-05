@@ -1,9 +1,16 @@
-VIDEOTAVOLO - CHANGELOG (12-01-2014)
+VIDEOTAVOLO - CHANGELOG
+=======================
 
-videotavolo-v1.2 -------------------
-- migliorato la gestione del sonoro (uso alternato di LibPD e PD via OSC ora possibile e stabile)
-- inserito lo sfondo con i loghi 
-- implementato una routine per eliminare i suoni residui eventualmente ancora in riproduzione presso la patch di PD nel caso la si utilizzi via OSC e si chiuda l'appicativo OF prima di togliere i fiducia da sopra la superficie (succedeva nel caso dei Pads).
+TODO
+- basare le animazioni non sul FPS ma sul tempo che scorre: si incapperà meno in problemi legati alla variazione dell'FPS. (vedi BlueBook pg 158)
+- modifica codice con funzione di callback per il cambio di BPM tra fiducial rotativo e fiducial Synth
+- capisci meglio il funzionamento della fequenza proiettore / frequenza monitor / frequenza telecamera / frequenza oF
+- utilizzo dei membri statici delle classi per tenere conto di ad esempio numero di istanze presenti vedi Ch 12 C++ ref.
+- metti in line alcune funzioni per risparmiare tempo
+- utilizza la direttiva #undef per togliere la definizione alle macro nei punti in cui esse non servano più per lasciarle definite solo nelle porzioni di codice dove esse servano (vedi pg. 246 cpp)
+- tradurre la matrice multidimensionale TABLE in 2 differenti tabelle: una monodimensionale 3 x 8 x 1 di unsigned int per conservare i SID; l'altra tridimensionale (?) di 3 piani da 3 byte (3 char) l'uno in cui ciascun bit rappresenta lo stato dello strumento in quel particolare istante di tempo.
+
+
 
 videotavolo-v1.3 -------------------
 - migliorata la routine per l'eliminazione dei suoni residui (cancellazione e pulizia dei vettori)
@@ -15,5 +22,12 @@ videotavolo-v1.3 -------------------
 TODO: 
 - occorre ancora implementare un sistema che renda la variazione di BPM meno brusca sull'animazione del fiducial - provare a cambiare il BPM mentre sul tavolo è disposto il fiducial Synth
 - resta ancora da capire come possibile migliorare la rotazione affinchè la grafica dei fiducial resti associata ad essi anche nel ruotare (forse un problema causato dall'inclinazione del proiettore).
- 
+
+
+videotavolo-v1.2 -------------------
+- migliorato la gestione del sonoro (uso alternato di LibPD e PD via OSC ora possibile e stabile)
+- inserito lo sfondo con i loghi 
+- implementato una routine per eliminare i suoni residui eventualmente ancora in riproduzione presso la patch di PD nel caso la si utilizzi via OSC e si chiuda l'appicativo OF prima di togliere i fiducia da sopra la superficie (succedeva nel caso dei Pads).
+
+
 
