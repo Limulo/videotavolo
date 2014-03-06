@@ -26,15 +26,9 @@
  * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
  * 
  */
-/*
- *  Table.h
- *  Prototipo3
- *
- *  Created by Limulo.
- *  http://www.limulo.net 
- *  
- *	Classe per la creazione della matrice di organizzazione e riproduzione dei suoni
- */
+ 
+//	Classe per la creazione della matrice di organizzazione e riproduzione dei suoni
+
 
 
 #ifndef _INC_TABLE

@@ -1,26 +1,39 @@
 /*
- *  testApp.cpp
- *  Prototipo3
+ * videoTavolo
+ * ===========
  *
- *  Created by Limulo.
- *  http://www.limulo.net 
- *  con contributi esterni:
+ * INFO
+ * ===========
+ * videoTavolo è un prototipo di superficie interattiva. 
+ * Vengono qui rilasciati i codici sorgente e le patches di PureData del progetto. 
+ * Il progetto è curato da Limulo ( http://www.limulo.net ) con i seguenti contributi esterni:
  *
- *	1) ofxPd
- *  Copyright (c) Dan Wilcox 2011-2013
- *  BSD Simplified License.
- *	https://github.com/danomatika/ofxPd
- *  
- *	2) ofxTuio
- *	permette di creare e gestire direttamente nell'ambiente 
- *	di sviluppo di openFrameworks un server e un client che 
- *	comunicano tramite protocollo TUIO
- *	https://github.com/patriciogonzalezvivo/ofxTuio
- *
+ * 1) ofxPd
+ * Copyright (c) Dan Wilcox 2011-2013
+ * BSD Simplified License.
+ * https://github.com/danomatika/ofxPd
+ * 
+ * 2) ofxTuio
+ * permette di creare e gestire direttamente nell'ambiente 
+ * di sviluppo di openFrameworks un server e un client che 
+ * comunicano tramite protocollo TUIO
+ * https://github.com/patriciogonzalezvivo/ofxTuio
+ * 
+ * LICENZA
+ * ===========
+ * ad eccezione degli elementi elencati qui sopra, tutto il codice è rilasciato da Limulo secondo la licenza 
+ * Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). Per prendere visione di una copia 
+ * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
+ * 
  */
 
 #include "testApp.h"
 using namespace std;
+
+// version
+int vMajor = 1;
+int vMinor = 4;
+int vMaintenance = 1;
 
 // colori generici
 ofColor black	(0,		0,		0);
@@ -248,19 +261,23 @@ void testApp::update()
 		tuio.getMessage();
 		actual_time = ofGetSystemTime(); 
 		time = actual_time - initial_time; //tempo trascorso dall'apertura del programma
+		croma_time = (60000 / (bpm*2));
 		
 		// TIME CONTROL ------------------------------------------------
 		if(time - last_croma_time >= croma_time) //(n_crome!=storico_crome)
 		{
 			n_crome = n_crome%8;
 			play(n_crome);
-		
+			
+			// aggiorno i valori per la visualizzazione corretta dell'animazione del Fid Synth
+			// questo avviene in corrispondenza delle cole crome
+			Fid_Synth::synth_bpm = bpm;
+			for (vector<Fid_Synth*>::iterator it=synth_vec.begin(); it !=synth_vec.end(); ++it) 
+				(*it)->reset_internal_timer(n_crome);
+			
 			last_croma_time=time;
 			n_crome++;
 		}
-
-		croma_time = (60000 / (bpm*2));
-		
 		
 #ifdef _LIBPD
 		core.update();
@@ -313,7 +330,7 @@ void testApp::update()
 			(*it)->update_continuos(playHeadPosition);
 		
 		for (vector<Fid_Synth*>::iterator it=synth_vec.begin(); it !=synth_vec.end(); ++it) 
-			(*it)->update_continuos();
+			(*it)->update_continuos((float)time-last_croma_time);
 		
 		for (vector<Fid_Chords*>::iterator it=chords_vec.begin(); it !=chords_vec.end(); ++it) 
 			(*it)->update_continuos(playHeadPosition);
@@ -437,6 +454,7 @@ void testApp::draw()
 			// calibration info box
 			int cibX	= wQuadro*0.5 + 20;
 			int cibY	= hQuadro*0.5 - 240;
+			ofDrawBitmapString("videoTavolo-v"+ofToString(vMajor)+"."+ofToString(vMinor)+"."+ofToString(vMaintenance), cibX, cibY - 20);
 #ifdef _LIBPD
 			ofDrawBitmapString("We are using LibPD !", cibX, cibY + 20);
 #else
@@ -1535,7 +1553,7 @@ void testApp::objectUpdated(ofxTuioObject & tuioObject)
 			}
 			
 			bpm = ofMap(memoria_bpm_angle, -FIDUCIAL_MER, FIDUCIAL_MER, 30, 260, true);
-			Fid_Synth::synth_bpm = bpm;
+			//Fid_Synth::synth_bpm = bpm; //questo metodo è stato sostituito da un sistema più efficiente un TestApp::update;
 			digit.set_bpm(bpm);
 			break;
 

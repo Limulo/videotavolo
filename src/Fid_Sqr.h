@@ -26,16 +26,10 @@
  * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
  * 
  */
-/*
- *  FId_Sqr.h
- *  Prototipo3
- *
- *  Created by Limulo.
- *  http://www.limulo.net 
- *  
- * Questa sottoclasse serve per dare una rappresentazione grafica ai fiducial cui è stata assegnata una forma quadrata
- * si tratta dei fiducial SNARE e HIHAT
- */
+
+// Questa sottoclasse serve per dare una rappresentazione grafica ai fiducial cui è stata assegnata una forma quadrata
+// si tratta dei fiducial SNARE e HIHAT
+
 
 #ifndef _INC_FID_SQR
 #define _INC_FID_SQR

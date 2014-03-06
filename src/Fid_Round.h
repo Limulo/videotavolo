@@ -26,16 +26,10 @@
  * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
  * 
  */
-/*
- *  Fid_Round.h
- *  Prototipo3
- *
- *  Created by Limulo.
- *  http://www.limulo.net 
- *  
- * Questa sottoclasse serve per dare una rappresentazione grafica ai fiducial cui è stata assegnata una forma rotonda
- * si tratta del fiducial KICK
- */
+ 
+// Questa sottoclasse serve per dare una rappresentazione grafica ai fiducial cui è stata assegnata una forma rotonda
+// si tratta del fiducial KICK
+
 
 #ifndef _INC_FID_ROUND
 #define _INC_FID_ROUND

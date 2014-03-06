@@ -1,12 +1,30 @@
 /*
- *  Fid_Synth.h
- *  Prototipo3
+ * videoTavolo
+ * ===========
  *
- *  Created by Limulo.
- *  http://www.limulo.net 
+ * INFO
+ * ===========
+ * videoTavolo è un prototipo di superficie interattiva. 
+ * Vengono qui rilasciati i codici sorgente e le patches di PureData del progetto. 
+ * Il progetto è curato da Limulo ( http://www.limulo.net ) con i seguenti contributi esterni:
  *
- *  Questa sottoclasse serve per dare una rappresentazione grafica al fiducial che rappresenta il PAD
- *
+ * 1) ofxPd
+ * Copyright (c) Dan Wilcox 2011-2013
+ * BSD Simplified License.
+ * https://github.com/danomatika/ofxPd
+ * 
+ * 2) ofxTuio
+ * permette di creare e gestire direttamente nell'ambiente 
+ * di sviluppo di openFrameworks un server e un client che 
+ * comunicano tramite protocollo TUIO
+ * https://github.com/patriciogonzalezvivo/ofxTuio
+ * 
+ * LICENZA
+ * ===========
+ * ad eccezione degli elementi elencati qui sopra, tutto il codice è rilasciato da Limulo secondo la licenza 
+ * Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). Per prendere visione di una copia 
+ * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
+ * 
  */
 
 #ifndef _INC_FID_ROT
@@ -34,13 +52,13 @@ private:
 	int g;
 	int b;
 	
-	static int synth_bpm;
-	
+	static unsigned int synth_bpm;
 	
 	// variabili di utilità per l'animazione
-	int count;
 	float r_osc;
-	float f, new_f;
+	float f;
+	float t, t0;
+	float T; // periodo dell'oscillazione
 	
 public:
 	Fid_Synth(int _fid, int _sid);
@@ -50,8 +68,9 @@ public:
 	void added();
 	
 	void update_interrupt(ofVec2f *fiducial_pos, ofVec2f *centro, float angolo_attuale, float vel);
-	void update_continuos(int playHeadPos_);
-	void update_continuos();
+	void update_continuos(int playHeadPos_) { /* Do nothing */ };
+	void update_continuos(float time_);
+	void reset_internal_timer(int n_crome_);
 	
 	void removed();
 	

@@ -26,15 +26,9 @@
  * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
  * 
  */
-/*
- *  Fid_Rot.h
- *  Prototipo3
- *
- *  Created by Limulo.
- *  http://www.limulo.net 
- *  
- * Questa sottoclasse serve per dare una rappresentazione grafica al fiducial dedicato alla modifica del tempo BPM
- */
+ 
+// Questa sottoclasse serve per dare una rappresentazione grafica al fiducial dedicato alla modifica del tempo BPM
+
 
 #ifndef _INC_FID_ROT
 #define _INC_FID_ROT

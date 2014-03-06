@@ -26,16 +26,9 @@
  * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
  * 
  */
-/*
- *  finger.h
- *  Prototipo3
- *
- *  Created by Limulo.
- *  http://www.limulo.net 
- *  
- *  Questa classe serve per dare una rappresentazione grafica alle dita
- *
- */
+  
+//  Questa classe serve per dare una rappresentazione grafica alle dita
+
 
 #ifndef _INC_FINGER
 #define _INC_FINGER
