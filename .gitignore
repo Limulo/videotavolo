@@ -3,7 +3,7 @@
 build/
 *.plist
 *.xcconfig
-*.xcodeproj
+*.xcodeproj/
 
 # evitiamo di memorizzare nel repo i file con le seguneti estensioni
 bin/**/*.png
