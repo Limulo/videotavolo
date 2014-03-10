@@ -30,6 +30,11 @@
 #include "testApp.h"
 using namespace std;
 
+// version
+int vMajor = 1;
+int vMinor = 4;
+int vMaintenance = 1;
+
 // colori generici
 ofColor black	(0,		0,		0);
 ofColor grey	(200,	200,	200);
@@ -97,7 +102,8 @@ void testApp::setup()
 	
 	// inizializzazione variabili di temporizzazione e gestione della messa in play
 	initial_time = ofGetSystemTime();
-	bpm = 120; // BPM di default
+	bpm = 120;					// BPM di default
+	Fid_Synth::synth_bpm = bpm; // BPM di default
 	croma_time=(60000 / (bpm*2)); // tempo di una croma in millisecondi 
 	// 1 minuto = 60000 ms; 
 	// 60000 ms / bpm = tempo di 1 semiminima; 
@@ -163,7 +169,7 @@ void testApp::setup()
 	wWindow = ofGetWindowWidth();
 	hWindow = ofGetWindowHeight();
 	
-	meshReset();
+	meshReset(); // inizializzo i valori della mesh a quelli hard coded
 
 	// mesh
 	mesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
@@ -255,19 +261,23 @@ void testApp::update()
 		tuio.getMessage();
 		actual_time = ofGetSystemTime(); 
 		time = actual_time - initial_time; //tempo trascorso dall'apertura del programma
+		croma_time = (60000 / (bpm*2));
 		
 		// TIME CONTROL ------------------------------------------------
 		if(time - last_croma_time >= croma_time) //(n_crome!=storico_crome)
 		{
 			n_crome = n_crome%8;
 			play(n_crome);
-		
+			
+			// aggiorno i valori per la visualizzazione corretta dell'animazione del Fid Synth
+			// questo avviene in corrispondenza delle cole crome
+			Fid_Synth::synth_bpm = bpm;
+			for (vector<Fid_Synth*>::iterator it=synth_vec.begin(); it !=synth_vec.end(); ++it) 
+				(*it)->reset_internal_timer(n_crome);
+			
 			last_croma_time=time;
 			n_crome++;
 		}
-
-		croma_time = (60000 / (bpm*2));
-		
 		
 #ifdef _LIBPD
 		core.update();
@@ -320,7 +330,7 @@ void testApp::update()
 			(*it)->update_continuos(playHeadPosition);
 		
 		for (vector<Fid_Synth*>::iterator it=synth_vec.begin(); it !=synth_vec.end(); ++it) 
-			(*it)->update_continuos(bpm);
+			(*it)->update_continuos((float)time-last_croma_time);
 		
 		for (vector<Fid_Chords*>::iterator it=chords_vec.begin(); it !=chords_vec.end(); ++it) 
 			(*it)->update_continuos(playHeadPosition);
@@ -444,6 +454,7 @@ void testApp::draw()
 			// calibration info box
 			int cibX	= wQuadro*0.5 + 20;
 			int cibY	= hQuadro*0.5 - 240;
+			ofDrawBitmapString("videoTavolo-v"+ofToString(vMajor)+"."+ofToString(vMinor)+"."+ofToString(vMaintenance), cibX, cibY - 20);
 #ifdef _LIBPD
 			ofDrawBitmapString("We are using LibPD !", cibX, cibY + 20);
 #else
@@ -453,7 +464,7 @@ void testApp::draw()
 #endif
 			ofDrawBitmapString("TUIO port: " + ofToString(TUIO_PORT),	cibX, cibY + 40);
 			ofDrawBitmapString("FPS:       " + ofToString(ofGetFrameRate()),	cibX, cibY + 60);
-			ofDrawBitmapString("Rotation:           " + ofToString(meshRotation),		cibX, cibY + 100);
+			ofDrawBitmapString("Mesh Rotation:      " + ofToString(meshRotation),		cibX, cibY + 100);
 			ofDrawBitmapString("Mesh Center X:      " + ofToString(meshCenterX),		cibX, cibY + 120);
 			ofDrawBitmapString("Mesh X Scale:       " + ofToString(meshScaleX),			cibX, cibY + 140);
 			ofDrawBitmapString("Mesh Y Scale:       " + ofToString(meshScaleY),			cibX, cibY + 160);
@@ -1097,10 +1108,10 @@ void testApp::objectAdded(ofxTuioObject & tuioObject)
 			rot_vec.push_back(rotativo);
 			rot_vec.back()->setup(&pos, &centro, angolo, memoria_bpm_angle, color_bpm, color_bpm_corona);
 			rot_vec.back()->added();
-			rot_vec.back()->update_interrupt(&pos, &centro, angolo, rot_vel); //commentarlo?
-			// aggiorno la mamoria dell'angolo per poterlo riutilizzare la prossima creazione di uno stsso tipo d'oggetto
+			rot_vec.back()->update_interrupt(&pos, &centro, angolo, rot_vel); 
+			// aggiorno la memoria dell'angolo per poterlo riutilizzare la prossima creazione di uno setsso tipo d'oggetto
 			memoria_bpm_angle = rot_vec.back()->get_lim_angle(); 
-			digit.set_bpm(bpm);
+			digit.set_bpm(bpm); // mostro i digit non appena posiziono il Fid_Rod per avere un riscontro immediato
 			break;
 
 		}
@@ -1542,6 +1553,7 @@ void testApp::objectUpdated(ofxTuioObject & tuioObject)
 			}
 			
 			bpm = ofMap(memoria_bpm_angle, -FIDUCIAL_MER, FIDUCIAL_MER, 30, 260, true);
+			//Fid_Synth::synth_bpm = bpm; //questo metodo è stato sostituito da un sistema più efficiente un TestApp::update;
 			digit.set_bpm(bpm);
 			break;
 

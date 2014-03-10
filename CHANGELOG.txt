@@ -10,13 +10,8 @@ TODO
 - utilizza la direttiva #undef per togliere la definizione alle macro nei punti in cui esse non servano più per lasciarle definite solo nelle porzioni di codice dove esse servano (vedi pg. 246 cpp)
 - tradurre la matrice multidimensionale TABLE in 2 differenti tabelle: una monodimensionale 3 x 8 x 1 di unsigned int per conservare i SID; l'altra tridimensionale (?) di 3 piani da 3 byte (3 char) l'uno in cui ciascun bit rappresenta lo stato dello strumento in quel particolare istante di tempo.
 
-
-#issue 01 --------------------------
-- occorre ancora implementare un sistema che renda la variazione di BPM meno brusca sull'animazione del fiducial - provare a cambiare il BPM mentre sul tavolo è disposto il fiducial Synth
-NOTE
-si potrebbe rendere autonomo il fiducial synth nel fare il polling dei dati ad ogni croma.
-il valore recuperato dall'esterno (letto dalal variabile statica bpm) viene confrontato con il valore memorizzato internamente all'oggetto.
-Se sono identici, il calcolo del seno continua come se nulla fosse. Se invece il valore è cambiato occorre capire come fare una animazione che ne tenga conto senza effetti di cambiamento bruschi
+#issue 03 --------------------------
+- testApp riga 1691 (e non solo) e sulle patch di pure data modifica nomenclatura: da "transpose" a "transport".
 
 
 #issue 02 --------------------------
@@ -24,6 +19,15 @@ Se sono identici, il calcolo del seno continua come se nulla fosse. Se invece il
 NOTE
 da alcuni esperimenti si è potuto notare che la rotazione della grafica rispetto a quella del fiducial si discosta peridicamente di un valore varibile. 
 Questa variazione dell'offset sula rotazione è periodica con periodo PI/2. la spiegazione potrebbe essere legata al fatto di una cattiva calibrazione iniziale secondo la griglia.
+
+videotavolo-v1.4.1 =================
+SOLVED
+#issue 01 --------------------------
+- occorre ancora implementare un sistema che renda la variazione di BPM meno brusca sull'animazione del fiducial - provare a cambiare il BPM mentre sul tavolo è disposto il fiducial Synth
+NOTE
+si potrebbe rendere autonomo il fiducial synth nel fare il polling dei dati ad ogni croma.
+il valore recuperato dall'esterno (letto dalla variabile statica bpm) viene confrontato con il valore memorizzato internamente all'oggetto.
+Se sono identici, il calcolo del seno continua come se nulla fosse. Se invece il valore è cambiato occorre capire come fare una animazione che ne tenga conto senza effetti di cambiamento bruschi
 
 
 videotavolo-v1.4 ===================

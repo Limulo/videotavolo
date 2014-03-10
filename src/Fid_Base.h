@@ -26,15 +26,9 @@
  * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
  * 
  */
-/*
- *  Fid_Base.h
- *  Prototipo3
- *
- *  Created by Limulo.
- *  http://www.limulo.net 
- *  
- *	Superclasse per tutti gli oggetti di tipo fiducial (siano essi rotativi, quadrati, rotondi, accordi, ecc...).
- */
+
+// Superclasse per tutti gli oggetti di tipo fiducial (siano essi rotativi, quadrati, rotondi, accordi, ecc...).
+
 
 #ifndef _INC_FID_BASE
 #define _INC_FID_BASE

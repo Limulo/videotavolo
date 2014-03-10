@@ -26,17 +26,8 @@
  * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
  * 
  */
-/*
- *  Fid_Bass.h
- *  Prototipo3
- *
- *  Created by Limulo.
- *  http://www.limulo.net 
- *  
- * Questa sottoclasse serve per dare una rappresentazione grafica al fiducial che rappresenta il BASS
- *
- */
-
+ 
+// Questa sottoclasse serve per dare una rappresentazione grafica al fiducial che rappresenta il BASS
 
 #ifndef _INC_FID_BASS
 #define _INC_FID_BASS

@@ -37,6 +37,7 @@
 unsigned int	testApp::bpm;				//	valore di BPM (Beats Per Minute - Battiti al minuto)
 int				testApp::croma_time;		//	valore temporale che ciascuna croma assume in funzione del BPM
 float			testApp::chord_number;		//	indice relativo all'accordo selezionato
+unsigned int	Fid_Synth::synth_bpm;		//  valore di bpm locale e condiviso tra tutte le istanze di Fid_Synth
 
 
 #ifdef _LIBPD

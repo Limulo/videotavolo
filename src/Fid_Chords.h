@@ -26,17 +26,10 @@
  * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
  * 
  */
-/*
- *  Fid_Chords.h
- *  Prototipo3
- *
- *  Created by Limulo.
- *  http://www.limulo.net 
- *  
- *  Questa sottoclasse serve per dare una rappresentazione grafica ai fiducial che rappresentano gli accordi
- *  Per molti aspetti, questa sottoclasse è simile alla Fid_Rot.h
- *
- */
+ 
+//  Questa sottoclasse serve per dare una rappresentazione grafica ai fiducial che rappresentano gli accordi
+//  Per molti aspetti, questa sottoclasse è simile alla Fid_Rot.h
+
 
 #ifndef _INC_FID_CHORDS
 #define _INC_FID_CHORDS

@@ -26,16 +26,11 @@
  * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
  * 
  */
-/*
- *  Fid_Synth.h
- *  Prototipo3
- *
- *  Created by Limulo.
- *  http://www.limulo.net 
- *
- *  Questa sottoclasse serve per dare una rappresentazione grafica al fiducial che rappresenta il PAD
- *
- */
+
+#ifndef _INC_FID_ROT
+#include "Fid_Rot.h"
+#endif
+
 
 #ifndef _INC_FID_SYNTH
 #define _INC_FID_SYNTH
@@ -57,9 +52,13 @@ private:
 	int g;
 	int b;
 	
-	// due variabili di utilità per l'animazione
-	int count;
+	static unsigned int synth_bpm;
+	
+	// variabili di utilità per l'animazione
 	float r_osc;
+	float f;
+	float t, t0;
+	float T; // periodo dell'oscillazione
 	
 public:
 	Fid_Synth(int _fid, int _sid);
@@ -69,8 +68,9 @@ public:
 	void added();
 	
 	void update_interrupt(ofVec2f *fiducial_pos, ofVec2f *centro, float angolo_attuale, float vel);
-	void update_continuos(int a);
-	//void update_continuos();
+	void update_continuos(int playHeadPos_) { /* Do nothing */ };
+	void update_continuos(float time_);
+	void reset_internal_timer(int n_crome_);
 	
 	void removed();
 	
@@ -81,6 +81,10 @@ public:
 	
 	void inside(ofVec2f *p);
 	void debug();
+	
+	friend class testApp;
+	//friend class Fid_Rot;
+	
 
 };
 

@@ -26,17 +26,10 @@
  * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
  * 
  */
-/*
- *  Stripes.h
- *  Prototipo3
- *
- *  Created by Limulo.
- *	http://www.limulo.net
- *
- *	Questa classe ha il compito di identificare e gestire una porzione verticale di schermo
- *  Lavorando in simbiosi con la playhead, restituisci l'impressione che questa, muovendosi, lasci una scia colorata
- *  
- */
+
+//	Questa classe ha il compito di identificare e gestire una porzione verticale di schermo
+//  Lavorando in simbiosi con la playhead, restituisci l'impressione che questa, muovendosi, lasci una scia colorata
+
 
 #ifndef _INC_STRIPES
 #define _INC_STRIPES
