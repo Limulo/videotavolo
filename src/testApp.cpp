@@ -1045,7 +1045,8 @@ void testApp::audioRequested(float * output, int bufferSize, int nChannels)
 // ogni volta che una oggetto viene aggiunto sulla superficie di gioco
 void testApp::objectAdded(ofxTuioObject & tuioObject)
 {	
-	int posX; // variabile di appoggio per identificare la posizione relativa del fiducial dentro alla matrice 
+	int posX;		// variabile di appoggio per identificare la posizione relativa del fiducial dentro alla matrice 
+	float xScaled;	// variabile di supporto per mappare la posizione TUIO nel range utilizzato dal nostro applicativo
 	int session_id	= tuioObject.getSessionId();
 	int fiducial_id = tuioObject.getFiducialId();
 	int piano;
@@ -1053,10 +1054,10 @@ void testApp::objectAdded(ofxTuioObject & tuioObject)
 	angolo = tuioObject.getAngle() * (-1);			// passo anche il (-1) perchè da reactivision, l'angolo è invertito
 	rot_vel = tuioObject.getRotationSpeed() * (-1);	// passo anche il (-1) perchè da reactivision, l'angolo è invertito
 	// calcolo la posizione del fiducial per disegnarla graficamente
-	// i valori tuioObject.getX() e tuioObject.getY() variano tra 0 e 1 se la calibrazione è fatta "male"
 	//pos.x = wQuadro * tuioObject.getX();
-	// i valori tuioObject.getX() e tuioObject.getY() variano tra 0.125 e 0.875 se la calibrazione è fatta "bene"
-	pos.x = wQuadro * ( (tuioObject.getX()-0.125f) /0.75);		
+	// i valori tuioObject.getX() e tuioObject.getY() variano tra 0.125 e 0.875 se la calibrazione è fatta correttamente
+	xScaled =  (tuioObject.getX()-0.125f) / 0.75;	
+	pos.x = wQuadro * xScaled;
 	pos.y = hQuadro * tuioObject.getY();
 	
 
@@ -1066,7 +1067,7 @@ void testApp::objectAdded(ofxTuioObject & tuioObject)
 		case KICK:
 		{
 
-			posX = tuioObject.getX() * 8; //in che croma siamo?
+			posX = xScaled * 8; //in che croma siamo?
 			piano=1;
 			matrice.add_to_table(posX, piano, session_id);
 			
@@ -1080,7 +1081,7 @@ void testApp::objectAdded(ofxTuioObject & tuioObject)
 		case SNARE:
 		{
 			
-			posX = tuioObject.getX() * 8;
+			posX = xScaled * 8;
 			piano=2;
 			matrice.add_to_table(posX, piano, session_id);
 			
@@ -1093,7 +1094,7 @@ void testApp::objectAdded(ofxTuioObject & tuioObject)
 		}
 		case HIHAT: 
 		{
-			posX = tuioObject.getX() * 8;
+			posX = xScaled * 8;
 			piano=3;
 			matrice.add_to_table(posX, piano, session_id);
 			
@@ -1301,200 +1302,29 @@ void testApp::objectAdded(ofxTuioObject & tuioObject)
 }
 
 
-
-// OBJECT REMOVED //////////////////////////////////////////////////////
-// ogni volta che una oggetto viene rimosso dalla superficie di gioco
-void testApp::objectRemoved(ofxTuioObject & tuioObject)
-{
-	int session_id	= tuioObject.getSessionId();
-	int fiducial_id	= tuioObject.getFiducialId();
-	int piano;
-	
-	switch(fiducial_id)
-	{
-		case KICK:
-		{
-			piano=1;
-			// forse è superfluo passare il "piano" alla funzione "matrice.remove_from_table"
-			matrice.remove_from_table(piano, session_id);
-			
-			vector<Fid_Round*>::iterator it;
-			for (it=rnd_vec.begin(); it !=rnd_vec.end(); ++it) 
-			{
-				if ( (*it)->get_s_id() == session_id) 
-				{
-					(*it)->removed();
-					break;
-				}
-			}
-			rnd_vec.erase(it);
-			
-			
-			break;
-		}
-		case SNARE:
-		{
-			piano=2;
-			matrice.remove_from_table(piano, session_id);
-			
-			vector<Fid_Sqr*>::iterator it;
-			for (it=sqr_vec.begin(); it !=sqr_vec.end(); ++it) 
-			{
-				if ( (*it)->get_s_id() == session_id) 
-				{
-					(*it)->removed();
-					break;
-				}
-			}
-			sqr_vec.erase(it);
-			break;
-		}
-		case HIHAT:
-		{
-			piano=3;
-			matrice.remove_from_table(piano, session_id);
-			
-			vector<Fid_Sqr*>::iterator it;
-			for (it=sqr_vec.begin(); it !=sqr_vec.end(); ++it) 
-			{
-				if ( (*it)->get_s_id() == session_id) 
-				{
-					(*it)->removed();
-					break;
-				}
-			}
-			sqr_vec.erase(it);
-			break;
-		}
-		case BPM:
-		{
-
-			vector<Fid_Rot*>::iterator it;
-			for (it=rot_vec.begin(); it !=rot_vec.end(); ++it) 
-			{
-				if ( (*it)->get_s_id() == session_id) 
-				{
-					(*it)->removed();
-					break;
-				}
-			}
-			rot_vec.erase(it);
-			
-			break;
-		}
-		case BASS:
-		{
-			
-#ifdef _LIBPD
-			core.send_float("bass", 0);
-#else
-			ofxOscMessage m;
-			m.setAddress("/bass");
-			m.addIntArg(0);
-			sender.sendMessage(m);
-#endif	
-			
-			//piano=1;
-			// forse è superfluo passare il "piano" alla funzione "matrice.remove_from_table"
-			//matrice.remove_from_table(piano, session_id);
-			
-			vector<Fid_Bass*>::iterator it;
-			for (it=bass_vec.begin(); it !=bass_vec.end(); ++it) 
-			{
-				if ( (*it)->get_s_id() == session_id) 
-				{
-					(*it)->removed();
-					break;
-				}
-			}
-			bass_vec.erase(it);
-			
-			break;
-			
-		}
-		case PADS:
-		{
-			
-#ifdef _LIBPD
-			core.send_float("pads", 0);
-#else
-			ofxOscMessage m;
-			m.setAddress("/pads");
-			m.addIntArg(0);
-			sender.sendMessage(m);
-#endif	
-
-			//piano=3;
-			//matrice.remove_from_table(piano, session_id);
-				
-			vector<Fid_Synth*>::iterator it;
-			for (it=synth_vec.begin(); it !=synth_vec.end(); ++it) 
-			{
-				if ( (*it)->get_s_id() == session_id) 
-				{
-					(*it)->removed();
-					break;
-				}
-			}
-			synth_vec.erase(it);
-			
-			break;
-		}
-		case CHORD_0:
-		case CHORD_1:
-		case CHORD_2:
-		case CHORD_3:
-		case CHORD_4:
-		case CHORD_5:
-		{
-			
-			vector<Fid_Chords*>::iterator it;
-			for (it=chords_vec.begin(); it !=chords_vec.end(); ++it) 
-			{
-				if ( (*it)->get_s_id() == session_id) 
-				{
-					(*it)->removed();
-					break;
-				}
-			}
-			chords_vec.erase(it);
-			
-			break;
-		}
-		default:
-		{
-			cout << "Fiducial ID non valido.\n";
-			break;
-		}
-	}
-	
-
-}
-
-
-
 // OBJECT UPDATED //////////////////////////////////////////////////////
 // ogni volta che una oggetto viene modificato sulla superficie di gioco
 void testApp::objectUpdated(ofxTuioObject & tuioObject)
 {	
 	int posX;
+	float xScaled;	// variabile di supporto per mappare la posizione TUIO nel range utilizzato dal nostro applicativo
 	int session_id	= tuioObject.getSessionId();
 	int fiducial_id	= tuioObject.getFiducialId();
 	int piano;
 
 	angolo = tuioObject.getAngle() * (-1);			// passo anche il (-1) perchè da reactivision, l'angolo è invertito
 	rot_vel = tuioObject.getRotationSpeed() * (-1);	// passo anche il (-1) perchè da reactivision, l'angolo è invertito
-	// i valori tuioObject.getX() e tuioObject.getY() variano tra 0 e 1 se la calibrazione è fatta "male"
 	//pos.x = wQuadro * tuioObject.getX();
-	// i valori tuioObject.getX() e tuioObject.getY() variano tra 0.125 e 0.875 se la calibrazione è fatta "bene"
-	pos.x = wQuadro * ( (tuioObject.getX()-0.125f) /0.75);
+	// i valori tuioObject.getX() e tuioObject.getY() variano tra 0.125 e 0.875 se la calibrazione è fatta correttamente
+	xScaled = (tuioObject.getX()-0.125f) / 0.75;
+	pos.x = wQuadro * xScaled;
 	pos.y = hQuadro * tuioObject.getY();	
 	
 	switch(fiducial_id)
 	{
 		case KICK:
 		{
-			posX = tuioObject.getX() * 8;
+			posX = xScaled * 8;
 			piano=1;
 			matrice.update_table(posX, piano, session_id);
 			
@@ -1511,7 +1341,7 @@ void testApp::objectUpdated(ofxTuioObject & tuioObject)
 		}
 		case SNARE:
 		{
-			posX = tuioObject.getX() * 8;
+			posX = xScaled * 8;
 			piano=2;
 			matrice.update_table(posX, piano, session_id);
 	
@@ -1528,7 +1358,7 @@ void testApp::objectUpdated(ofxTuioObject & tuioObject)
 		}
 		case HIHAT:
 		{
-			posX = tuioObject.getX() * 8;
+			posX = xScaled * 8;
 			piano=3;
 			matrice.update_table(posX, piano, session_id);
 
@@ -1633,6 +1463,175 @@ void testApp::objectUpdated(ofxTuioObject & tuioObject)
 	}
 }
 
+// OBJECT REMOVED //////////////////////////////////////////////////////
+// ogni volta che una oggetto viene rimosso dalla superficie di gioco
+void testApp::objectRemoved(ofxTuioObject & tuioObject)
+{
+	int session_id	= tuioObject.getSessionId();
+	int fiducial_id	= tuioObject.getFiducialId();
+	int piano;
+	
+	switch(fiducial_id)
+	{
+		case KICK:
+		{
+			piano=1;
+			// forse è superfluo passare il "piano" alla funzione "matrice.remove_from_table"
+			matrice.remove_from_table(piano, session_id);
+			
+			vector<Fid_Round*>::iterator it;
+			for (it=rnd_vec.begin(); it !=rnd_vec.end(); ++it) 
+			{
+				if ( (*it)->get_s_id() == session_id) 
+				{
+					(*it)->removed();
+					break;
+				}
+			}
+			rnd_vec.erase(it);
+			
+			
+			break;
+		}
+		case SNARE:
+		{
+			piano=2;
+			matrice.remove_from_table(piano, session_id);
+			
+			vector<Fid_Sqr*>::iterator it;
+			for (it=sqr_vec.begin(); it !=sqr_vec.end(); ++it) 
+			{
+				if ( (*it)->get_s_id() == session_id) 
+				{
+					(*it)->removed();
+					break;
+				}
+			}
+			sqr_vec.erase(it);
+			break;
+		}
+		case HIHAT:
+		{
+			piano=3;
+			matrice.remove_from_table(piano, session_id);
+			
+			vector<Fid_Sqr*>::iterator it;
+			for (it=sqr_vec.begin(); it !=sqr_vec.end(); ++it) 
+			{
+				if ( (*it)->get_s_id() == session_id) 
+				{
+					(*it)->removed();
+					break;
+				}
+			}
+			sqr_vec.erase(it);
+			break;
+		}
+		case BPM:
+		{
+			
+			vector<Fid_Rot*>::iterator it;
+			for (it=rot_vec.begin(); it !=rot_vec.end(); ++it) 
+			{
+				if ( (*it)->get_s_id() == session_id) 
+				{
+					(*it)->removed();
+					break;
+				}
+			}
+			rot_vec.erase(it);
+			
+			break;
+		}
+		case BASS:
+		{
+			
+#ifdef _LIBPD
+			core.send_float("bass", 0);
+#else
+			ofxOscMessage m;
+			m.setAddress("/bass");
+			m.addIntArg(0);
+			sender.sendMessage(m);
+#endif	
+			
+			//piano=1;
+			// forse è superfluo passare il "piano" alla funzione "matrice.remove_from_table"
+			//matrice.remove_from_table(piano, session_id);
+			
+			vector<Fid_Bass*>::iterator it;
+			for (it=bass_vec.begin(); it !=bass_vec.end(); ++it) 
+			{
+				if ( (*it)->get_s_id() == session_id) 
+				{
+					(*it)->removed();
+					break;
+				}
+			}
+			bass_vec.erase(it);
+			
+			break;
+			
+		}
+		case PADS:
+		{
+			
+#ifdef _LIBPD
+			core.send_float("pads", 0);
+#else
+			ofxOscMessage m;
+			m.setAddress("/pads");
+			m.addIntArg(0);
+			sender.sendMessage(m);
+#endif	
+			
+			//piano=3;
+			//matrice.remove_from_table(piano, session_id);
+			
+			vector<Fid_Synth*>::iterator it;
+			for (it=synth_vec.begin(); it !=synth_vec.end(); ++it) 
+			{
+				if ( (*it)->get_s_id() == session_id) 
+				{
+					(*it)->removed();
+					break;
+				}
+			}
+			synth_vec.erase(it);
+			
+			break;
+		}
+		case CHORD_0:
+		case CHORD_1:
+		case CHORD_2:
+		case CHORD_3:
+		case CHORD_4:
+		case CHORD_5:
+		{
+			
+			vector<Fid_Chords*>::iterator it;
+			for (it=chords_vec.begin(); it !=chords_vec.end(); ++it) 
+			{
+				if ( (*it)->get_s_id() == session_id) 
+				{
+					(*it)->removed();
+					break;
+				}
+			}
+			chords_vec.erase(it);
+			
+			break;
+		}
+		default:
+		{
+			cout << "Fiducial ID non valido.\n";
+			break;
+		}
+	}
+	
+	
+}
+
 
 
 // FINGER ADDED ////////////////////////////////////////////////////////
@@ -1645,31 +1644,7 @@ void testApp::cursorAdded(ofxTuioCursor & tuioCursor)
 	dito = new Finger(finger_id);
 	dito_vec.push_back(dito);
 	dito_vec.back()->setup(&pos, blue);
-	dito_vec.back()->added();
-	
-	
-	
-	
-}
-
-
-// FINGER REMOVED //////////////////////////////////////////////////////
-void testApp::cursorRemoved(ofxTuioCursor & tuioCursor)
-{
-	int finger_id = tuioCursor.getFingerId();
-	pos.x = wQuadro * tuioCursor.getX();
-	pos.y = hQuadro * tuioCursor.getY();
-	
-	vector<Finger*>::iterator it;
-	for (it=dito_vec.begin(); it !=dito_vec.end(); ++it) 
-	{
-		if ( (*it)->get_finger_id() == finger_id) 
-		{
-			(*it)->removed();
-			break;
-		}
-	}
-	dito_vec.erase(it);
+	dito_vec.back()->added();	
 }
 
 
@@ -1694,6 +1669,29 @@ void testApp::cursorUpdated(ofxTuioCursor & tuioCursor)
 		}
 	}
 }
+
+
+// FINGER REMOVED //////////////////////////////////////////////////////
+void testApp::cursorRemoved(ofxTuioCursor & tuioCursor)
+{
+	int finger_id = tuioCursor.getFingerId();
+	pos.x = wQuadro * tuioCursor.getX();
+	pos.y = hQuadro * tuioCursor.getY();
+	
+	vector<Finger*>::iterator it;
+	for (it=dito_vec.begin(); it !=dito_vec.end(); ++it) 
+	{
+		if ( (*it)->get_finger_id() == finger_id) 
+		{
+			(*it)->removed();
+			break;
+		}
+	}
+	dito_vec.erase(it);
+}
+
+
+
 
 
 

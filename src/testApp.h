@@ -193,6 +193,37 @@ public:
 	vector<Fid_Synth*>	synth_vec;
 	vector<Finger*>		dito_vec;
 	vector<Fid_Chords*> chords_vec;
+	
+	
+	
+	// calibrazione rettangolare **********************************************
+	//   _______________________
+	//  |  |  |  |  |  |  |  |  |
+	//  |  |  |  |  |  |  |  |  | 
+	//  |  |  |  |  |  |  |  |  | 
+	//  |  |  |  |  |  |  |  |  | 
+	//  |__|__|__|__|__|__|__|__|
+	// 0.0                      1.0
+	// 
+	// Con la calibrazione retangolare abbiamo alcuni problemi 
+	// vedi issue02. Con la calibrazione quadrata i problemi si risolvono
+	// unica modifica da introdurre è un algoritmo che corregge la coordinata x 
+	// restituita da TUIO.
+	// La coordinata x TUIO varia tra 0.25 e 0.75. Occore rimapparla
+	// tra 0.0 e 1.0 per ottenere un funzionamento corretto
+	// 
+	// calibrazione quadrata **************************************************
+	//   _______________________
+	//  |  |  |  |  |  |  |  |  |
+	//  |  |  |  |  |  |  |  |  | 
+	//  |  |  |  |  |  |  |  |  | 
+	//  |  |  |  |  |  |  |  |  | 
+	//  |__|__|__|__|__|__|__|__|
+	//    0.25              0.75
+	// rimappando otteniamo
+	//    0.0               1.0
+	//
+	//	
 	ofVec2f		centro;	// centro del tavolo
 	ofVec2f		pos;	// posizione (x, y) del fiducial nella resa grafica a display
 	float		angolo;
