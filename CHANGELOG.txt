@@ -14,6 +14,8 @@ TODO
 - testApp riga 1691 (e non solo) e sulle patch di pure data modifica nomenclatura: da "transpose" a "transport".
 
 
+videotavolo-v1.4.2 =================
+SOLVED
 #issue 02 --------------------------
 - resta ancora da capire come possibile migliorare la rotazione affinchè la grafica dei fiducial resti associata ad essi anche nel ruotare (forse un problema causato dall'inclinazione del proiettore).
 NOTE

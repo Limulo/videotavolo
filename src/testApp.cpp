@@ -33,7 +33,7 @@ using namespace std;
 // version
 int vMajor = 1;
 int vMinor = 4;
-int vMaintenance = 1;
+int vMaintenance = 2;
 
 // colori generici
 ofColor black	(0,		0,		0);
