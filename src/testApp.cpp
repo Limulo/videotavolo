@@ -33,7 +33,7 @@ using namespace std;
 // version
 int vMajor = 1;
 int vMinor = 4;
-int vMaintenance = 2;
+int vMaintenance = 3;
 
 // colori generici
 ofColor black	(0,		0,		0);
@@ -135,11 +135,11 @@ void testApp::setup()
 	sender.setup(HOST, S_PORT);
 	receiver.setup(R_PORT);
 	ofxOscMessage m;
-	m.setAddress("/transpose/croma_time");
+	m.setAddress("/transport/croma_time");
 	m.addFloatArg((float)croma_time);
 	sender.sendMessage(m);
 	m.clear();
-	m.setAddress("/transpose/fps");
+	m.setAddress("/transport/fps");
 	m.addIntArg(60);
 	sender.sendMessage(m);
 #endif
@@ -284,7 +284,7 @@ void testApp::update()
 		core.send_float("croma_time", (float)croma_time);
 #else
 		ofxOscMessage m;
-		m.setAddress("/transpose/croma_time");
+		m.setAddress("/transport/croma_time");
 		m.addFloatArg((float)croma_time);
 		sender.sendMessage(m);
 #endif
@@ -1712,7 +1712,7 @@ void testApp::play(int colonna)
 	core.bang("colon_bang"); // per il sequencer del basso
 #else
 	ofxOscMessage m;
-	m.setAddress("/transpose/column_num");
+	m.setAddress("/transport/column_num");
 	m.addIntArg(colonna);
 	sender.sendMessage(m);
 #endif	
@@ -1815,64 +1815,64 @@ void testApp::fboLogosFilling(int w_, int h_)
 	int w = w_;
 	int h = h_;
 	
-	int ohibo_scale = 4;
-	int limulo_scale = 3;
+	int imgA_scale = 4.5;
+	int imgB_scale = 3;
 	
 	float d = 15;
 	
 	fboLogos.allocate(w, h, GL_RGB);
-	
+		
 	// immagini normali
-	logoOhibo.loadImage("images/Logo_ohibo_singolo_web.jpg");
-	logoLimulo.loadImage("images/Limulo_quadro_LOW_RES_fondo_bianco.tif");
+	imgA.loadImage("images/logoTipo_white.png");
+	//imgA.loadImage("images/logoTipo_transparency.png");
+	imgB.loadImage("images/Limulo_quadro_LOW_RES_fondo_bianco.tif");
 	
-	logoOhibo.resize(logoOhibo.getWidth()/ohibo_scale, logoOhibo.getHeight()/ohibo_scale);
-	logoLimulo.resize(logoLimulo.getWidth()/limulo_scale, logoLimulo.getHeight()/limulo_scale);
+	imgA.resize(imgA.getWidth()/imgA_scale, imgA.getHeight()/imgA_scale);
+	imgB.resize(imgB.getWidth()/imgB_scale, imgB.getHeight()/imgB_scale);
 	
-	logoOhibo.setAnchorPercent(0.88, 0.5);
-	logoLimulo.setAnchorPercent(0.5, 0.5);
+	imgA.setAnchorPercent(0.88, 0.5);
+	imgB.setAnchorPercent(0.5, 0.5);
 	
 	// immagini girate
-	logoOhibo_180.clone(logoOhibo);
-	logoLimulo_180.clone(logoLimulo);
+	imgA_180.clone(imgA);
+	imgB_180.clone(imgB);
 	
-	logoOhibo_180.rotate90(2);
-	logoLimulo_180.rotate90(2);
+	imgA_180.rotate90(2);
+	imgB_180.rotate90(2);
 	
-	logoOhibo_180.setAnchorPercent(0.125, 0.5);
-	logoLimulo_180.setAnchorPercent(0.5, 0.5);
+	imgA_180.setAnchorPercent(0.125, 0.5);
+	imgB_180.setAnchorPercent(0.5, 0.5);
 	
 	float margine = (40 -d)/80;
 	
 	fboLogos.begin();
 		ofClear(255,255,255, 0);
-		//ofSetColor(255);
-	
+		
+		ofPushStyle();
 		ofPushMatrix();
 		ofTranslate(w * 0.5, hQuadro * 0.5);
-	
 			ofPushMatrix();
 			ofTranslate(w * margine * -1, h * margine);
-				logoLimulo.draw( 0, 0 );
+				imgB.draw( 0, 0 );
 			ofPopMatrix();
 	
 			ofPushMatrix();
 			ofTranslate(w * margine, h * margine);
-				logoOhibo.draw( 0, 0 );
+				imgA.draw( 0, 0 );
 			ofPopMatrix();
 	
 	
 			ofPushMatrix();
 			ofTranslate(w * margine, h * margine * -1);
-				logoLimulo_180.draw( 0, 0 );	
+				imgB_180.draw( 0, 0 );	
 			ofPopMatrix();
 		
 			ofPushMatrix();
 			ofTranslate(w * margine * -1, h * margine * -1);
-				logoOhibo_180.draw( 0, 0 );
+				imgA_180.draw( 0, 0 );
 			ofPopMatrix();
-	
 		ofPopMatrix();
+		ofPopStyle();
 	fboLogos.end();
 	
 	ofPixels p;

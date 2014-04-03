@@ -233,8 +233,8 @@ public:
 	// utilità per mostrare i loghi
 	void fboLogosFilling(int w_, int h_);
 	ofFbo	fboLogos;
-	ofImage logoOhibo, logoOhibo_180;
-	ofImage logoLimulo, logoLimulo_180;
+	ofImage imgA, imgA_180;
+	ofImage imgB, imgB_180;
 	ofImage newLogosImage;
 	
 	
