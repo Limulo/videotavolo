@@ -11,6 +11,7 @@ TODO
 - tradurre la matrice multidimensionale TABLE in 2 differenti tabelle: una monodimensionale 3 x 8 x 1 di unsigned int per conservare i SID; l'altra tridimensionale (?) di 3 piani da 3 byte (3 char) l'uno in cui ciascun bit rappresenta lo stato dello strumento in quel particolare istante di tempo.
 - issue 04 :: rendere tutte le animazioni dipendenti dal valore FPS in modo tale poter cambiare tale valore in un unico punto nel codice (o in punti limitati) affinchè tutte le animazioni lo rispettino. Modifiche apportate a tutte le classi fiducial. 
 - issue 05 :: capire perchè una volta inserito il fiducial del basso si verifica un rallentamento nell'esecuzione del programma per non dire, in certi casi, un vero e proprio stallo di alcuni secondi.
+- issue 06 :: aggiungere un controllo temporale che conta quanto tempo è strascorso dall'apertura del programma e lo visualizza nelle schermate di setup o di debug.
 
 videotavolo-v1.4.4 =================
 WORK IN PROGRESS on issue04
