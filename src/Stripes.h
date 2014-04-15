@@ -37,6 +37,8 @@
 #ifndef _INC_STRIPES
 #define _INC_STRIPES
 
+#define STRIPE_FADE_STEP 20
+
 #include "ofMain.h"
 
 class Stripe 
@@ -54,7 +56,7 @@ public:
 	Stripe(){};
 	~Stripe() {};
 	
-	void init(int lx_, int ty_, int w_, int h_, int fadeStep_, ofColor _cStripe);
+	void init(int lx_, int ty_, int w_, int h_, ofColor _cStripe);
 
 	void checka(int phx_);
 

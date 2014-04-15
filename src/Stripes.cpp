@@ -30,7 +30,7 @@
 #include "Stripes.h"
 
 
-void Stripe::init(int lx_, int ty_, int w_, int h_, int fadeStep_, ofColor _cStripe) {
+void Stripe::init(int lx_, int ty_, int w_, int h_, ofColor _cStripe) {
 	lx = lx_;
 	w = w_;
 	rx = lx + w;
@@ -39,7 +39,7 @@ void Stripe::init(int lx_, int ty_, int w_, int h_, int fadeStep_, ofColor _cStr
 	h = h_;
 	by = ty + h;
 	
-	fadeStep = fadeStep_;
+	fadeStep = STRIPE_FADE_STEP;
 	if(fadeStep < 0) {
 		fadeStep = 1;
 	}

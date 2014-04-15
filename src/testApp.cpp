@@ -206,7 +206,7 @@ void testApp::setup()
 	
 	int larghezza = wQuadro/NCOLUMNS;
 	for(int i = 0; i < NCOLUMNS; ++i) {
-		striscie[i].init(0+i*larghezza, 0-margine, larghezza, hFbo, 20, color_playhead);
+		striscie[i].init(0+i*larghezza, 0-margine, larghezza, hFbo, color_playhead);
 	}
 	
 	
