@@ -111,7 +111,6 @@ void testApp::setup()
 	// 60000 ms / bpm = tempo di 1 semiminima; 
 	// 60000 ms / (bpm*2) = tempo di 1 croma
 	
-	
 	n_crome = 0;						// contatore di quante crome sono state messe in play fino ad ora
 	last_croma_time = 8 * croma_time;	// una moltiplicazione per otto per far cominciare i conteggi dopo la prima battuta
 	
@@ -217,8 +216,8 @@ void testApp::setup()
 	
 	
 	//------------------ VARIE ----------------- //
-	centro.x = wFbo/2.0f;
-	centro.y = hFbo/2.0f;
+	centro.x = wQuadro/2.0f;
+	centro.y = hQuadro/2.0f;
 	
 	bSetup = true;	// normalmente, appena acceso il programma siamo in modalità setup
 	bDebug = false;	// di default debug è disattivato
@@ -358,10 +357,7 @@ void testApp::update()
 		// sì da avere la playhead che passa, mediamente, sopra al fiducial al momento in cui il suono viene emesso
 		playHeadPosition = playHeadPosition + ((n_crome-1)*stripe_w) + stripe_w/2;
 		playHeadPosition = playHeadPosition % wQuadro;
-		
-		for(int i=0; i < NCOLUMNS; ++i) {
-			striscie[i].update(20);
-		}
+
 		digit.update();
 	}
 }

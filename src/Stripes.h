@@ -55,8 +55,7 @@ public:
 	~Stripe() {};
 	
 	void init(int lx_, int ty_, int w_, int h_, int fadeStep_, ofColor _cStripe);
-	
-	void update(int fadeStep_);
+
 	void checka(int phx_);
 
 };

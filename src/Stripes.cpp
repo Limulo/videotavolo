@@ -40,22 +40,18 @@ void Stripe::init(int lx_, int ty_, int w_, int h_, int fadeStep_, ofColor _cStr
 	by = ty + h;
 	
 	fadeStep = fadeStep_;
+	if(fadeStep < 0) {
+		fadeStep = 1;
+	}
 	
 	r = _cStripe.r;
 	g = _cStripe.g;
 	b = _cStripe.b;
 	
+	alpha = 0;
+	
 }
 
-// il metodo seguente potrebbe essere semplificato eliminandone il parametro
-void Stripe::update(int fadeStep_) 
-{
-	fadeStep = fadeStep_;
-	if(fadeStep < 0) 
-	{
-		fadeStep = 1;
-	}
-}
 
 void Stripe::checka(int phx_) 
 {
