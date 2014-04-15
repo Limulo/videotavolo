@@ -38,29 +38,6 @@ Fid_Sqr::Fid_Sqr(int _fid, int _sid)
 	
 	fid = _fid;
 	sid = _sid;
-	
-	//fid_pos
-	fid_pos.set(0.0f, 0.0f);
-	transparency = 0;
-	stato = STABLE;
-	alive = false;
-	
-	// variabili utili per l'animazione del trigger
-	// ossia quando la playhead raggiunge la posizione del fiducial
-	bTrigger = false;
-	bExpand = false;
-	bCollapse = false;
-	
-	//tExpand = 10;		// valore temporale (espresso in frames) per l'espansione
-	//tCollapse = 480;	// valore temporale (espresso in frames) per il ritorno alle normali dimensioni
-	tExpand   = ( 10 * FIDUCIAL_FPS) / 60;
-	tCollapse = (480 * FIDUCIAL_FPS) / 60;
-	
-	
-	aTrigger = 80;		// ampiezza di dilatazione della forma del fiducial quando venga triggerato
-	startFrame = 0;
-	marginTrigger = 30;	// raggio di un cerchio immaginario, tracciato contrandolo sulla posizione del fiducial. 
-						
 }
 
 
@@ -180,7 +157,7 @@ void Fid_Sqr::draw(void)
 			} 
 			else if (bCollapse) 
 			{
-				// decadimento cubico (elevo alal terza per dare una maggiore morbidezza all'animazione)
+				// decadimento cubico (elevo alla terza per dare una maggiore morbidezza all'animazione)
 				raggio = ( (tCollapse - (tCollapse - tExpand)) / float(tCollapse) ) * ( (tCollapse - (tCollapse - tExpand)) / float(tCollapse) ) * ( (tCollapse - (tCollapse - tExpand)) / float(tCollapse) ) ;
 				if (raggio < 0.01) 
 				{

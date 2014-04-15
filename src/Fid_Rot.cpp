@@ -38,34 +38,11 @@ Fid_Rot::Fid_Rot(int _fid, int _sid)
 	fid = _fid;
 	sid = _sid;
 	
+	fid_ctr_angle = 0.0f;
+	z_axis.set(0, 0, 1); // setto l'asse zeta
+	c_fill_angle = 0.5f; // l'angolo di riempimento è inzializzato a 0.5f inzialmente
 	c_innerRadius = FIDUCIAL_R + CORONA_OFF;		// inizializzo la dimensione per il raggio interno della corona circolare
 	c_outerRadius = (CORONA_L) + c_innerRadius;		// inizializzo la dimensione per il raggio esterno della corona circolare
-	
-	c_fill_angle = 0.5f; // l'angolo di riempimento è inzializzato a 0.5f inzialmente
-	
-	fid_pos.set(0.0f, 0.0f);
-	fid_ctr_angle = 0.0f;
-	
-	z_axis.set(0, 0, 1); // setto l'asse zeta
-	
-	transparency	= 0;
-	stato = STABLE;
-	alive = false;
-	
-	// variabili utili per l'animazione del trigger
-	// ossia quando la playhead raggiunge la posizione del fiducial
-	bTrigger = false;
-	bExpand = false;
-	bCollapse = false;
-	
-	//tExpand = 10;		// valore temporale (espresso in frames) per l'espansione
-	//tCollapse = 480;	// valore temporale (espresso in frames) per il ritorno alle normali dimensioni
-	tExpand   = ( 10 * FIDUCIAL_FPS) / 60;
-	tCollapse = (480 * FIDUCIAL_FPS) / 60;
-	
-	aTrigger = 80;
-	startFrame = 0;
-	marginTrigger = 30;	// quanto espandere la figura quando triggerata? 
 	
 }
 

@@ -39,14 +39,7 @@
 #include "Fid_Base.h"
 
 #define CIRCLE_RES		35		// risoluzione delcerchio
-
 #define BASS_MAX_AMP	6		// quando suona il basso questa è la massima area del cerchio
-
-
-//#define STEP_IN			25		// velocità che impiega il fiducial a comparire sullo schermo
-//#define	STEP_OUT		12		// velocità che impiega il fiducial a scomparire dallo schermo
-//#define STEP_IN			int( 255.0f / ( FIDUCIAL_FPS * (170.0f / 1000.0f) ) )
-//#define	STEP_OUT		int( 255.0f / ( FIDUCIAL_FPS * (354.0f / 1000.0f) ) )
 
 
 class Fid_Bass: virtual public Fid_Base 

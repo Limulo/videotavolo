@@ -30,6 +30,34 @@
 #include "Fid_Base.h"
 
 
+// COSTRUTTORE /////////////////////////////////////////////////////////
+Fid_Base::Fid_Base() {
+	cout << "FID_BASE: Constructiong!\n";
+	
+	// di seguito inzializziamo tutti gli elementi che accomununano tutti i vari fiducials tra di loro
+	tExpand   = ( 10 * FIDUCIAL_FPS) / 60; // valore temporale (espresso in frames) per l'espansione
+	tCollapse = (480 * FIDUCIAL_FPS) / 60; // valore temporale (espresso in frames) per il ritorno alle normali dimensioni
+	
+	fid_pos.set(0.0f, 0.0f);
+	
+	transparency = 0;
+	stato = STABLE;
+	alive = false;
+	
+	// variabili utili per l'animazione del trigger
+	// ossia quando la playhead raggiunge la posizione del fiducial
+	bTrigger = false;
+	bExpand = false;
+	bCollapse = false;
+	
+	aTrigger = 80;		// ampiezza di dilatazione della forma del fiducial quando venga triggerato
+	startFrame = 0;
+	marginTrigger = 30;	// raggio di un cerchio immaginario, tracciato centrendolo sulla posizione del fiducial.
+	
+}
+
+
+
 // DISTANZA ////////////////////////////////////////////////////////////
 float Fid_Base::distanza(ofVec2f *a, ofVec2f *b) 
 {

@@ -109,7 +109,6 @@ public:
 	void audioRequested(float * output, int bufferSize, int nChannels);
 	AppCore	core;
 #else
-	//se si utilizzano 2 computer e il secondo
 	ofxOscSender sender;
 	ofxOscReceiver receiver;
 #endif
@@ -212,7 +211,7 @@ public:
 	//  |__|__|__|__|__|__|__|__|
 	// 0.0                      1.0
 	// 
-	// Con la calibrazione retangolare abbiamo alcuni problemi 
+	// Con la calibrazione rettangolare abbiamo alcuni problemi 
 	// vedi issue02. Con la calibrazione quadrata i problemi si risolvono
 	// unica modifica da introdurre è un algoritmo che corregge la coordinata x 
 	// restituita da TUIO.

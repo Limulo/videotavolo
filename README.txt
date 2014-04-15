@@ -3,10 +3,10 @@ videoTavolo
 
 INFO
 ===========
-videoTavolo è un prototipo di superficie interattiva. 
+videoTavolo e' un prototipo di superficie interattiva. 
 Vengono qui rilasciati i codici sorgente e le patches di PureData del progetto. 
 
-Il progetto è curato da Limulo ( http://www.limulo.net ) con i seguenti contributi esterni:
+Il progetto e' curato da Limulo ( http://www.limulo.net ) con i seguenti contributi esterni:
 
 1) ofxPd
 Copyright (c) Dan Wilcox 2011-2013
@@ -23,7 +23,7 @@ https://github.com/patriciogonzalezvivo/ofxTuio
 
 LICENZA
 ===========
-ad eccezione degli elementi elencati qui sopra, tutto il codice è rilasciato da Limulo secondo la licenza 
+ad eccezione degli elementi elencati qui sopra, tutto il codice e' rilasciato da Limulo secondo la licenza 
 Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). Per prendere visione di una copia 
 di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
 

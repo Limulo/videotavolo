@@ -105,15 +105,12 @@ class Fid_Base
 		unsigned int	tExpand;
 		unsigned int	tCollapse;
 		unsigned int	startFrame;
-		unsigned int aTrigger;		// ampiezza della figura triggerata
+		unsigned int	aTrigger;		// ampiezza della figura triggerata
 	
 		float distanza(ofVec2f *a, ofVec2f *b);
 	
 		public:
-			Fid_Base() {cout << "FID_BASE: Constructiong!\n"; 
-						cout << "FIDUCIAL FPS " << FIDUCIAL_FPS <<"\n"<<endl;
-						cout << "FID_BASE: Constructiong!\n";
-						cout << "FID_BASE: Constructiong!\n";}
+			Fid_Base();
 			~Fid_Base() {cout << "FID_BASE: De-constructiong!\n"; }
 	
 			virtual void added() = 0;
@@ -131,10 +128,8 @@ class Fid_Base
 			virtual void inside(ofVec2f *p) = 0;
 			virtual void debug() = 0;
 	
-	
 			int get_f_id();
 			int get_s_id();
-			
 	
 };
 
