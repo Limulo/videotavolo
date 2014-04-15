@@ -34,6 +34,8 @@
 #ifndef _INC_FID_CHORDS
 #define _INC_FID_CHORDS
 
+//#define FIDUCIAL_FPS	60
+
 #include "ofMain.h"
 #include <math.h>
 #include <stdio.h>
@@ -45,8 +47,10 @@
 #define CORONA_RES			35		// risoluzione degli archi che disegnano la corona
 #define CORONA_OFF_CHORDS	20		// distanza tra la corona e il bordo del fiducial
 
-#define STEP_IN			25		// velocità che impiega il fiducial a comparire sullo schermo
-#define	STEP_OUT		12		// velocità che impiega il fiducial a scomparire dallo schermo
+//#define STEP_IN			25		// velocità che impiega il fiducial a comparire sullo schermo
+//#define	STEP_OUT		12		// velocità che impiega il fiducial a scomparire dallo schermo
+//#define STEP_IN			int( 255 / ( FIDUCIAL_FPS * (170 / 1000) ) )
+//#define	STEP_OUT		int( 255 / ( FIDUCIAL_FPS * (354 / 1000) ) )
 
 
 class Fid_Chords: virtual public Fid_Base 

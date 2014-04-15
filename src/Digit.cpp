@@ -27,6 +27,10 @@
  * 
  */
 
+// digit_tDisappear : si tratta del tempo che il digit impiega a scomparire dallo schermo. Fino alla versione
+//			1.4.3 era espresso in frames ed era pari a 60 (dato 60 il valore di FPS come da programma originale)
+//			pari a 1 secondo.
+
 #include "Digit.h"
 
 void Digit::setup() {
@@ -42,7 +46,7 @@ void Digit::setup() {
 	digit_alpha =		0;
 
 	//digit_tAppear =		60;
-	digit_tDisappear =	60;
+	digit_tDisappear =	1*DIGIT_FPS;
 	
 	//digit_alpha_step_in  = 255 / digit_tAppear;
 	digit_alpha_step_out = 255 / digit_tDisappear;

@@ -34,14 +34,25 @@
 #ifndef _INC_FID_SQR
 #define _INC_FID_SQR
 
+//#define FIDUCIAL_FPS	60
+
 
 #include "Fid_Base.h"
 #include "ofMain.h"
 #include <math.h>
 #include <stdio.h>
 
-#define STEP_IN			25		// velocità che impiega il fiducial a comparire sullo schermo
-#define	STEP_OUT		12		// velocità che impiega il fiducial a scomparire dallo schermo
+//#define STEP_IN			int( 255 / ( FIDUCIAL_FPS * (170 / 1000) ) )
+								// velocità che impiega il fiducial a comparire sullo schermo. 
+								// Con un valore di 25, un FPS impostato su 60 nel programma originale, 
+								// l'animazione 'comparsa' impiega 10,2 frames per svolgersi, per un tempo
+								// pari a 170ms.
+
+//#define	STEP_OUT		int( 255 / ( FIDUCIAL_FPS * (354 / 1000) ) )
+								// velocità che impiega il fiducial a scomparire dallo schermo
+								// Con un valore di 12, un FPS impostato su 60 nel programma originale, 
+								// l'animazione 'scomparsa' impiega 21,25 frames per svolgersi, per un tempo
+								// pari a 354,16ms.
 
 
 class Fid_Sqr: virtual public Fid_Base {

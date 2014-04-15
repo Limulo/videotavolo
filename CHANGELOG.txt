@@ -9,6 +9,11 @@ TODO
 - metti in line alcune funzioni per risparmiare tempo
 - utilizza la direttiva #undef per togliere la definizione alle macro nei punti in cui esse non servano più per lasciarle definite solo nelle porzioni di codice dove esse servano (vedi pg. 246 cpp)
 - tradurre la matrice multidimensionale TABLE in 2 differenti tabelle: una monodimensionale 3 x 8 x 1 di unsigned int per conservare i SID; l'altra tridimensionale (?) di 3 piani da 3 byte (3 char) l'uno in cui ciascun bit rappresenta lo stato dello strumento in quel particolare istante di tempo.
+- issue04 :: rendere tutte le animazioni dipendenti dal valore FPS in modo tale poter cambiare tale valore in un unico punto nel codice (o in punti limitati) affinchè tutte le animazioni lo rispettino. Modifiche apportate a tutte le classi fiducial. 
+- issue05 :: capire perchè una volta inserito il fiducial del basso si verifica un rallentamento nell'esecuzione del programma per non dire, in certi casi, un vero e proprio stallo di alcuni secondi.
+
+videotavolo-v1.4.4 =================
+WORK IN PROGRESS on issue04
 
 
 videotavolo-v1.4.3 =================

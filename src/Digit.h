@@ -27,13 +27,18 @@
  * 
  */
 
+// INIT_PAUSA : fino alla versione 1.4.3 si trattava del numero di frame per cui il digit rimane in vista.
+//			il valore originale è pari a 120 ossia, dato 60 il valore di FPS nel programma originale, pari
+//			a 2 secondi.
+
 #ifndef _DIGIT_INIT
 #define _DIGIT_INIT
+#define DIGIT_FPS 30
 
 
 #include "ofMain.h"
 
-#define INIT_PAUSA 120
+#define INIT_PAUSA 2*DIGIT_FPS
 
 
 class Digit {
@@ -60,6 +65,8 @@ public:
 	void update(void);
 	void draw(int lpos_);
 	void set_bpm(int bpm_);
+	
+	
 };
 
 #endif

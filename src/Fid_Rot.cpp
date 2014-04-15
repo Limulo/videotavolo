@@ -57,8 +57,12 @@ Fid_Rot::Fid_Rot(int _fid, int _sid)
 	bTrigger = false;
 	bExpand = false;
 	bCollapse = false;
-	tExpand = 10;		// valore temporale (espresso in frames) per l'espansione
-	tCollapse = 480;	// valore temporale (espresso in frames) per il ritorno alle normali dimensioni
+	
+	//tExpand = 10;		// valore temporale (espresso in frames) per l'espansione
+	//tCollapse = 480;	// valore temporale (espresso in frames) per il ritorno alle normali dimensioni
+	tExpand   = ( 10 * FIDUCIAL_FPS) / 60;
+	tCollapse = (480 * FIDUCIAL_FPS) / 60;
+	
 	aTrigger = 80;
 	startFrame = 0;
 	marginTrigger = 30;	// quanto espandere la figura quando triggerata? 

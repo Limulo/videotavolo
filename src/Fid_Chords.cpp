@@ -56,8 +56,12 @@ Fid_Chords::Fid_Chords(int _fid, int _sid)
 	bTrigger = false;
 	bExpand = false;
 	bCollapse = false;
-	tExpand = 10;		// valore temporale (espresso in frames) per l'espansione
-	tCollapse = 480;	// valore temporale (espresso in frames) per il ritorno alle normali dimensioni
+	
+	//tExpand = 10;		// valore temporale (espresso in frames) per l'espansione
+	//tCollapse = 480;	// valore temporale (espresso in frames) per il ritorno alle normali dimensioni
+	tExpand   = ( 10 * FIDUCIAL_FPS) / 60;
+	tCollapse = (480 * FIDUCIAL_FPS) / 60;
+	
 	aTrigger = 80;		// ampiezza di dilatazione della forma del fiducial quando venga triggerato
 	startFrame = 0;
 	marginTrigger = 30;	// raggio di un cerchio immaginario, tracciato contrandolo sulla posizione del fiducial. 	

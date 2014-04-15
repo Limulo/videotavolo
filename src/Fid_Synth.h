@@ -35,6 +35,8 @@
 #ifndef _INC_FID_SYNTH
 #define _INC_FID_SYNTH
 
+//#define FIDUCIAL_FPS	60
+
 #include "Fid_Base.h"
 #include "ofMain.h"
 #include <math.h>
@@ -42,8 +44,10 @@
 
 #define PAD_MAX_AMP		35	// ampiezza massima dell'oscillazione per il disegno del pad
 
-#define STEP_IN			25	// velocità che impiega il fiducial a comparire sullo schermo
-#define	STEP_OUT		12	// velocità che impiega il fiducial a scomparire dallo schermo
+//#define STEP_IN			25	// velocità che impiega il fiducial a comparire sullo schermo
+//#define	STEP_OUT		12	// velocità che impiega il fiducial a scomparire dallo schermo
+//#define STEP_IN			int( 255 / ( FIDUCIAL_FPS * (170 / 1000) ) )
+//#define	STEP_OUT		int( 255 / ( FIDUCIAL_FPS * (354 / 1000) ) )
 
 
 class Fid_Synth: virtual public Fid_Base {

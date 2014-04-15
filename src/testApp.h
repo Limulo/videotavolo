@@ -65,6 +65,11 @@
 
 #define TUIO_PORT 3333 // 3333 è la porta sulla quale si ricevono i messaggi TUIO
 
+// se serve modificare il valore di FPS occorre modificarlo qui (in testApp.h) ma anche
+// nel file Digit.h
+// nel file Fid_Base.h
+#define FPS 30	// frame per seconds
+
 
 // fiducial IDs
 #define KICK	0		
@@ -132,6 +137,8 @@ public:
 	static float		chord_number;
 	int					n_crome;
 	int					last_croma_time;
+	
+	
 	
 	// variabili di utilità per la resa grafica e la gestione della playhead
 	Stripe striscie[NCOLUMNS];

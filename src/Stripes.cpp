@@ -47,6 +47,7 @@ void Stripe::init(int lx_, int ty_, int w_, int h_, int fadeStep_, ofColor _cStr
 	
 }
 
+// il metodo seguente potrebbe essere semplificato eliminandone il parametro
 void Stripe::update(int fadeStep_) 
 {
 	fadeStep = fadeStep_;

@@ -36,6 +36,11 @@
 #define FIDUCIAL_R		45		// raggio dei fiducial rotondi
 #define FIDUCIAL_L		95		// lato dei fiducial quadrati
 
+
+#define FIDUCIAL_FPS	30
+#define STEP_IN			int( 255.0f / ( FIDUCIAL_FPS * (170.0f / 1000.0f) ) )
+#define	STEP_OUT		int( 255.0f / ( FIDUCIAL_FPS * (354.0f / 1000.0f) ) )
+
 #include <iostream>
 #include <math.h>
 #include "ofMain.h"
@@ -50,6 +55,17 @@ using namespace std;
  *  ad ogni ciclo dalla funzione update di testApp.
  *  I metodi di tipo INTERRUPT sono chiamati
  *  dalla funzione di callback 'objectUpdated' per TUIO
+ *
+ *	Tutti i fiducial implementano 4 animazioni principali
+ *	1) comparsa (quando il fiducial è posizionato sul tavolo);
+ *	2) scomparsa (quando il fiducial viene rimosso dalla superficie);
+ *	3) espansione (quando la playhead viene a contatto col fiducial provocando il trigger);
+ *	4) collasso (quando, raggiunto il picco di espansione massimo, l'animazione deve ritirarsi).
+ *
+ *	COMPARSA : la 'comparsa' è regolata dal valore di 'STEP_IN' che è un valore numerico (NON di tempo o frames)
+ *	SCOMPARSA : la 'scomparsa' + regolata dal valore di 'STEP_OUT' che è un valore numerico (NON di tempo o frames)
+ *  ESPANSIONE : l''espansione' è regolata dal valore 'tExpand', un valore di tempo espresso in frames
+ *	COLLASSO : il 'collasso' è regolata dal valore 'tCollapse', un valore di tempo espresso in frames
  *
  */
 
@@ -94,7 +110,10 @@ class Fid_Base
 		float distanza(ofVec2f *a, ofVec2f *b);
 	
 		public:
-			Fid_Base() {cout << "FID_BASE: Constructiong!\n"; }
+			Fid_Base() {cout << "FID_BASE: Constructiong!\n"; 
+						cout << "FIDUCIAL FPS " << FIDUCIAL_FPS <<"\n"<<endl;
+						cout << "FID_BASE: Constructiong!\n";
+						cout << "FID_BASE: Constructiong!\n";}
 			~Fid_Base() {cout << "FID_BASE: De-constructiong!\n"; }
 	
 			virtual void added() = 0;
@@ -115,7 +134,6 @@ class Fid_Base
 	
 			int get_f_id();
 			int get_s_id();
-	
 			
 	
 };

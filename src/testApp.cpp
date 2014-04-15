@@ -33,7 +33,7 @@ using namespace std;
 // version
 int vMajor = 1;
 int vMinor = 4;
-int vMaintenance = 3;
+int vMaintenance = 4;
 
 // colori generici
 ofColor black	(0,		0,		0);
@@ -88,7 +88,7 @@ void testApp::setup()
 	
 	//------------------ SISTEMA --------------- //
 	ofSetVerticalSync(true);
-	ofSetFrameRate(60);
+	ofSetFrameRate(FPS);
 	
 	
 	//------------------ PLAY ------------------ //
@@ -100,6 +100,8 @@ void testApp::setup()
 	//	cout << "\n";
 	//}
 	
+	//Fid_Base::fps = FPS;
+	
 	// inizializzazione variabili di temporizzazione e gestione della messa in play
 	initial_time = ofGetSystemTime();
 	bpm = 120;					// BPM di default
@@ -108,6 +110,7 @@ void testApp::setup()
 	// 1 minuto = 60000 ms; 
 	// 60000 ms / bpm = tempo di 1 semiminima; 
 	// 60000 ms / (bpm*2) = tempo di 1 croma
+	
 	
 	n_crome = 0;						// contatore di quante crome sono state messe in play fino ad ora
 	last_croma_time = 8 * croma_time;	// una moltiplicazione per otto per far cominciare i conteggi dopo la prima battuta
@@ -140,7 +143,7 @@ void testApp::setup()
 	sender.sendMessage(m);
 	m.clear();
 	m.setAddress("/transport/fps");
-	m.addIntArg(60);
+	m.addIntArg(FPS);
 	sender.sendMessage(m);
 #endif
 	
@@ -675,7 +678,6 @@ void testApp::draw()
 		
 		//cout << playHeadPosition << "\n";
 		for(int i=0; i < NCOLUMNS; ++i) {
-			//striscie[i].update(20);
 			striscie[i].checka(playHeadPosition);
 		}	
 		//playhead

@@ -40,6 +40,7 @@ float			testApp::chord_number;		//	indice relativo all'accordo selezionato
 unsigned int	Fid_Synth::synth_bpm;		//  valore di bpm locale e condiviso tra tutte le istanze di Fid_Synth
 
 
+
 #ifdef _LIBPD
 float			AppCore::bass_lvl;			//	livello del suono del basso
 #endif

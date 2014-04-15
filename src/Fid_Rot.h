@@ -33,6 +33,8 @@
 #ifndef _INC_FID_ROT
 #define _INC_FID_ROT
 
+//#define FIDUCIAL_FPS 60
+
 
 #include "ofMain.h"
 #include <math.h>
@@ -50,8 +52,10 @@
 								// per riempire la corona circolare.
 								// coinvolge l'angolo 'fid_limited_angle'
 
-#define STEP_IN			25		// velocità che impiega il fiducial a comparire sullo schermo
-#define	STEP_OUT		12		// velocità che impiega il fiducial a scomparire dallo schermo
+//#define STEP_IN			25		// velocità che impiega il fiducial a comparire sullo schermo
+//#define	STEP_OUT		12		// velocità che impiega il fiducial a scomparire dallo schermo
+//#define STEP_IN			int( 255.0f / ( FIDUCIAL_FPS * (170.0f / 1000.0f) ) )
+//#define	STEP_OUT		int( 255.0f / ( FIDUCIAL_FPS * (354.0f / 1000.0f) ) )
 
 
 class Fid_Rot: virtual public Fid_Base 
