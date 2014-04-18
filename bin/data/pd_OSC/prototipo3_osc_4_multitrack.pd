@@ -1,4 +1,4 @@
-#N canvas 460 28 814 335 10;
+#N canvas 16 22 814 335 10;
 #X declare -lib mrpeach;
 #N canvas 195 90 317 308 tables 0;
 #N canvas 0 22 450 300 (subpatch) 0;
@@ -62,7 +62,7 @@
 #X text 184 117 | | 100;
 #X restore 13 64 pd tables;
 #X obj 455 39 list split 2;
-#N canvas 110 116 678 375 chords 0;
+#N canvas 577 32 678 375 chords 0;
 #X msg 36 75 55 50 50 58 60 65 70;
 #X msg 88 144 48 55 51 55 62 65 67;
 #X msg 53 97 50 45 53 57 60 65 72;
@@ -239,7 +239,7 @@ secondo il valore di FPS);
 #X connect 55 3 24 0;
 #X connect 55 4 50 0;
 #X restore 13 41 pd osc_management;
-#N canvas 307 45 829 528 mixer 0;
+#N canvas 15 220 829 528 mixer 0;
 #X obj 40 60 vsl 15 100 0 0.9 0 0 empty empty cassa 0 -9 0 10 -257985
 -1 -1 0 1;
 #X obj 40 28 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
@@ -341,9 +341,9 @@ secondo il valore di FPS);
 #X obj 178 28 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
 -1;
 #X obj 386 60 vsl 15 100 0 0.9 0 0 empty empty master 0 -9 0 10 -260097
--1 -1 0 1;
+-1 -1 9900 1;
 #X obj 669 100 *~;
-#N canvas 418 130 800 477 rullante 0;
+#N canvas 425 140 800 477 rullante 0;
 #X obj 73 -95 noise~;
 #X obj 25 5 *~;
 #X obj 25 -43 *~;
@@ -420,119 +420,119 @@ secondo il valore di FPS);
 -1 -1 0 1;
 #X obj 82 28 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
 -1;
-#N canvas 211 121 1276 756 seq_bass 0;
-#X obj 247 365 select 0 1 2 3 4 5 6 7;
-#X obj 237 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+#N canvas 258 49 908 638 seq_bass 0;
+#X obj 247 265 select 0 1 2 3 4 5 6 7;
+#X obj 237 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -4034 -1;
-#X obj 256 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 256 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 276 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 276 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 295 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 295 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 314 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+#X obj 314 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -4034 -1;
-#X obj 333 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 333 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 353 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 353 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 372 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 372 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 392 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+#X obj 392 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -4034 -1;
-#X obj 411 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 411 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 431 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 431 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 450 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 450 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 469 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
+#X obj 469 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -4034 -1;
-#X obj 488 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 488 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 508 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 508 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 527 389 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 527 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 387 365 select 8 9 10 11 12 13 14 15;
-#X obj 247 252 mod 16;
-#X floatatom 247 274 5 0 0 0 - - -;
-#X obj 329 178 f 0;
-#X obj 357 178 + 1;
-#X msg 359 151 0;
+#X obj 387 265 select 8 9 10 11 12 13 14 15;
+#X obj 247 152 mod 16;
+#X floatatom 247 174 5 0 0 0 - - -;
+#X obj 329 97 f 0;
+#X obj 357 97 + 1;
+#X msg 359 70 0;
 #X obj 27 18 inlet midi_note;
-#X obj 12 530 f;
+#X obj 12 430 f;
 #X obj 27 71 t f b;
-#X obj 12 666 outlet;
+#X obj 12 566 outlet;
 #X obj 27 48 unpack f f;
-#X obj 160 530 f;
-#X obj 347 454 spigot;
-#X obj 591 391 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 160 430 f;
+#X obj 347 354 spigot;
+#X obj 591 291 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 591 365 random 2;
-#X obj 347 476 random 100;
-#X obj 347 498 moses 70;
-#X msg 347 521 bang;
-#X msg 392 521 bang;
-#X obj 229 578 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 591 265 random 2;
+#X obj 347 376 random 100;
+#X obj 347 398 moses 70;
+#X msg 347 421 bang;
+#X msg 392 421 bang;
+#X obj 229 478 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 140 602 list prepend;
-#X floatatom 140 561 5 0 0 0 - - -;
-#X obj 140 623 route 0 1;
-#X obj 164 645 - 12;
-#X obj 140 667 t f;
-#X obj 110 529 f;
-#X obj 208 458 t b b;
-#X obj 146 458 t b b;
-#X obj 204 532 moses 30;
-#X msg 204 553 1;
-#X msg 249 554 0;
-#X obj 204 511 random 100;
-#X obj 247 294 t f b;
-#X obj 12 643 t f;
-#X obj 329 127 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X text 676 100 2) in alternativa \, quando la patch ‚Äö√†√∂¬¨√Ü
-utilizzata in associazione col programma client in OF \, ‚Äö√†√∂¬¨√Ü
-il cient che manda un "bang" (send colon_bang) ogni volta che una nuova
-corma viene messa in riproduzione e gestisce in maniera automatica
-la riproduzione delle note da parte del basso .;
-#X text 255 348 prima battuta;
-#X text 387 346 seconda battuta;
-#X text 9 510 fond.;
-#X text 77 509 fond.;
-#X text 139 510 5a.;
+#X obj 140 502 list prepend;
+#X floatatom 140 461 5 0 0 0 - - -;
+#X obj 140 523 route 0 1;
+#X obj 164 545 - 12;
+#X obj 140 567 t f;
+#X obj 110 429 f;
+#X obj 208 358 t b b;
+#X obj 146 358 t b b;
+#X obj 204 432 moses 30;
+#X msg 204 453 1;
+#X msg 249 454 0;
+#X obj 204 411 random 100;
+#X obj 247 194 t f b;
+#X obj 12 543 t f;
+#X obj 329 46 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 255 248 prima battuta;
+#X text 387 246 seconda battuta;
+#X text 9 410 fond.;
+#X text 77 409 fond.;
+#X text 139 410 5a.;
 #X text 1 123 fondamentale;
 #X text 71 94 quinta;
-#X obj 110 509 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 110 409 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -258113 -1;
-#X obj 160 509 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 160 409 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -4032 -1;
 #X text 24 -20 a questo ingresso arrivano 2 note midi: la fondamentale
 e la 5a dell'accordo musicale;
-#X obj 359 126 loadbang;
+#X obj 359 45 loadbang;
 #X obj 247 12 inlet colon_bang;
 #X obj 247 75 8to16;
-#X text 589 344 probabilita' 0.5;
-#X text 677 195 4) i tempi forti delle due battute (indicati in rosso)
+#X text 589 244 probabilita' 0.5;
+#X text 510 137 4) i tempi forti delle due battute (indicati in rosso)
 sono gli unici valori musicali in corrisondenza dei quali il basso
 sintetizzera' una nota;
-#X text 677 245 5) il primo tempo forte delle due battute (la prima
+#X text 510 183 5) il primo tempo forte delle due battute (la prima
 delle 16 crome) e' sempre associata alla riproduzione della nota fondamentale
 dell'accordo;
-#X text 513 448 6) per i restanti 3 tempi forti \, abbiamo una probabilita'
+#X text 510 315 6) per i restanti 3 tempi forti \, abbiamo una probabilita'
 del 50% di rirpodurre o meno una nota. In aggiunta \, una ulteriore
 probabilita' se si debba riprodurre una nota \, che questa sia la fondamentale
 (70%) o la 5a (30%) dell'accordo.;
-#X text 514 560 7) a tutto questo si aggiunge una ulteriore probabilita'
+#X text 510 381 7) a tutto questo si aggiunge una ulteriore probabilita'
 (30%) di applicare un 'transpose' di 12 semitoni verso il registro
 grave della nota selezionata.;
-#X text 514 628 8) la nota midi cosi' generata esce da questa sub-patch
+#X text 512 432 8) la nota midi cosi' generata esce da questa sub-patch
 per raggiungere il vero e proprio sintetizzatore che si occupera' di
 generare il suono accordato sulla nota ricevuta.;
-#X text 314 218 3) sia nel primo che nel secondo caso \, ogni bang
-e' corrispondente ad un valore numerico da 0 a 15 (per un totale di
-16 valori soccispondenti a loro volta a 16 crome = 2 battute musicali).
+#X text 514 -7 2) in alternativa \, quando la patch e' utilizzata in
+associazione col programma client in OF \, e' il client che manda un
+"bang" (send colon_bang) ogni volta che una nuova croma viene messa
+in riproduzione e gestisce in maniera automatica la riproduzione delle
+note da parte del basso .;
+#X text 510 71 3) sia nel primo che nel secondo caso \, ogni bang e'
+corrispondente ad un valore numerico da 0 a 15 (per un totale di 16
+valori corrispondenti a loro volta a 16 crome = 2 battute musicali).
 ;
 #X connect 0 0 1 0;
 #X connect 0 0 24 0;
@@ -583,9 +583,9 @@ e' corrispondente ad un valore numerico da 0 a 15 (per un totale di
 #X connect 40 0 41 0;
 #X connect 41 0 50 0;
 #X connect 42 0 38 0;
-#X connect 43 0 61 0;
+#X connect 43 0 60 0;
 #X connect 43 1 48 0;
-#X connect 44 0 60 0;
+#X connect 44 0 59 0;
 #X connect 44 1 48 0;
 #X connect 45 0 46 0;
 #X connect 45 1 47 0;
@@ -597,16 +597,16 @@ e' corrispondente ad un valore numerico da 0 a 15 (per un totale di
 #X connect 49 1 31 0;
 #X connect 50 0 26 0;
 #X connect 51 0 20 0;
-#X connect 60 0 42 0;
-#X connect 61 0 28 0;
-#X connect 63 0 22 0;
-#X connect 64 0 65 0;
-#X connect 65 0 18 0;
+#X connect 59 0 42 0;
+#X connect 60 0 28 0;
+#X connect 62 0 22 0;
+#X connect 63 0 64 0;
+#X connect 64 0 18 0;
 #X restore 431 -40 pd seq_bass;
-#X obj 280 28 tgl 15 0 empty empty ON/OFF 0 -7 0 10 -262144 -1 -1 0
+#X obj 280 28 tgl 15 0 empty empty ON/OFF 0 -7 0 10 -262144 -1 -1 1
 1;
 #X obj 280 60 vsl 15 100 0 0.9 0 0 empty empty basso 0 -9 0 10 -257985
--1 -1 0 1;
+-1 -1 6400 1;
 #X obj 709 10 catch~ mono;
 #X obj 740 148 clip~ -1 1;
 #X obj 740 125 hip~ 4;
@@ -615,7 +615,7 @@ e' corrispondente ad un valore numerico da 0 a 15 (per un totale di
 #X obj 740 100 *~;
 #X obj 431 -88 r \$0-bass-notes;
 #X obj 550 -40 r \$0-pads-notes;
-#N canvas 24 37 582 428 bass 0;
+#N canvas 257 116 582 428 bass 0;
 #N canvas 277 162 969 531 bass_line 0;
 #X obj 119 491 outlet~;
 #X obj 119 125 mtof;
@@ -624,10 +624,10 @@ e' corrispondente ad un valore numerico da 0 a 15 (per un totale di
 #X obj 119 425 *~;
 #X obj 119 89 t f b b b;
 #X obj 119 24 inlet;
-#X msg 296 252 0;
-#X obj 296 347 tabread4~ dbtorms;
-#X msg 246 171 1;
-#X obj 296 376 *~;
+#X msg 266 252 0;
+#X obj 266 347 tabread4~ dbtorms;
+#X msg 216 171 1;
+#X obj 266 376 *~;
 #X obj 119 224 -~ 0.5;
 #X obj 119 200 phasor~;
 #X obj 10 221 osc~;
@@ -635,37 +635,35 @@ e' corrispondente ad un valore numerico da 0 a 15 (per un totale di
 #X msg 55 199 0.5;
 #X obj 119 269 lop~ 250 1;
 #X msg 10 176 \$1 50;
-#X obj 415 18 inlet croma_time;
-#X obj 296 229 pipe 100;
-#X floatatom 415 42 5 0 0 0 - - -;
-#X obj 415 142 t f f f f;
-#X obj 341 204 * 2;
-#X obj 246 196 t f b;
-#X text 600 12 Quando il valore della croma ‚Äö√†√∂¬¨√Ü
-impostato dall'estero \, in questa sub-patch viene automaticamente
-crato un inviluppo i cui valori di attacco \, rilascio e decadimento
-sono proporzionali alla durata delle croma. E' la macro 'adsr' che
-si occupa di generare questo inviluppo \, il quale verr‚Äö√†√∂‚Äö√Ñ‚Ä†
-poi applicato al suono del basso.;
-#X text 599 133 il tempo di attacco ‚Äö√†√∂¬¨√Ü pari
-al 30% della durata della croma il tempo di decadimento ‚Äö√†√∂¬¨√Ü
-pari al 70% della durata della croma. Il tempo in cui la nota ‚Äö√†√∂¬¨√Ü
-mantenuta al suo valore di sustain ‚Äö√†√∂¬¨√Ü pari
-a 2 crome. il tempo di rilascio ‚Äö√†√∂¬¨√Ü invece
-pari al valore di una croma.;
-#X obj 345 254 * 0.3;
-#X obj 369 280 * 0.7;
-#X text 599 243 1) appena una nota midi ‚Äö√†√∂¬¨√Ü
-ricevuta \, vinee inviato un bang per computare l'inviluppo 2) a seguire
-i due oscillatori 'phasor' e 'osc' vengono opportunemente sincronizzati
-in fase \; 3) la nota midi ‚Äö√†√∂¬¨√Ü convertita
-in frequenza in Hz e questa frequenza inviata ai due oscillatori.;
-#X text 600 354 il segnale audio in uscita dagli oscillatori ‚Äö√†√∂¬¨√Ü
-modificato in ampiezza \, sommato e modulato ancora in ampiezza tramite
-i valori in unscita dall'adsr;
-#X obj 11 246 *~ 0.8;
+#X obj 385 18 inlet croma_time;
+#X obj 266 229 pipe 100;
+#X floatatom 385 42 5 0 0 0 - - -;
+#X obj 385 142 t f f f f;
+#X obj 311 204 * 2;
+#X obj 216 196 t f b;
+#X obj 315 254 * 0.3;
+#X obj 339 280 * 0.7;
+#X obj 10 246 *~ 0.8;
 #X obj 119 247 *~ 0.15;
-#X obj 296 308 adsr 100 35 75 98 105;
+#X obj 266 308 adsr 100 35 75 98 105;
+#X text 494 17 Quando il valore della croma \, e' impostato dall'estero
+\, in questa sub-patch viene automaticamente crato un inviluppo i cui
+valori di attacco \, rilascio e decadimento sono proporzionali alla
+durata delle croma. E' la macro 'adsr' che si occupa di generare questo
+inviluppo \, il quale verra' poi applicato al suono del basso.;
+#X text 494 107 il tempo di attacco e' pari al 30% della durata della
+croma il tempo di decadimento e' pari al 70% della durata della croma.
+Il tempo in cui la nota e' mantenuta al suo valore di sustain e' pari
+a 2 crome. il tempo di rilascio e' invece pari al valore di una croma.
+;
+#X text 495 188 1) appena una nota midi e' ricevuta \, viene inviato
+un bang per computare l'inviluppo 2) a seguire i due oscillatori 'phasor'
+e 'osc' vengono opportunemente sincronizzati in fase \; 3) la nota
+midi e' convertita in frequenza in Hz e questa frequenza inviata ai
+due oscillatori.;
+#X text 494 280 il segnale audio in uscita dagli oscillatori e' modificato
+in ampiezza \, sommato e modulato ancora in ampiezza tramite i valori
+in unscita dall'adsr;
 #X connect 1 0 2 0;
 #X connect 2 0 17 0;
 #X connect 2 0 12 0;
@@ -676,14 +674,14 @@ i valori in unscita dall'adsr;
 #X connect 5 1 15 0;
 #X connect 5 2 9 0;
 #X connect 6 0 5 0;
-#X connect 7 0 32 0;
+#X connect 7 0 28 0;
 #X connect 8 0 10 1;
 #X connect 8 0 10 0;
 #X connect 9 0 23 0;
 #X connect 10 0 4 1;
-#X connect 11 0 31 0;
+#X connect 11 0 27 0;
 #X connect 12 0 11 0;
-#X connect 13 0 30 0;
+#X connect 13 0 26 0;
 #X connect 14 0 13 0;
 #X connect 15 0 13 1;
 #X connect 16 0 4 0;
@@ -691,23 +689,23 @@ i valori in unscita dall'adsr;
 #X connect 18 0 20 0;
 #X connect 19 0 7 0;
 #X connect 20 0 21 0;
-#X connect 21 0 26 0;
-#X connect 21 1 27 0;
+#X connect 21 0 24 0;
+#X connect 21 1 25 0;
 #X connect 21 2 22 0;
-#X connect 21 3 32 5;
+#X connect 21 3 28 5;
 #X connect 22 0 19 1;
-#X connect 23 0 32 0;
+#X connect 23 0 28 0;
 #X connect 23 1 19 0;
-#X connect 26 0 32 2;
-#X connect 27 0 32 3;
-#X connect 30 0 4 0;
-#X connect 31 0 16 0;
-#X connect 32 0 8 0;
+#X connect 24 0 28 2;
+#X connect 25 0 28 3;
+#X connect 26 0 4 0;
+#X connect 27 0 16 0;
+#X connect 28 0 8 0;
 #X restore 39 133 pd bass_line;
 #X obj 39 186 *~;
 #X obj 208 199 line~;
 #X msg 208 178 \$1 3000;
-#X obj 208 118 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 208 118 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 208 95 1;
 #X msg 243 95 0;
@@ -715,8 +713,6 @@ i valori in unscita dall'adsr;
 #X obj 108 20 r \$0-croma_time;
 #X obj 208 20 inlet on_off;
 #X obj 39 20 inlet nota;
-#X text 135 220 la sezione qui sopra allo scopo di produrre un fade-in
-o fade-out morbido qunado il basso vengaa spento o acceso.;
 #X obj 39 373 throw~ mono;
 #X obj 39 157 *~;
 #X msg 289 116 \$1 20;
@@ -736,9 +732,11 @@ Frameworks;
 #X obj 55 300 metro 500;
 #X obj 117 278 * 2;
 #X obj 16 396 outlet~ audio;
-#X connect 0 0 13 0;
-#X connect 1 0 12 0;
-#X connect 1 0 22 0;
+#X text 135 221 la sezione qui sopra allo scopo di produrre un fade-in
+o fade-out morbido quando il basso venga spento o acceso.;
+#X connect 0 0 12 0;
+#X connect 1 0 11 0;
+#X connect 1 0 21 0;
 #X connect 2 0 1 1;
 #X connect 3 0 2 0;
 #X connect 4 0 3 0;
@@ -749,26 +747,26 @@ Frameworks;
 #X connect 8 0 0 1;
 #X connect 9 0 7 0;
 #X connect 10 0 0 0;
-#X connect 13 0 1 0;
-#X connect 13 0 28 0;
-#X connect 14 0 15 0;
-#X connect 15 0 13 1;
-#X connect 17 0 14 0;
-#X connect 17 0 16 0;
-#X connect 18 0 27 0;
-#X connect 19 0 20 0;
-#X connect 22 0 23 1;
-#X connect 22 0 19 0;
+#X connect 12 0 1 0;
+#X connect 12 0 27 0;
+#X connect 13 0 14 0;
+#X connect 14 0 12 1;
+#X connect 16 0 13 0;
+#X connect 16 0 15 0;
+#X connect 17 0 26 0;
+#X connect 18 0 19 0;
+#X connect 21 0 22 1;
+#X connect 21 0 18 0;
+#X connect 23 0 24 0;
 #X connect 24 0 25 0;
-#X connect 25 0 26 0;
-#X connect 26 0 23 0;
-#X connect 27 0 26 1;
+#X connect 25 0 22 0;
+#X connect 26 0 25 1;
 #X restore 431 174 pd bass;
 #X obj 141 -15 r \$0-croma_time;
 #X obj 329 28 tgl 15 0 empty empty ON_/_OFF 0 -7 0 10 -262144 -1 -1
-0 1;
+1 1;
 #X obj 328 60 vsl 15 100 0 0.9 0 0 empty empty pads 0 -9 0 10 -257985
--1 -1 0 1;
+-1 -1 8400 1;
 #X obj 669 -17 catch~ L;
 #X obj 740 -16 catch~ R;
 #N canvas 608 119 366 447 pads 0;
@@ -786,7 +784,7 @@ Frameworks;
 #X obj 154 162 r \$0-trig_uno;
 #X obj 53 270 spigot;
 #X obj 154 186 t b a;
-#X obj 181 217 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 181 217 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 283 162 r \$0-trig_zero;
 #X obj 51 388 single_voice;
@@ -1298,6 +1296,8 @@ volta qui si sommano e il volume master è regolato dal volume master
 #X obj 13 6 tgl 15 0 empty empty OSC 17 7 0 10 -4034 -1 -1 0 1;
 #X text 158 63 vedi "recording Utils". all'interno della main patch
 ;
+#X msg 13 98 \; pd dsp 1;
+#X msg 80 98 \; pd dsp 0;
 #X connect 1 0 14 0;
 #X connect 1 1 15 0;
 #X connect 2 0 1 0;
