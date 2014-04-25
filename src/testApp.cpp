@@ -32,8 +32,8 @@ using namespace std;
 
 // version
 int vMajor = 1;
-int vMinor = 4;
-int vMaintenance = 4;
+int vMinor = 5;
+int vMaintenance = 0;
 
 // colori generici
 ofColor black	(0,		0,		0);
@@ -113,6 +113,9 @@ void testApp::setup()
 	
 	n_crome = 0;						// contatore di quante crome sono state messe in play fino ad ora
 	last_croma_time = 8 * croma_time;	// una moltiplicazione per otto per far cominciare i conteggi dopo la prima battuta
+	
+	// teniamo traccia del tempo trascorso dall'apertura del programma
+	hours = minutes = seconds = 0;
 	
 	
 	// ----------------- SONORO ---------------- //
@@ -237,6 +240,15 @@ void testApp::setup()
 // UPDATE //////////////////////////////////////////////////////////////
 void testApp::update() 
 {
+	//printf("%d %d %d\n", hours, minutes, seconds);
+	// teniamo traccia di quanto tempo trascorso dall'apertura del programma
+	// tempo dall'apertura del programma espresso in secondi
+	seconds = ofGetElapsedTimeMillis() / 1000; 
+	minutes = seconds / 60 ;
+	hours	= minutes / 60 ;
+	minutes = minutes % 60;
+	seconds = seconds % 60;	
+	
 	
 	if(bSetup) 
 	{
@@ -463,11 +475,12 @@ void testApp::draw()
 #endif
 			ofDrawBitmapString("TUIO port: " + ofToString(TUIO_PORT),	cibX, cibY + 40);
 			ofDrawBitmapString("FPS:       " + ofToString(ofGetFrameRate()),	cibX, cibY + 60);
-			ofDrawBitmapString("Mesh Rotation:      " + ofToString(meshRotation),		cibX, cibY + 100);
-			ofDrawBitmapString("Mesh Center X:      " + ofToString(meshCenterX),		cibX, cibY + 120);
-			ofDrawBitmapString("Mesh X Scale:       " + ofToString(meshScaleX),			cibX, cibY + 140);
-			ofDrawBitmapString("Mesh Y Scale:       " + ofToString(meshScaleY),			cibX, cibY + 160);
-			ofDrawBitmapString("Mesh Bottom Offset: " + ofToString(meshBottomOffset),	cibX, cibY + 180);
+		    ofDrawBitmapString("Elapsed Time: " + ofToString(hours) + " : " + ofToString(minutes) + " : " + ofToString(seconds), cibX, cibY + 80 );
+			ofDrawBitmapString("Mesh Rotation:      " + ofToString(meshRotation),		cibX, cibY + 120);
+			ofDrawBitmapString("Mesh Center X:      " + ofToString(meshCenterX),		cibX, cibY + 140);
+			ofDrawBitmapString("Mesh X Scale:       " + ofToString(meshScaleX),			cibX, cibY + 160);
+			ofDrawBitmapString("Mesh Y Scale:       " + ofToString(meshScaleY),			cibX, cibY + 180);
+			ofDrawBitmapString("Mesh Bottom Offset: " + ofToString(meshBottomOffset),	cibX, cibY + 200);
 			
 
 			// CALIBRATION LEGENDA BOX POSITION
@@ -750,13 +763,14 @@ void testApp::draw()
 			ofSetHexColor(0x000000);
 			ofDrawBitmapString("CENTER", 0, 0); 	
 			ofDrawBitmapString("FPS: " + ofToString((int)ofGetFrameRate()), 0, 13);
-			ofDrawBitmapString("Bpm: " + ofToString(bpm), 0, 25);
-			ofDrawBitmapString(ofToString(rot_vec.size())	 + " fid rot (Bpm)", 0, 39);
-			ofDrawBitmapString(ofToString(rnd_vec.size())	 + " fid rnd (Kick)", 0, 52);
-			ofDrawBitmapString(ofToString(sqr_vec.size())	 + " fid sqr (Snare, HiHat)", 0, 65);
-			ofDrawBitmapString(ofToString(bass_vec.size())   + " fid bass", 0, 78);
-			ofDrawBitmapString(ofToString(chords_vec.size()) + " fid chords", 0, 91);
-			ofDrawBitmapString(ofToString(synth_vec.size())	 + " fid synth", 0, 104);
+			ofDrawBitmapString("Elapsed Time: " + ofToString(hours) + " : " + ofToString(minutes) + " : " + ofToString(seconds), 0, 26 );
+			ofDrawBitmapString("Bpm: " + ofToString(bpm), 0, 39);
+			ofDrawBitmapString(ofToString(rot_vec.size())	 + " fid rot (Bpm)", 0, 52);
+			ofDrawBitmapString(ofToString(rnd_vec.size())	 + " fid rnd (Kick)", 0, 65);
+			ofDrawBitmapString(ofToString(sqr_vec.size())	 + " fid sqr (Snare, HiHat)", 0, 78);
+			ofDrawBitmapString(ofToString(bass_vec.size())   + " fid bass", 0, 91);
+			ofDrawBitmapString(ofToString(chords_vec.size()) + " fid chords", 0, 104);
+			ofDrawBitmapString(ofToString(synth_vec.size())	 + " fid synth", 0, 117);
 			//ofDrawBitmapString(ofToString(dito_vec.size()) + " fingers", 0, 117);
 			
 			ofPopStyle();

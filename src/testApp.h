@@ -248,8 +248,12 @@ public:
 	bool bDebug; 
 	void backgroundGradient(const ofColor& start, const ofColor& end, int w_, int h_); // funzione per disegnare lo sfondo
 	// per il salvataggio delle impostazioni su file
-	FILE* fp;
-	char* filename;
+	//FILE* fp;
+	//char* filename;
+	// variabili per tenere traccia del tempo trascorso dall'apertura del programma
+	int hours;
+	int minutes;
+	int seconds;
 	
 	Digit			digit;
 	ofxTuioClient	tuio;

@@ -2,6 +2,9 @@ VIDEOTAVOLO - CHANGELOG
 =======================
 
 TODO
+- se viene fatto un remove e, subito dopo un erase dalla lista, l'animazione relativa al FADE OUT del fiducial non potrà essere apprezzata (controlla sezione 'OBJECT REMOVED' di testApp.cpp).
+- eliminare un oggetto da una lista significa invocare contestualmente il distruttore dell'istanza?
+- ci sarebbe forse da fare un controllo sul management dei messaggi OSC per capire se ci sia qualche cosa che deve essere corretto nel programma (ad esempio un bel 'clear' in un qualcghe punto strategico del programma).
 - basare le animazioni non sul FPS ma sul tempo che scorre: si incapperà meno in problemi legati alla variazione dell'FPS. (vedi BlueBook pg 158)
 - modifica codice con funzione di callback per il cambio di BPM tra fiducial rotativo e fiducial Synth
 - capisci meglio il funzionamento della fequenza proiettore / frequenza monitor / frequenza telecamera / frequenza oF
@@ -9,12 +12,27 @@ TODO
 - metti in line alcune funzioni per risparmiare tempo
 - utilizza la direttiva #undef per togliere la definizione alle macro nei punti in cui esse non servano più per lasciarle definite solo nelle porzioni di codice dove esse servano (vedi pg. 246 cpp)
 - tradurre la matrice multidimensionale TABLE in 2 differenti tabelle: una monodimensionale 3 x 8 x 1 di unsigned int per conservare i SID; l'altra tridimensionale (?) di 3 piani da 3 byte (3 char) l'uno in cui ciascun bit rappresenta lo stato dello strumento in quel particolare istante di tempo.
-- issue 05 :: capire perchè una volta inserito il fiducial del basso si verifica un rallentamento nell'esecuzione del programma per non dire, in certi casi, un vero e proprio stallo di alcuni secondi.
-- issue 06 :: aggiungere un controllo temporale che conta quanto tempo è trascorso dall'apertura del programma e lo visualizza nelle schermate di setup o di debug.
+- issue 05 :: capire perche' una volta inserito il fiducial del basso si verifica un rallentamento nell'esecuzione del programma per non dire, in certi casi, un vero e proprio stallo di alcuni secondi. 
+Sembra che il problema descritto nella issue05 sia legato alla quantità di tempo dche trascorre tra un posizionamento e a l'altro del fiducial basso. Ad esempio e' capitato di notare che il tempo di interruzione nel corretto funzionamento della applicazione e' tanto più lungo quanto più lungo e' 
+il tempo che trascorre prima di riposizionare il fiducial del basso sulla superficie dall'ultima volta che lo si era tolto.
+
+videotavolo-v1.5.0 =================
+SOLVED
+- issue 06 :: aggiungere un controllo temporale che conta quanto tempo e' trascorso dall'apertura del programma e lo visualizza nelle schermate di setup o di debug.
+NOTE
+iniziano i lavori sulla issue 05:
+1) ci sono due librerie che si occupano della manipolazione dei messaggi OSC in Pure data Extended.
+La prima libreria e' quella a cura di JDL, facente parte del core di PureDataExtended (libreria "OSC") che conta gli oggetti [dumpOSC][OSCroute][sendOSC] .
+La seconda libreria e' quella creata da Martin Peach e che fa uso degli oggetti [packOSC][unpackOSC][routeOSC][pipelist][packOSCstream][unpackOSCstream]. La libreria si fonda sull'uso di altri 2 oggetti creati dallo stesso Peach ( [udpreceive][udpsend] ). 
+Gli oggetti sopra elencati funzionano SOLO se viene importata la libreria ([import mrpeach] ).
+(dalla reference on-line - http://puredata.info/downloads/osc/#refrouteOSC - "a collection of Pd objectclasses for OSC-messages. these objects only convert between Pd-messages and OSC-messages (binary format), so you will need a separate set of objects that implement the transport (OSI-Layer 4), for instance [udpsend]/[udpreceive] for sending OSC over UDP.").
+1bis) abbiamo migliorato la patch di Pure Data uniformando la parte preposta alla'analisi dei messaggi OSC in arrivo da OF e in partenza verso OF. Abbiamo utilizzato solo oggetti della libreria core (JDL). Il 'toggle' OSC ora abilita o meno l'invio dei messaggio verso OF.
+2) La patch di PD Extended e' stata migliorata provvedendo a ridurre la frequenza con cui i messaggi OSC (relativi al livello del basso) vengono inviati ad OF: se prima i messaggi veninvano sempre inviati (con frequenza di circa 90 valori al secondo), ora abbiamo ridotto la frequenza pareggiandola al FPS dell'applicazione.
+3) Ci chiediamo se sia il caso di introdurre un controllo sul valore da inviare via OSC a OF. Se tale valore e' pari a 0 allora non ha senso inviarlo più di una volta e, se il valore rimane costante su 0, si potrebbe interrompere l'invio di messaggi OSC per riprenderlo poi non appena questo livello diventi nuovamente maggiore di 0.
 
 videotavolo-v1.4.4 =================
 SOLVED
-- issue 04 :: rendere tutte le animazioni dipendenti dal valore FPS in modo tale poter cambiare tale valore in un unico punto nel codice (o in punti limitati) affinchè tutte le animazioni lo rispettino. Modifiche apportate a tutte le classi fiducial. 
+- issue 04 :: rendere tutte le animazioni dipendenti dal valore FPS in modo tale poter cambiare tale valore in un unico punto nel codice (o in punti limitati) affinche' tutte le animazioni lo rispettino. Modifiche apportate a tutte le classi fiducial. 
 
 
 videotavolo-v1.4.3 =================
@@ -26,20 +44,20 @@ SOLVED
 videotavolo-v1.4.2 =================
 SOLVED
 #issue 02 --------------------------
-- resta ancora da capire come possibile migliorare la rotazione affinchè la grafica dei fiducial resti associata ad essi anche nel ruotare (forse un problema causato dall'inclinazione del proiettore).
+- resta ancora da capire come possibile migliorare la rotazione affinche' la grafica dei fiducial resti associata ad essi anche nel ruotare (forse un problema causato dall'inclinazione del proiettore).
 NOTE
-da alcuni esperimenti si è potuto notare che la rotazione della grafica rispetto a quella del fiducial si discosta peridicamente di un valore varibile. 
-Questa variazione dell'offset sula rotazione è periodica con periodo PI/2. la spiegazione potrebbe essere legata al fatto di una cattiva calibrazione iniziale secondo la griglia.
+da alcuni esperimenti si e' potuto notare che la rotazione della grafica rispetto a quella del fiducial si discosta peridicamente di un valore varibile. 
+Questa variazione dell'offset sula rotazione e' periodica con periodo PI/2. la spiegazione potrebbe essere legata al fatto di una cattiva calibrazione iniziale secondo la griglia.
 
 
 videotavolo-v1.4.1 =================
 SOLVED
 #issue 01 --------------------------
-- occorre ancora implementare un sistema che renda la variazione di BPM meno brusca sull'animazione del fiducial - provare a cambiare il BPM mentre sul tavolo è disposto il fiducial Synth
+- occorre ancora implementare un sistema che renda la variazione di BPM meno brusca sull'animazione del fiducial - provare a cambiare il BPM mentre sul tavolo e' disposto il fiducial Synth
 NOTE
 si potrebbe rendere autonomo il fiducial synth nel fare il polling dei dati ad ogni croma.
 il valore recuperato dall'esterno (letto dalla variabile statica bpm) viene confrontato con il valore memorizzato internamente all'oggetto.
-Se sono identici, il calcolo del seno continua come se nulla fosse. Se invece il valore è cambiato occorre capire come fare una animazione che ne tenga conto senza effetti di cambiamento bruschi
+Se sono identici, il calcolo del seno continua come se nulla fosse. Se invece il valore e' cambiato occorre capire come fare una animazione che ne tenga conto senza effetti di cambiamento bruschi
 
 
 videotavolo-v1.4 ===================
@@ -53,8 +71,8 @@ videotavolo-v1.3 ===================
 - ora la dilatazione/compressione della grafica del PAD si muove in sincronia con il BPM
 - ridotta l'espansione del fiducial Bass;
 TODO: 
-- occorre ancora implementare un sistema che renda la variazione di BPM meno brusca sull'animazione del fiducial - provare a cambiare il BPM mentre sul tavolo è disposto il fiducial Synth
-- resta ancora da capire come possibile migliorare la rotazione affinchè la grafica dei fiducial resti associata ad essi anche nel ruotare (forse un problema causato dall'inclinazione del proiettore).
+- occorre ancora implementare un sistema che renda la variazione di BPM meno brusca sull'animazione del fiducial - provare a cambiare il BPM mentre sul tavolo e' disposto il fiducial Synth
+- resta ancora da capire come possibile migliorare la rotazione affinche' la grafica dei fiducial resti associata ad essi anche nel ruotare (forse un problema causato dall'inclinazione del proiettore).
 
 
 videotavolo-v1.2 ===================
