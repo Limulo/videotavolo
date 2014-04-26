@@ -82,9 +82,10 @@ ofColor	azzurro (247,	54,		89);
 void testApp::setup() 
 {
 	
-	ofLogToFile("myLogFile.txt", false);
+	//ofLogToFile("myLogFile.txt", false);
 	ofLog(OF_LOG_VERBOSE);
-	ofLog() << "VIDEOTAVOLO LOG - MAIN SETUP: start" << endl;
+	//ofLog() << "VIDEOTAVOLO LOG - MAIN SETUP: start" << endl;
+	cout << "VIDEOTAVOLO LOG - MAIN SETUP: start" << endl;
 	
 	//------------------ SISTEMA --------------- //
 	ofSetVerticalSync(true);
@@ -120,7 +121,8 @@ void testApp::setup()
 	
 	// ----------------- SONORO ---------------- //
 #ifdef _LIBPD
-	ofLog() << "LibPD defined ---> LIBPD utilities SETUP" << endl;
+	//ofLog() << "LibPD defined ---> LIBPD utilities SETUP" << endl;
+	cout << "LibPD defined ---> LIBPD utilities SETUP"
 	int ticksPerBuffer = 8;	// 8 * 64 = buffer di 512 campioni
 	//ofSoundStreamListDevices(); // da utilizzare se si voglia utilizzare una scheda audio esterna
 	//in generale
@@ -135,7 +137,8 @@ void testApp::setup()
 	core.setup(2, 0, 44100, ticksPerBuffer);
 	core.send_float("croma_time", (float)croma_time); //durata di una croma in ms, viene inviata a PD per la gestione del sequencer della linea di basso
 #else
-	ofLog() << "LibPD not defined ---> OSC utilities SETUP" << endl;
+	//ofLog() << "LibPD not defined ---> OSC utilities SETUP" << endl;
+	cout << "LibPD not defined ---> OSC utilities SETUP" << endl;
 	// open an outgoing connection to HOST:PORT
 	sender.setup(HOST, S_PORT);
 	receiver.setup(R_PORT);
@@ -231,7 +234,7 @@ void testApp::setup()
 	
 	digit.setup();
 	
-	ofLog(OF_LOG_SILENT);
+	//ofLog(OF_LOG_SILENT);
 	
 }
 
@@ -323,10 +326,12 @@ void testApp::update()
 				receiver.getNextMessage(&m);
 		
 				// check for bass level message
-				if(m.getAddress() == "/bass/level")
-					livello_audio = m.getArgAsFloat(0);
-					
+				if(m.getAddress() == "/bass/level") {
+					livello_audio = (float)m.getArgAsFloat(0);
+					cout << "livello audio: " << livello_audio << endl;
 				}
+					
+			}
 			(*it)->update_continuos(livello_audio);
 		}
 #endif
@@ -945,7 +950,7 @@ void testApp::keyPressed(int key)
 		case 'F':
 
 			ofToggleFullscreen();
-			std::cout << "Window Mode = " << ofGetWindowMode() << "\n";
+			cout << "Window Mode = " << ofGetWindowMode() << ";" << endl;
 			if(ofGetWindowMode() == 1) {
 				wWindow = ofGetScreenWidth();
 				hWindow = ofGetScreenHeight();
@@ -957,7 +962,7 @@ void testApp::keyPressed(int key)
 				//std::cout << wWindow << ", " << hWindow << ";\n";
 				
 			}
-			std::cout << "\n";
+			cout << "\n";
 
 			break;
 		case 'h':
@@ -1306,7 +1311,7 @@ void testApp::objectAdded(ofxTuioObject & tuioObject)
 		}
 		default:
 		{
-			cout << "Fiducial ID non valido.\n";
+			cout << "Fiducial ID non valido." << endl;
 			break;
 		}
 	}
@@ -1468,7 +1473,7 @@ void testApp::objectUpdated(ofxTuioObject & tuioObject)
 		}
 		default:
 		{
-			cout << "Fiducial ID non valido.\n";
+			cout << "Fiducial ID non valido." << endl;
 			break;
 			
 		}
@@ -1636,7 +1641,7 @@ void testApp::objectRemoved(ofxTuioObject & tuioObject)
 		}
 		default:
 		{
-			cout << "Fiducial ID non valido.\n";
+			cout << "Fiducial ID non valido." << endl;
 			break;
 		}
 	}
@@ -1748,7 +1753,7 @@ void testApp::play(int colonna)
 						s="hihat";
 						break;
 					default:
-						cout << "Unavailable Instrument.\n";
+						cout << "Unavailable Instrument." << endl;
 						break;
 				}
 #ifdef _LIBPD
@@ -1808,7 +1813,8 @@ void testApp::backgroundGradient(const ofColor& start, const ofColor& end, int w
 //----------------------------------------------------------
 void testApp::meshReset() 
 {
-	ofLog() << "\tMESH RESET: inizializzazione della mesh" << endl;
+	//ofLog() << "\tMESH RESET: inizializzazione della mesh" << endl;
+	cout << "\tMESH RESET: inizializzazione della mesh" << endl;
 	// nella fase di setup iniziale del tavolo può essere necessario 
 	// reimpostare i vari valori a quelli iniziali.
 	

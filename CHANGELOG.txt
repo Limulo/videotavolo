@@ -14,7 +14,10 @@ TODO
 - tradurre la matrice multidimensionale TABLE in 2 differenti tabelle: una monodimensionale 3 x 8 x 1 di unsigned int per conservare i SID; l'altra tridimensionale (?) di 3 piani da 3 byte (3 char) l'uno in cui ciascun bit rappresenta lo stato dello strumento in quel particolare istante di tempo.
 - issue 05 :: capire perche' una volta inserito il fiducial del basso si verifica un rallentamento nell'esecuzione del programma per non dire, in certi casi, un vero e proprio stallo di alcuni secondi. 
 Sembra che il problema descritto nella issue05 sia legato alla quantità di tempo dche trascorre tra un posizionamento e a l'altro del fiducial basso. Ad esempio e' capitato di notare che il tempo di interruzione nel corretto funzionamento della applicazione e' tanto più lungo quanto più lungo e' 
-il tempo che trascorre prima di riposizionare il fiducial del basso sulla superficie dall'ultima volta che lo si era tolto.
+il tempo che trascorre prima di riposizionare il fiducial del basso sulla superficie dall'ultima volta che lo si era rimosso.
+Questo potrebbe essere dovuto al fatto che in questo tempo di pausa si accumulano dei messaggi OSC nella coda OF. Occorre limitare l'accumulo dei messaggi OSC nella coda quando il fiducial del basso non è presente sulla superficie.
+Questo potrebbe essere risolto evitando che Pure Data invii messaggi quando non necessario (quando il messaggio è 0, oppure non c'è audio per un po' di tempo).
+
 
 videotavolo-v1.5.0 =================
 SOLVED
