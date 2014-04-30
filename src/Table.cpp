@@ -38,12 +38,13 @@ using namespace std;
 Table::Table()
 {
 	// init();
+	cout << "TABLE: Tabella costruita!" << endl;
 }
 
 // DISTRUTTORE /////////////////////////////////////////////////////////
 Table::~Table()
 {
-	cout << "TABLE: Tabella distrutta.\n";
+	cout << "TABLE: Tabella distrutta." << endl;
 }
 
 
@@ -51,7 +52,8 @@ Table::~Table()
 // INIZIALIZZAZIONE ////////////////////////////////////////////////////
 void Table::init()
 {
-	ofLog() << "\tTABLE INIT: inizializzazione della tabella" << endl;
+	//ofLog() << "\tTABLE INIT: inizializzazione della tabella" << endl;
+	cout << "\tTABLE INIT: inizializzazione della tabella" << endl;
 	int riga, colonna, piano;
 	
 	for (colonna=0; colonna<COLS; colonna++)

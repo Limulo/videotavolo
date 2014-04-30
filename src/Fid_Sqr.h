@@ -64,7 +64,7 @@ private:
 	
 public:
 	Fid_Sqr(int _fid, int _sid);
-	~Fid_Sqr() {std::cout << "FID SQR: De-constructiong derived: Fid_Sqr!\n" << std::endl; }
+	~Fid_Sqr() { std::cout << "FID SQR: De-constructiong derived: Fid_Sqr!" << std::endl; }
 	
 	void setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, ofColor _color);
 	void added();

@@ -79,7 +79,7 @@ protected:
 	
 public:
 	Fid_Rot(int _fid, int _sid);
-	~Fid_Rot() {cout << "FID ROT: De-constructiong derived: Fid_Rot\n"; }
+	~Fid_Rot() { cout << "FID ROT: De-constructiong derived: Fid_Rot" << endl; }
 	
 	void setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, float _lim_angle, ofColor _fColor, ofColor _cColor);
 	

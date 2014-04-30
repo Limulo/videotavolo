@@ -56,7 +56,7 @@ protected:
 	
 public:
 	Fid_Bass(int _fid, int _sid);
-	~Fid_Bass() {cout << "FID BASS: De-constructiong derived: Fid_Bass\n";}
+	~Fid_Bass() { cout << "FID BASS: De-constructiong derived: Fid_Bass" << endl; }
 	
 	void setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, ofColor _fColor);
 	

@@ -35,7 +35,7 @@
 Fid_Synth::Fid_Synth(int _fid, int _sid)
 {
 	
-	std::cout << "FID SYNTH: Constructing derived!\n" << std::endl;
+	std::cout << "FID SYNTH: Constructing derived!" << std::endl;
 	
 	fid = _fid;
 	sid = _sid;

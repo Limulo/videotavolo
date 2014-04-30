@@ -33,7 +33,7 @@
 // COSTRUTTORE /////////////////////////////////////////////////
 Fid_Chords::Fid_Chords(int _fid, int _sid)
 {
-	std::cout << "FID CHORDS: Constructiong derived!\n" << std::endl;
+	std::cout << "FID CHORDS: Constructiong derived!" << std::endl;
 	
 	fid = _fid;
 	sid = _sid;

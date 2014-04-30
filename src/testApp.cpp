@@ -91,7 +91,6 @@ void testApp::setup()
 	ofSetVerticalSync(true);
 	ofSetFrameRate(FPS);
 	
-	
 	//------------------ PLAY ------------------ //
 	matrice.init();
 	
@@ -150,6 +149,7 @@ void testApp::setup()
 	m.setAddress("/transport/fps");
 	m.addIntArg(FPS);
 	sender.sendMessage(m);
+	m.clear();
 	livello_audio_basso = 0.0;
 #endif
 	
@@ -877,12 +877,14 @@ void testApp::exit()
 	m.setAddress("/bass");
 	m.addIntArg(0);
 	sender.sendMessage(m);
+	m.clear();
 #endif
 	
 	vector<Fid_Rot*>::iterator it1=rot_vec.begin();
 	cout << "ROT_LIST: " << rot_vec.size() << " elementi ancora presenti\n";
 	while( !rot_vec.empty() && it1!=rot_vec.end() ) {
-		(*it1)->removed();
+		delete *it1;
+		//(*it1)->removed();
 		++it1;
 		cout << "\tFID_ROT: elemento rimosso!\n";
 	}
@@ -893,7 +895,8 @@ void testApp::exit()
 	vector<Fid_Sqr*>::iterator it2=sqr_vec.begin();
 	cout << "SQR_LIST: " << sqr_vec.size() << " elementi ancora presenti\n";
 	while( !sqr_vec.empty() && it2!=sqr_vec.end() ) {
-		(*it2)->removed();
+		delete *it2;
+		//(*it2)->removed();
 		++it2;
 		cout << "\tFID_SQR: elemento rimosso!\n";
 	}
@@ -904,7 +907,8 @@ void testApp::exit()
 	vector<Finger*>::iterator it3=dito_vec.begin();
 	cout << "DITO_LIST: " << dito_vec.size() << " elementi ancora presenti\n";
 	while( !dito_vec.empty() && it3!=dito_vec.end() ) {
-		(*it3)->removed();
+		delete *it3;
+		//(*it3)->removed();
 		++it3;
 		cout << "\tFINGER: elemento rimosso!\n";
 	}
@@ -915,7 +919,8 @@ void testApp::exit()
 	vector<Fid_Round*>::iterator it4=rnd_vec.begin();
 	cout << "RND_LIST: " << rnd_vec.size() << " elementi ancora presenti\n";
 	while( !rnd_vec.empty() && it4!=rnd_vec.end() ) {
-		(*it4)->removed();
+		delete *it4;
+		//(*it4)->removed();
 		++it4;
 		cout << "\tFID_ROUND: elemento rimosso!\n";
 	}
@@ -926,7 +931,8 @@ void testApp::exit()
 	vector<Fid_Synth*>::iterator it5=synth_vec.begin();
 	cout << "SINT_LIST: " << synth_vec.size() << " elementi ancora presenti\n";
 	while( !synth_vec.empty() && it5!=synth_vec.end() ) {
-		(*it5)->removed();
+		delete *it5;
+		//(*it5)->removed();
 		++it5;
 		cout << "\tFID_SYNTH: elemento rimosso!\n";
 	}
@@ -937,13 +943,21 @@ void testApp::exit()
 	vector<Fid_Chords*>::iterator it6=chords_vec.begin();
 	cout << "CHORDS_LIST: " << chords_vec.size() << " elementi ancora presenti\n";
 	while( !chords_vec.empty() && it6!=chords_vec.end() ) {
-		(*it6)->removed();
+		delete *it6;
+		//(*it6)->removed();
 		++it6;
 		cout << "\tFID_CHORDS: elemento rimosso!\n";
 	}
 	chords_vec.clear();
 	cout << "CHORDS_LIST: lista ripulita\n" << endl;
-
+	
+	// gli oggetti creati senza utilizzare l'operatore 'new' vengono automaticamente distrutti
+	// non appena usciamo dal programma (uscendo dallo scope).
+	//delete matrice;
+	//delete digit;
+	//for(int i = 0; i < NCOLUMNS; ++i) {
+	//	delete striscie[i];
+	//}
 	
 }
 

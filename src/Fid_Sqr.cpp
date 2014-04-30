@@ -34,7 +34,7 @@
 Fid_Sqr::Fid_Sqr(int _fid, int _sid)
 {
 	
-	std::cout << "FID SQR: Constructing derived!\n" << std::endl;
+	std::cout << "FID SQR: Constructing derived!" << std::endl;
 	
 	fid = _fid;
 	sid = _sid;

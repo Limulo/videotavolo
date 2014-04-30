@@ -32,7 +32,7 @@
 
 // COSTRUTTORE /////////////////////////////////////////////////////////
 Fid_Base::Fid_Base() {
-	cout << "FID_BASE: Constructiong!\n";
+	cout << "FID_BASE: Constructiong!" << endl;;
 	
 	// di seguito inzializziamo tutti gli elementi che accomununano tutti i vari fiducials tra di loro
 	tExpand   = ( 10 * FIDUCIAL_FPS) / 60; // valore temporale (espresso in frames) per l'espansione

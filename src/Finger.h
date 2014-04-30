@@ -58,7 +58,7 @@ public:
 	int	transparency;
 		
 	Finger(int _fid);
-	~Finger() {std::cout << "De-constructing Finger!\n"<<std::endl; };
+	~Finger() { std::cout << "De-constructing Finger!"<<std::endl; };
 	
 	void setup(ofVec2f *_fid_pos, ofColor _color);
 	

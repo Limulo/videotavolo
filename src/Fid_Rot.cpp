@@ -33,7 +33,7 @@
 // COSTRUTTORE /////////////////////////////////////////////////
 Fid_Rot::Fid_Rot(int _fid, int _sid)
 {
-	std::cout << "FID ROT: Constructiong derived!\n" << std::endl;
+	std::cout << "FID ROT: Constructiong derived!" << std::endl;
 	
 	fid = _fid;
 	sid = _sid;

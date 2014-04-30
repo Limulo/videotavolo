@@ -33,7 +33,7 @@
 // COSTRUTTORE /////////////////////////////////////////////////
 Fid_Bass::Fid_Bass(int _fid, int _sid)
 {
-	std::cout << "FID BASS: Constructiong derived!\n" << std::endl;
+	std::cout << "FID BASS: Constructiong derived!" << std::endl;
 	
 	fid = _fid;
 	sid = _sid;

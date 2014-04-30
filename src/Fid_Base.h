@@ -111,7 +111,7 @@ class Fid_Base
 	
 		public:
 			Fid_Base();
-			~Fid_Base() {cout << "FID_BASE: De-constructiong!\n"; }
+			~Fid_Base() { cout << "FID_BASE: De-constructiong!" << endl; }
 	
 			virtual void added() = 0;
 	 

@@ -65,7 +65,7 @@ protected:
 	
 public:
 	Fid_Round(int _fid, int _sid);
-	~Fid_Round() {cout << "FID ROUND: De-constructiong derived: Fid_Round\n"; }
+	~Fid_Round() { cout << "FID ROUND: De-constructiong derived: Fid_Round" << endl; }
 	
 	void setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, ofColor _fColor);
 	

@@ -53,8 +53,8 @@ private:
 	int r, g, b;
 	
 public:
-	Stripe(){};
-	~Stripe() {};
+	Stripe() { std::cout << "STRIPE: costruito!" << std::endl; };
+	~Stripe() { std::cout << "STRIPE: distrutto!" << std::endl; };
 	
 	void init(int lx_, int ty_, int w_, int h_, ofColor _cStripe);
 

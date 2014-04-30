@@ -44,12 +44,13 @@ void AppCore::setup(const int numOutChannels, const int numInChannels, const int
 {
 
 	// double check where we are ...
-	ofLog() << "\tAPPCORE SETUP: " << ofFilePath::getCurrentWorkingDirectory();
-	
+	//ofLog() << "\tAPPCORE SETUP: " << ofFilePath::getCurrentWorkingDirectory();
+	cout << "\tAPPCORE SETUP: " << ofFilePath::getCurrentWorkingDirectory() << endl;
 	
 	if(!pd.init(numOutChannels, numInChannels, sampleRate, ticksPerBuffer)) 
 	{
-		ofLog(OF_LOG_ERROR) << "\tAPPCORE SETUP: Could not init pd";
+		//ofLog(OF_LOG_ERROR) << "\tAPPCORE SETUP: Could not init pd";
+		cout << "\tAPPCORE SETUP: Could not init pd" << endl;
 		OF_EXIT_APP(1);
 	}
 	
@@ -88,7 +89,8 @@ void AppCore::setup(const int numOutChannels, const int numInChannels, const int
 	
 	// open patch
 	Patch patch = pd.openPatch("little_synth/synth.pd");
-	ofLog() << "\tAPPCORE SETUP: " << patch;
+	//ofLog() << "\tAPPCORE SETUP: " << patch;
+	cout << "\tAPPCORE SETUP: " << patch << ";" << endl;
 	
 	pd.sendBang("loadbang");
 	pd.sendFloat("kick_vol", KICK_VOL);
@@ -99,8 +101,8 @@ void AppCore::setup(const int numOutChannels, const int numInChannels, const int
 	pd.sendFloat("snare_dly_vol", SNARE_DLY_VOL);
 	pd.sendFloat("drum_vol", DRUM_VOL);
 	
-	ofLog() << "\tAPPCORE SETUP: finish" << endl;
-
+	//ofLog() << "\tAPPCORE SETUP: finish" << endl;
+    cout << "\tAPPCORE SETUP: finish" << endl;
 }
 
 // === APPCORE UPDATE =====================================================================

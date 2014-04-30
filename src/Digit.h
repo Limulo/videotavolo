@@ -58,8 +58,8 @@ private:
 	
 	
 public:
-	Digit() {};
-	~Digit() {};
+	Digit() { std::cout << "DIGIT costruito!" << std::endl; };
+	~Digit() { std::cout << "DIGIT distrutto!" << std::endl; };
 	
 	void setup(void);
 	void update(void);

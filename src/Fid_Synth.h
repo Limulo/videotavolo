@@ -66,7 +66,7 @@ private:
 	
 public:
 	Fid_Synth(int _fid, int _sid);
-	~Fid_Synth() {std::cout << "FID SYNTH: De-constructiong derived: Fid_Synth!\n" << std::endl; }
+	~Fid_Synth() { std::cout << "FID SYNTH: De-constructiong derived: Fid_Synth!" << std::endl; }
 	
 	void setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, ofColor _color);
 	void added();

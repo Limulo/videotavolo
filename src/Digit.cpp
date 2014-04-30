@@ -35,7 +35,8 @@
 
 void Digit::setup() {
 	
-	ofLog() << "\tDIGIT SETUP: setup" << endl;
+	//ofLog() << "\tDIGIT SETUP: setup" << endl;
+	cout << "\tDIGIT SETUP: setup" << endl;
 	
 	ofTrueTypeFont::setGlobalDpi(72);
 	digitFont.loadFont("DS-DIGII.ttf", 80, true, true);

@@ -33,7 +33,7 @@
 // COSTRUTTORE /////////////////////////////////////////////////
 Fid_Round::Fid_Round(int _fid, int _sid)
 {
-	std::cout << "FID ROUND: Constructiong derived!\n" << std::endl;
+	std::cout << "FID ROUND: Constructiong derived!" << std::endl;
 	
 	fid = _fid;
 	sid = _sid;
