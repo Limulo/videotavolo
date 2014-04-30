@@ -2,8 +2,6 @@ VIDEOTAVOLO - CHANGELOG
 =======================
 
 TODO
-- se viene fatto un remove e, subito dopo un erase dalla lista, l'animazione relativa al FADE OUT del fiducial non potra' essere apprezzata (controlla sezione 'OBJECT REMOVED' di testApp.cpp).
-- eliminare un oggetto da una lista significa invocare contestualmente il distruttore dell'istanza?
 - ci sarebbe forse da fare un controllo sul management dei messaggi OSC per capire se ci sia qualche cosa che deve essere corretto nel programma (ad esempio un bel 'clear' in un qualcghe punto strategico del programma).
 - basare le animazioni non sul FPS ma sul tempo che scorre: si incappera' meno in problemi legati alla variazione dell'FPS. (vedi BlueBook pg 158)
 - modifica codice con funzione di callback per il cambio di BPM tra fiducial rotativo e fiducial Synth
@@ -12,6 +10,8 @@ TODO
 - metti in line alcune funzioni per risparmiare tempo
 - utilizza la direttiva #undef per togliere la definizione alle macro nei punti in cui esse non servano più per lasciarle definite solo nelle porzioni di codice dove esse servano (vedi pg. 246 cpp)
 - tradurre la matrice multidimensionale TABLE in 2 differenti tabelle: una monodimensionale 3 x 8 x 1 di unsigned int per conservare i SID; l'altra tridimensionale (?) di 3 piani da 3 byte (3 char) l'uno in cui ciascun bit rappresenta lo stato dello strumento in quel particolare istante di tempo.
+- issue07 - se viene fatto un remove e, subito dopo un erase dalla lista, l'animazione relativa al FADE OUT del fiducial non potra' essere apprezzata (controlla sezione 'OBJECT REMOVED' di testApp.cpp). 
+Eliminare un oggetto da una lista significa invocare contestualmente il distruttore dell'istanza?
 
 
 videotavolo-v1.5.1 =================
