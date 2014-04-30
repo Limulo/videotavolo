@@ -17,3 +17,4 @@ bin/**/*.aiff
 
 # i progetti compilati
 bin/videotavolo*/
+bin/master*/
