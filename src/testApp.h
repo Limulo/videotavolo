@@ -199,7 +199,8 @@ public:
 	vector<Fid_Synth*>	synth_vec;
 	vector<Finger*>		dito_vec;
 	vector<Fid_Chords*> chords_vec;
-	
+	// vedi CHANGE LOG - issuo05
+	float livello_audio_basso;
 	
 	
 	// calibrazione rettangolare **********************************************

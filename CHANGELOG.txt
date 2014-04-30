@@ -2,21 +2,58 @@ VIDEOTAVOLO - CHANGELOG
 =======================
 
 TODO
-- se viene fatto un remove e, subito dopo un erase dalla lista, l'animazione relativa al FADE OUT del fiducial non potrà essere apprezzata (controlla sezione 'OBJECT REMOVED' di testApp.cpp).
+- se viene fatto un remove e, subito dopo un erase dalla lista, l'animazione relativa al FADE OUT del fiducial non potra' essere apprezzata (controlla sezione 'OBJECT REMOVED' di testApp.cpp).
 - eliminare un oggetto da una lista significa invocare contestualmente il distruttore dell'istanza?
 - ci sarebbe forse da fare un controllo sul management dei messaggi OSC per capire se ci sia qualche cosa che deve essere corretto nel programma (ad esempio un bel 'clear' in un qualcghe punto strategico del programma).
-- basare le animazioni non sul FPS ma sul tempo che scorre: si incapperà meno in problemi legati alla variazione dell'FPS. (vedi BlueBook pg 158)
+- basare le animazioni non sul FPS ma sul tempo che scorre: si incappera' meno in problemi legati alla variazione dell'FPS. (vedi BlueBook pg 158)
 - modifica codice con funzione di callback per il cambio di BPM tra fiducial rotativo e fiducial Synth
 - capisci meglio il funzionamento della fequenza proiettore / frequenza monitor / frequenza telecamera / frequenza oF
 - utilizzo dei membri statici delle classi per tenere conto di ad esempio numero di istanze presenti vedi Ch 12 C++ ref.
 - metti in line alcune funzioni per risparmiare tempo
 - utilizza la direttiva #undef per togliere la definizione alle macro nei punti in cui esse non servano più per lasciarle definite solo nelle porzioni di codice dove esse servano (vedi pg. 246 cpp)
 - tradurre la matrice multidimensionale TABLE in 2 differenti tabelle: una monodimensionale 3 x 8 x 1 di unsigned int per conservare i SID; l'altra tridimensionale (?) di 3 piani da 3 byte (3 char) l'uno in cui ciascun bit rappresenta lo stato dello strumento in quel particolare istante di tempo.
+
+
+videotavolo-v1.5.1 =================
+SOLVED
 - issue 05 :: capire perche' una volta inserito il fiducial del basso si verifica un rallentamento nell'esecuzione del programma per non dire, in certi casi, un vero e proprio stallo di alcuni secondi. 
-Sembra che il problema descritto nella issue05 sia legato alla quantità di tempo dche trascorre tra un posizionamento e a l'altro del fiducial basso. Ad esempio e' capitato di notare che il tempo di interruzione nel corretto funzionamento della applicazione e' tanto più lungo quanto più lungo e' 
+Sembra che il problema descritto nella issue05 sia legato alla quantita' di tempo che trascorre tra un posizionamento e a l'altro del fiducial basso. Ad esempio e' capitato di notare che il tempo di interruzione nel corretto funzionamento della applicazione e' tanto più lungo quanto più lungo e' 
 il tempo che trascorre prima di riposizionare il fiducial del basso sulla superficie dall'ultima volta che lo si era rimosso.
-Questo potrebbe essere dovuto al fatto che in questo tempo di pausa si accumulano dei messaggi OSC nella coda OF. Occorre limitare l'accumulo dei messaggi OSC nella coda quando il fiducial del basso non è presente sulla superficie.
-Questo potrebbe essere risolto evitando che Pure Data invii messaggi quando non necessario (quando il messaggio è 0, oppure non c'è audio per un po' di tempo).
+Questo potrebbe essere dovuto al fatto che in questo tempo di pausa si accumulano dei messaggi OSC nella coda OF. Occorre limitare l'accumulo dei messaggi OSC nella coda quando il fiducial del basso non e' presente sulla superficie.
+Questo potrebbe essere risolto evitando che Pure Data invii messaggi quando non necessario (quando il messaggio e' 0, oppure non c'e' audio per un po' di tempo).
+
+Il problema associato descritto in parte dalla issue05 e' stato risolto.
+PD invia messaggi OSC ad OF. Ricordiamo che i messaggi OSC che PD invia a OF sono messaggi che descrivono il livello sonoro in dB dello strumento 'bass'.
+ad ogni ciclo di UPDATE, OF analizza i messaggi OSC ancora in attesa d'essere elaborati, in modo da provvedere all'animazione del fiducia 'Bass'.
+I messaggi OSC in attesa d'essere elaborati attendono che OF provveda ad analizzarli all'interno di una CODA (vedi classe ofxOscReceiver). Una volta che OF provvede ad analizzarli, questi messaggi vengono eliminati dalla coda.
+
+Il problema lamentato con la issue05 era legato ad una serie di diverse problematiche legate proprio all'OSC e a questa coda.
+Dal momento che la coda viene analizzata in OF facendo uso di un ciclo WHILE, ne risultava che, ad ogni UPDATE il programma rimaneva bloccato in questa fase nel compito di esaurire l'intera coda di messaggi qui accumulatisi prima di poter procedere. Il problema non e' visibile se si lascia il fiducia del basso sempre presente sul tavolo di gioco. Questo fa sì che comunque, ad ogni update, i pochi messaggi accumulatisi nel coda dal ciclo precedente venissero processati ad ogni ciclo. Quando però il fiducia del basso veniva tolto dalla superficie, i messaggi si accumulavano nella coda (PuraData continua infatti a mandare messaggi ininterrottamente). Non essendoci alcun fiducial preposto a processarli, nessun messaggio osc veniva analizzato ed eliminato dalla coda.
+
+Quando poi, trascorso un po' di tempo, il fiducia del basso veniva appoggiato nuovamente sulla superficie, il programma si bloccava all'interno del ciclo WHILE proprio per esaminare tutti i messaggi accumulatisi nella coda fino a quel momento. Maggiore il tempo trascorso dall'ultimo uso del basso, maggiore la dimensione della coda da esaurire.
+
+Come abbiamo risolto? abbiamo cominciato ad analizzare il modo in cui PureData invia i messaggi OSC. Innanzitutto abbiamo uniformato i metodi preposti al trattamento dei messaggi facendo uso della sola libreria JDL implementata nel core.
+Ricordiamo ancora una volta che i messaggi OSC che PD invia a OF sono messaggi che descrivono il livello sonoro in dB dello strumento 'bass'.
+Questi messaggi vengono mandati di continuo anche quando il livello del basso e' NON udibile (livello = 0).
+E' proprio di questi messaggi (livello = 0) che la coda dell'oggetto osxOscReceiver si riempiva tra l'uso di un fiducia 'bass' e l'ultimo. Una moltitudine di messaggi di valore nullo intasavano la coda.
+Come fare per evitarlo?
+1) ridurre la frequenza con cui PD invia messaggi OSC a OF. Per poterlo fare occorre sincronizzare l'invio di messaggi OSC su base del valore FPS utilizzato da OF.
+Per questo si sfrutta il messaggio OSC '/transport/fps' gia' inviato da OF a PD proprio per questo genere di scopo. In coda analizziamo una problematica secondaria derivata dalla sincronizzazione dei due software.
+2) evitare che PureData invii messaggi quando non necessario. Per evitare che, comunque, nella coda si accumulino messaggi il cui significato e' superfluo occorre trovare un sistema per inviare messaggi alo quando il livello audio e' diverso da zero. Per meglio dire, occorre inviare messaggi OSC solo quando il livello audio del basso subisce un cambiamento rispetto al livello sonoro precedente. Se il livello rimane costante a zero, una volta inviato un solo messaggio iniziale, non invierò più messaggi fino alla prossima variazione.
+Per questo si fa uso dell'oggetto 'chance' il cui scopo e' proprio quello di eliminare la ridondanza in uno stream di numeri.
+
+Attraverso gli aggiustamenti 1) e 2), entrambi applicati al lato server (su PD inteso come mittente dei messaggi OSC verso OF) si e' riusciti a risolvere il problema legato alla issue05.
+
+Come anticipato, l'aggiustamento 1) ci fa scontrare con una ulteriore problematica relativa alla corretta sincronizzazione tra i due programmi PD (inteso come server) e OF (come client). Sappiamo che l'applicativo principale lavora a 30 FPS e anche il server PD e' stato così sintonizzato. Si verificheranno sempre delle imperfezioni durante il funzionamento per cui determinati messaggi OSC che dovranno essere letti da OF frame per frame non verranno letti e si accumuleranno nella coda per essere esauriti il ciclo successivo.
+Questo però crea il problema che, nel ciclo in cui il valore OSC in arrivo da PD non riesce ad essere letto in tempo, comunque occorre chiamare il metodo update del fiducial 'bass'. Ma in questo caso quale sarà il valore da passargli se non siamo riusciti ad aggiornarlo tramite PD? basterà fare in modo di inviare al fiducia l'ultimo valore memorizzato. Per cui, se prima la variabile 'livello_audio_basso' era locale al metodo 'update', ora la variabile diviene generale in modo da poter tenere in memoria il valore dell'ultima lettura da PD.
+
+NOTA 
+ci sono due librerie che si occupano della manipolazione dei messaggi OSC in Pure data Extended.
+
+La prima libreria e' quella a cura di JDL, facente parte del core di PureDataExtended (libreria "OSC") che conta gli oggetti [dumpOSC][OSCroute][sendOSC] .
+
+La seconda libreria e' quella creata da Martin Peach e che fa uso degli oggetti [packOSC][unpackOSC][routeOSC][pipelist][packOSCstream][unpackOSCstream]. La libreria si fonda sull'uso di altri 2 oggetti creati dallo stesso Peach ( [udpreceive][udpsend] ). Gli oggetti sopra elencati funzionano SOLO se viene importata la libreria ([import mrpeach] ).
+(dalla reference on-line - http://puredata.info/downloads/osc/#refrouteOSC - "a collection of Pd objectclasses for OSC-messages. these objects only convert between Pd-messages and OSC-messages (binary format), so you will need a separate set of objects that implement the transport (OSI-Layer 4), for instance [udpsend]/[udpreceive] for sending OSC over UDP.").
 
 
 videotavolo-v1.5.0 =================

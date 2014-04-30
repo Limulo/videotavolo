@@ -33,7 +33,7 @@ using namespace std;
 // version
 int vMajor = 1;
 int vMinor = 5;
-int vMaintenance = 0;
+int vMaintenance = 1;
 
 // colori generici
 ofColor black	(0,		0,		0);
@@ -83,7 +83,7 @@ void testApp::setup()
 {
 	
 	//ofLogToFile("myLogFile.txt", false);
-	ofLog(OF_LOG_VERBOSE);
+	//ofLog(OF_LOG_VERBOSE);
 	//ofLog() << "VIDEOTAVOLO LOG - MAIN SETUP: start" << endl;
 	cout << "VIDEOTAVOLO LOG - MAIN SETUP: start" << endl;
 	
@@ -150,6 +150,7 @@ void testApp::setup()
 	m.setAddress("/transport/fps");
 	m.addIntArg(FPS);
 	sender.sendMessage(m);
+	livello_audio_basso = 0.0;
 #endif
 	
 	
@@ -319,20 +320,33 @@ void testApp::update()
 		}
 #else
 		{ 
-			float livello_audio;
-			while(receiver.hasWaitingMessages()){
+			//cout << "INIZIO il controllo dei messaggi OSC:" << endl;
+			while( receiver.hasWaitingMessages() ){		    
 				// get the next message
 				ofxOscMessage m;
 				receiver.getNextMessage(&m);
 		
 				// check for bass level message
 				if(m.getAddress() == "/bass/level") {
-					livello_audio = (float)m.getArgAsFloat(0);
-					cout << "livello audio: " << livello_audio << endl;
+					// il messaggio OSC che ricevo da PureData potrebbe essere un valore FLOAT o INT
+					// faccio un controllo sul tipo di messaggio per operare la corretta conversione
+					// (in realtà non sarebbe necessario visto che  i metodi 'getArgAs...' della classe
+					// 'ofxOscMessage' già operano lo stesso tipo di controllo ).
+					//cout << "\tecco un messaggio in attesa d'essere processato - arg di tipo "<< m.getArgTypeName( 0 ) << " ( "<< m.getArgType( 0 ) << " ) - " << endl;
+					if( m.getArgType( 0 ) == 1 ) {
+						livello_audio_basso = (float)m.getArgAsInt32(0);
+					} else {
+						livello_audio_basso = m.getArgAsFloat(0);
+					}
+					//cout << "\timposto la variabile 'livello_audio_basso' al valore: " << livello_audio_basso << endl;
 				}
 					
 			}
-			(*it)->update_continuos(livello_audio);
+			//if(livello_audio_basso == 0)
+			//	cout << "\n" << endl;
+			
+			//cout << "UPDATE DEL FIDUCIAL con il valore: " << livello_audio_basso << endl;
+			(*it)->update_continuos(livello_audio_basso);
 		}
 #endif
 		
@@ -758,8 +772,9 @@ void testApp::draw()
 
 			ofPushStyle();
 			ofSetHexColor(0xFF0000);
-			ofLine( -10, 0, 10, 0);
-			ofLine(0, -10, 0, 10);
+			ofSetLineWidth(4); 
+			ofLine( -20, 0, 20, 0);
+			ofLine(0, -20, 0, 20);
 			ofPopStyle();
 
 			ofPushMatrix();

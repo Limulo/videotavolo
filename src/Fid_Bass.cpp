@@ -120,10 +120,10 @@ void Fid_Bass::draw(void)
 	ofPushStyle();
 	ofEnableAlphaBlending();
 	
-	float raggio = 0.0;
 	if(transparency != 0) 
 	{
-		//l'ampiezza del fiducial varia su base del livello di volume che viene inviato al metodo 'update_continuos' direttamente da PureData
+		//l'ampiezza del fiducial varia su base del livello di volume 
+		//che viene inviato al metodo 'update_continuos' direttamente da PureData
 		
 		// FIDUCIAL: disegno del fiducial --------------------------
 		ofSetColor(f_color);

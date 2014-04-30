@@ -137,8 +137,8 @@
 		E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F985F515E0DE99003869B5 /* Accelerate.framework */; };
 		F450AF171881592800332FC9 /* vt_icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F450AF161881592800332FC9 /* vt_icon.icns */; };
 		F47633F01882C15F004F4272 /* CHANGELOG.txt in Resources */ = {isa = PBXBuildFile; fileRef = F47633EF1882C15F004F4272 /* CHANGELOG.txt */; };
+		F4AE7B151910F7F900994CCB /* master.pd in Resources */ = {isa = PBXBuildFile; fileRef = F4AE7B141910F7F900994CCB /* master.pd */; };
 		F4BA9D0718C6FE6400E17F79 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F4BA9D0618C6FE6400E17F79 /* README.txt */; };
-		F4D98533190AD06B006A5428 /* master_rec_oscJDL.pd in Resources */ = {isa = PBXBuildFile; fileRef = F4D98532190AD06B006A5428 /* master_rec_oscJDL.pd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -375,8 +375,8 @@
 		E7F985F515E0DE99003869B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
 		F450AF161881592800332FC9 /* vt_icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = vt_icon.icns; path = bin/data/vt_icon.icns; sourceTree = "<group>"; };
 		F47633EF1882C15F004F4272 /* CHANGELOG.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.txt; sourceTree = "<group>"; };
+		F4AE7B141910F7F900994CCB /* master.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = master.pd; path = bin/data/pd_OSC/master.pd; sourceTree = SOURCE_ROOT; };
 		F4BA9D0618C6FE6400E17F79 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		F4D98532190AD06B006A5428 /* master_rec_oscJDL.pd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = master_rec_oscJDL.pd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -484,7 +484,7 @@
 		A7C8B2AE188072DD00D752FF /* pd_OSC */ = {
 			isa = PBXGroup;
 			children = (
-				F4D98532190AD06B006A5428 /* master_rec_oscJDL.pd */,
+				F4AE7B141910F7F900994CCB /* master.pd */,
 				A7C8B2AF188072DD00D752FF /* 8to16.pd */,
 				A7C8B2B0188072DD00D752FF /* adsr.pd */,
 				A7C8B2B2188072DD00D752FF /* single_voice.pd */,
@@ -1015,7 +1015,7 @@
 				F450AF171881592800332FC9 /* vt_icon.icns in Resources */,
 				F47633F01882C15F004F4272 /* CHANGELOG.txt in Resources */,
 				F4BA9D0718C6FE6400E17F79 /* README.txt in Resources */,
-				F4D98533190AD06B006A5428 /* master_rec_oscJDL.pd in Resources */,
+				F4AE7B151910F7F900994CCB /* master.pd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
