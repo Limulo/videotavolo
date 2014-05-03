@@ -27,27 +27,10 @@
  * 
  */
 
-// Superclasse per tutti gli oggetti di tipo fiducial (siano essi rotativi, quadrati, rotondi, accordi, ecc...).
-
-
-#ifndef _INC_FID_BASE
-#define _INC_FID_BASE
-
-#define FIDUCIAL_R		45		// raggio dei fiducial rotondi
-#define FIDUCIAL_L		95		// lato dei fiducial quadrati
-
-
-#define FIDUCIAL_FPS	30
-#define STEP_IN			int( 255.0f / ( FIDUCIAL_FPS * (170.0f / 1000.0f) ) )
-#define	STEP_OUT		int( 255.0f / ( FIDUCIAL_FPS * (354.0f / 1000.0f) ) )
-
-#include <iostream>
-#include <math.h>
-#include "ofMain.h"
-
-using namespace std;
 
 /*
+ *  Superclasse per tutti gli oggetti di tipo fiducial (siano essi rotativi, quadrati, rotondi, accordi, ecc...).
+ *
  *  tutti i fiducial hanno 2 metodi UPDATE:
  *  1) CONTINUOUS
  *  2) INTERRUPT
@@ -68,6 +51,24 @@ using namespace std;
  *	COLLASSO : il 'collasso' è regolata dal valore 'tCollapse', un valore di tempo espresso in frames
  *
  */
+
+#ifndef _INC_FID_BASE
+#define _INC_FID_BASE
+
+#define FIDUCIAL_R		45		// raggio dei fiducial rotondi
+#define FIDUCIAL_L		95		// lato dei fiducial quadrati
+
+
+#define FIDUCIAL_FPS	30
+#define STEP_IN			int( 255.0f / ( FIDUCIAL_FPS * (150.0f / 1000.0f) ) ) // 170 ms
+#define	STEP_OUT		int( 255.0f / ( FIDUCIAL_FPS * (350.0f / 1000.0f) ) ) // 354 ms
+
+#include <iostream>
+#include <math.h>
+#include "ofMain.h"
+
+using namespace std;
+
 
 class Fid_Base 
 {
@@ -95,7 +96,7 @@ class Fid_Base
 		} stato;
 	
 		int		transparency;
-		bool	alive;			
+		bool	bAlive;			
 		
 		// variabili inerenti all'animazione del fiducial al passaggio della playhead
 		bool	bExpand;
@@ -111,7 +112,7 @@ class Fid_Base
 	
 		public:
 			Fid_Base();
-			~Fid_Base() { cout << "FID_BASE: De-constructiong!" << endl; }
+			~Fid_Base() { /*cout << "FID_BASE: De-constructiong!" << endl;*/ }
 	
 			virtual void added() = 0;
 	 

@@ -32,7 +32,7 @@
 
 // COSTRUTTORE /////////////////////////////////////////////////////////
 Fid_Base::Fid_Base() {
-	cout << "FID_BASE: Constructiong!" << endl;;
+	//cout << "FID_BASE: Constructiong!" << endl;;
 	
 	// di seguito inzializziamo tutti gli elementi che accomununano tutti i vari fiducials tra di loro
 	tExpand   = ( 10 * FIDUCIAL_FPS) / 60; // valore temporale (espresso in frames) per l'espansione
@@ -42,7 +42,7 @@ Fid_Base::Fid_Base() {
 	
 	transparency = 0;
 	stato = STABLE;
-	alive = false;
+	bAlive = false;
 	
 	// variabili utili per l'animazione del trigger
 	// ossia quando la playhead raggiunge la posizione del fiducial

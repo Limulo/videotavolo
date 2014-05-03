@@ -33,8 +33,7 @@
 // COSTRUTTORE /////////////////////////////////////////////////
 Fid_Bass::Fid_Bass(int _fid, int _sid)
 {
-	std::cout << "FID BASS: Constructiong derived!" << std::endl;
-	
+	//std::cout << "FID BASS: Constructiong derived!" << std::endl;
 	fid = _fid;
 	sid = _sid;
 }
@@ -58,7 +57,7 @@ void Fid_Bass::setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, ofC
 void Fid_Bass::added(void)
 {
 	stato = FADE_IN;
-	alive = true;
+	bAlive = true;
 }
 
 
@@ -73,7 +72,18 @@ void Fid_Bass::update_interrupt(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid
 
 void Fid_Bass::update_continuos(int bass_level_) 
 {
+	// la variabile A serve per ammorbidire ulteriormente l'animazione in ingresso e in uscita.
+	// La grandezza del disegno del basso è data da un valore fisso ( 'FIDUCIAL_R' )
+	// e da un valore variabile pari a 'bass_level_ * BASS_MAX_AMP' .
+	// La variabile 'A', proporzionale alla trasparenza, la quale varia in accordo con il tempo di 'Fade in' e 'Fade out'
+	// ( cui sono legati anche i valori di 'STEP_IN' e 'STEP_OUT' ), scala ulterioremente il valore variabile tra 0 e 1
+	// Quando il fiducial è posizionato sulla superficie (ci troviamo in FADE_IN) l'ampiezza del disegno è pari alla sola ampiezza fissa, 
+	// anche se il suono del basso è ad un suo picco massimo di ampiezza, questa viene scalata per la variabile 'A' che, in accordo con il 
+	// progressivo aumentare della trasparenza tra 0 e 255, varia gradualmente fino ad assesarsi su 1 nello stato STABLE.
+	// in questo stato il rapporto tra dilatazione e suono in ingresso è di 1:1.
+	// Il procedimento simile ed opposto si verifica nel caso contrario in cui 'A' varia da 1 a 0 come transparency varia da 255 a 1	
 	
+	float A = 1.0;
 	// STATE UPDATE -----------------------------------------------
 	if (stato == FADE_IN) 
 	{
@@ -83,23 +93,26 @@ void Fid_Bass::update_continuos(int bass_level_)
 			transparency = 255;
 			stato = STABLE;
 		} 
+		A = (transparency / 255.0);
 		
-	} else if (stato == FADE_OUT) 
+	} 
+	else if (stato == FADE_OUT) 
 	{
 		transparency -= STEP_OUT;
 		if (transparency < 0)
 		{
 			stato = STABLE;
 			transparency = 0;
-			alive = false;
+			bAlive = false;
 		} 
+		A = (transparency / 255.0);
 		
 	} 
-	else 
-	{
-		// se sono in stato STABLE modifico il valore bass_level in accordo qon il valore ricevuto dall'esterno
-		bass_level = bass_level_ * BASS_MAX_AMP * 0.10;
-	}
+	 
+	// qualunque sia lo stato in cui mi trovi, provvedo a calcolare l'ampiezza del disegno sempre basata sul
+	// livello sonoro in ingresso. Se sono nello stato STABLE il rapporto tra dilatazione del disegno e 
+	// livello sonoro in ingresso è pari a 1:1 mentre è ridotto se siamo in FADE_IN o FADE_OUT
+	bass_level = A * bass_level_ * BASS_MAX_AMP * 0.10;
 	
 	f_color.set(fr, fg, fb, transparency);
 }
@@ -147,7 +160,7 @@ ofVec2f* Fid_Bass::getFidPos()
 
 bool Fid_Bass::isAlive() 
 {
-	return alive;
+	return bAlive;
 }
 
 
@@ -181,7 +194,7 @@ void Fid_Bass::debug() {
 	
 	ofDrawBitmapString("f-id: " + ofToString((int)fid) + ";\t s-id: " + ofToString((int)sid), 0, 0);
 	
-	if (alive)
+	if (bAlive)
 		ofDrawBitmapString("alive!\n", 0, 13);
 	
 	switch (stato){

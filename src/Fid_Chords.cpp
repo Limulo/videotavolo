@@ -33,7 +33,7 @@
 // COSTRUTTORE /////////////////////////////////////////////////
 Fid_Chords::Fid_Chords(int _fid, int _sid)
 {
-	std::cout << "FID CHORDS: Constructiong derived!" << std::endl;
+	//std::cout << "FID CHORDS: Constructiong derived!" << std::endl;
 	
 	fid = _fid;
 	sid = _sid;
@@ -63,7 +63,7 @@ void Fid_Chords::setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, o
 void Fid_Chords::added(void)
 {
 	stato = FADE_IN;
-	alive = true;
+	bAlive = true;
 }
 
 
@@ -96,7 +96,7 @@ void Fid_Chords::update_continuos(int playHeadPos_) {
 		{
 			stato = STABLE;
 			transparency = 0;
-			alive = false;
+			bAlive = false;
 		} 
 	} 	
 	
@@ -168,7 +168,7 @@ ofVec2f* Fid_Chords::getFidPos()
 
 bool Fid_Chords::isAlive() 
 {
-	return alive;
+	return bAlive;
 }
 
 float Fid_Chords::get_lim_angle() 
@@ -239,7 +239,7 @@ void Fid_Chords::debug() {
 	
 	ofDrawBitmapString("f-id: " + ofToString((int)fid) + ";\t s-id: " + ofToString((int)sid), 0, 0);
 	
-	if (alive)
+	if (bAlive)
 		ofDrawBitmapString("alive!\n", 0, 13);
 	
 	switch (stato){

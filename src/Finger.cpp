@@ -36,7 +36,7 @@
 // COSTRUTTORE /////////////////////////////////////////////////
 Finger::Finger(int _fid)
 {
-	std::cout << "Constructing Finger!" << std::endl;
+	//std::cout << "Constructing Finger!" << std::endl;
 	fid = _fid;
 	
 	//fid_pos

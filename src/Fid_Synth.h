@@ -35,19 +35,12 @@
 #ifndef _INC_FID_SYNTH
 #define _INC_FID_SYNTH
 
-//#define FIDUCIAL_FPS	60
-
 #include "Fid_Base.h"
 #include "ofMain.h"
 #include <math.h>
 #include <stdio.h>
 
 #define PAD_MAX_AMP		35	// ampiezza massima dell'oscillazione per il disegno del pad
-
-//#define STEP_IN			25	// velocità che impiega il fiducial a comparire sullo schermo
-//#define	STEP_OUT		12	// velocità che impiega il fiducial a scomparire dallo schermo
-//#define STEP_IN			int( 255 / ( FIDUCIAL_FPS * (170 / 1000) ) )
-//#define	STEP_OUT		int( 255 / ( FIDUCIAL_FPS * (354 / 1000) ) )
 
 
 class Fid_Synth: virtual public Fid_Base {
@@ -59,6 +52,7 @@ private:
 	static unsigned int synth_bpm;
 	
 	// variabili di utilità per l'animazione
+	int numero_croma;
 	float r_osc;
 	float f;
 	float t, t0;
@@ -66,7 +60,7 @@ private:
 	
 public:
 	Fid_Synth(int _fid, int _sid);
-	~Fid_Synth() { std::cout << "FID SYNTH: De-constructiong derived: Fid_Synth!" << std::endl; }
+	~Fid_Synth() { /*std::cout << "FID SYNTH: De-constructiong derived: Fid_Synth!" << std::endl;*/ }
 	
 	void setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, ofColor _color);
 	void added();

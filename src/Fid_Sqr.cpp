@@ -34,7 +34,7 @@
 Fid_Sqr::Fid_Sqr(int _fid, int _sid)
 {
 	
-	std::cout << "FID SQR: Constructing derived!" << std::endl;
+	//std::cout << "FID SQR: Constructing derived!" << std::endl;
 	
 	fid = _fid;
 	sid = _sid;
@@ -63,7 +63,7 @@ void Fid_Sqr::setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, ofCo
 void Fid_Sqr::added()
 {
 	stato = FADE_IN;
-	alive = true;
+	bAlive = true;
 }
 
 
@@ -97,7 +97,7 @@ void Fid_Sqr::update_continuos(int playHeadPos_)
 			{
 				stato = STABLE;
 				transparency = 0;
-				alive = false;
+				bAlive = false;
 			} 
 		}
 		
@@ -180,7 +180,8 @@ void Fid_Sqr::draw(void)
 		//ofSetHexColor(0x0000ee);
 		ofFill();
 		ofRect(0, 0, FIDUCIAL_L, FIDUCIAL_L);
-		ofSetHexColor(0x000000);
+		//ofSetHexColor(0x000000);
+		ofSetColor(0, 0, 0, transparency);
 		ofNoFill();
 		ofRect(0, 0, FIDUCIAL_L, FIDUCIAL_L);
 	}
@@ -199,7 +200,7 @@ ofVec2f* Fid_Sqr::getFidPos()
 
 bool Fid_Sqr::isAlive() 
 {
-	return alive;
+	return bAlive;
 }
 
 // OTHER ///////////////////////////////////////////////////////
@@ -228,7 +229,7 @@ void Fid_Sqr::debug()
 	
 			ofDrawBitmapString("f-id: " + ofToString((int)fid) + ";\t s-id: " + ofToString((int)sid), 0, 0);
 	
-			if (alive)
+			if (bAlive)
 				ofDrawBitmapString("alive!\n", 0, 13);
 	
 			switch (stato)

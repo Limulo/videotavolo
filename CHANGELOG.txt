@@ -10,9 +10,20 @@ TODO
 - metti in line alcune funzioni per risparmiare tempo
 - utilizza la direttiva #undef per togliere la definizione alle macro nei punti in cui esse non servano più per lasciarle definite solo nelle porzioni di codice dove esse servano (vedi pg. 246 cpp)
 - tradurre la matrice multidimensionale TABLE in 2 differenti tabelle: una monodimensionale 3 x 8 x 1 di unsigned int per conservare i SID; l'altra tridimensionale (?) di 3 piani da 3 byte (3 char) l'uno in cui ciascun bit rappresenta lo stato dello strumento in quel particolare istante di tempo.
-- issue07 - se viene fatto un remove e, subito dopo un erase dalla lista, l'animazione relativa al FADE OUT del fiducial non potra' essere apprezzata (controlla sezione 'OBJECT REMOVED' di testApp.cpp). 
-Eliminare un oggetto da una lista significa invocare contestualmente il distruttore dell'istanza?
 
+videotavolo-v1.5.2 =================
+SOLVED
+- issue07 - se viene fatto un remove e, subito dopo un erase dalla lista, l'animazione relativa al FADE OUT del fiducial non potra' essere apprezzata (controlla sezione 'OBJECT REMOVED' di testApp.cpp). 
+Eliminare un oggetto da un vettore significa invocare contestualmente il distruttore? 
+Questo dipende. Se il vettore è un contenitore di oggetti, allora eliminare un elemento del vettore significa chimarne il distruttore. Se invece il vettore è una contenitore di puntatori ad oggetti, 
+eliminare un elemento dal vettore cancella semplicemente il puntatore ad uno specifico oggetto che però rimane in vita e, avendone noi perso ogni riferimento, non potrà più essere raggiungibile
+causando quindi un MEMORY LEAK.
+Per questo, nel caso di un vettore di puntatori ad oggetti, occorre invocare esplicitamente anche il distruttore dell'oggetto (sfruttandone il puntatore memorizzato nell'array) prima di eliminare il puntatore.
+
+Risolte alcuni piccoli problemini relativi alla resa grafica degli oggetti nei momenti in cui avviene il FADE_IN e il FADE_OUT
+- trasparenza dei contorni esterni neri
+- uso della varibile 'A' per BASS e SYNTH in modo tale da scalare come 'transparency' l'ampiezza dei relativi fiducial nelle animazioni FADE_IN FADE_OUT 
+Migliorato il modo in cui il fudicial del synth viene animato nel momento in cui viene posizionato sulla superficie. Si evitano così dei bruschi scatti di ampiezza.
 
 videotavolo-v1.5.1 =================
 SOLVED

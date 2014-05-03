@@ -33,7 +33,7 @@ using namespace std;
 // version
 int vMajor = 1;
 int vMinor = 5;
-int vMaintenance = 1;
+int vMaintenance = 2;
 
 // colori generici
 ofColor black	(0,		0,		0);
@@ -288,7 +288,7 @@ void testApp::update()
 			play(n_crome);
 			
 			// aggiorno i valori per la visualizzazione corretta dell'animazione del Fid Synth
-			// questo avviene in corrispondenza delle cole crome
+			// questo avviene in corrispondenza delle sole crome
 			Fid_Synth::synth_bpm = bpm;
 			for (vector<Fid_Synth*>::iterator it=synth_vec.begin(); it !=synth_vec.end(); ++it) 
 				(*it)->reset_internal_timer(n_crome);
@@ -312,14 +312,22 @@ void testApp::update()
 		centro.x = wQuadro/2.0f;
 		centro.y = hQuadro/2.0f;
 	
-		// chiamo il metodo UPDATE CONTINUOUS per tutti i fiducial
-		for (vector<Fid_Bass*>::iterator it=bass_vec.begin(); it !=bass_vec.end(); ++it)
+		// chiamo il metodo UPDATE CONTINUOUS per tutti i fiducial ----
+		for (vector<Fid_Bass*>::iterator it=bass_vec.begin(); it !=bass_vec.end(); )
 #ifdef _LIBPD
 		{ 
-			(*it)->update_continuos(AppCore::bass_lvl); 
+			if( !(*it)->isAlive() ) {
+				delete (*it);
+				bass_vec.erase(it);	
+			} else {
+				(*it)->update_continuos(AppCore::bass_lvl); 
+				it++;
+			}
 		}
 #else
 		{ 
+			
+			
 			//cout << "INIZIO il controllo dei messaggi OSC:" << endl;
 			while( receiver.hasWaitingMessages() ){		    
 				// get the next message
@@ -345,28 +353,87 @@ void testApp::update()
 			//if(livello_audio_basso == 0)
 			//	cout << "\n" << endl;
 			
-			//cout << "UPDATE DEL FIDUCIAL con il valore: " << livello_audio_basso << endl;
-			(*it)->update_continuos(livello_audio_basso);
+			if( !(*it)->isAlive() ) {
+				delete (*it);
+				bass_vec.erase(it);	
+			} else {
+				//cout << "UPDATE DEL FIDUCIAL con il valore: " << livello_audio_basso << endl;
+				(*it)->update_continuos(livello_audio_basso);
+				it++;
+			}
+			
 		}
 #endif
 		
-		for (vector<Fid_Rot*>::iterator it=rot_vec.begin(); it !=rot_vec.end(); ++it) 
-			(*it)->update_continuos(playHeadPosition);
-	
-		for (vector<Fid_Sqr*>::iterator it=sqr_vec.begin(); it !=sqr_vec.end(); ++it) 
-			(*it)->update_continuos(playHeadPosition);
+		//for (vector<Fid_Round*>::iterator it=rnd_vec.begin(); it !=rnd_vec.end(); ++it) 
+		//	(*it)->update_continuos(playHeadPosition);
+		//
+		for (vector<Fid_Round*>::iterator it=rnd_vec.begin(); it !=rnd_vec.end(); ) { 			
+			if( !(*it)->isAlive() ) {
+				delete (*it);
+				rnd_vec.erase(it);	
+			} else {
+				(*it)->update_continuos(playHeadPosition);
+				it++;
+			}
+		}
+				
+		//for (vector<Fid_Rot*>::iterator it=rot_vec.begin(); it !=rot_vec.end(); ++it)
+		//	(*it)->update_continuos(playHeadPosition);
+		//
+		for (vector<Fid_Rot*>::iterator it=rot_vec.begin(); it !=rot_vec.end(); ) { 			
+			if( !(*it)->isAlive() ) {
+				delete (*it);
+				rot_vec.erase(it);	
+			} else {
+				(*it)->update_continuos(playHeadPosition);
+				it++;
+			}
+		}
+			
+		//for (vector<Fid_Sqr*>::iterator it=sqr_vec.begin(); it !=sqr_vec.end(); ++it) 
+		//	(*it)->update_continuos(playHeadPosition);
+		//
+		for (vector<Fid_Sqr*>::iterator it=sqr_vec.begin(); it !=sqr_vec.end(); ) { 			
+			if( !(*it)->isAlive() ) {
+				delete (*it);
+				sqr_vec.erase(it);	
+			} else {
+				(*it)->update_continuos(playHeadPosition);
+				it++;
+			}
+		}
 		
+		//for (vector<Fid_Synth*>::iterator it=synth_vec.begin(); it !=synth_vec.end(); ++it) 
+		//	(*it)->update_continuos((float)time-last_croma_time);
+		//
+		for (vector<Fid_Synth*>::iterator it=synth_vec.begin(); it !=synth_vec.end(); ) { 			
+			if( !(*it)->isAlive() ) {
+				delete (*it);
+				synth_vec.erase(it);	
+			} else {
+				(*it)->update_continuos((float)time-last_croma_time);
+				it++;
+			}
+		}
+		
+		//for (vector<Fid_Chords*>::iterator it=chords_vec.begin(); it !=chords_vec.end(); ++it) 
+		//	(*it)->update_continuos(playHeadPosition);
+		//
+		for (vector<Fid_Chords*>::iterator it=chords_vec.begin(); it !=chords_vec.end(); ) { 			
+			if( !(*it)->isAlive() ) {
+				delete (*it);
+				chords_vec.erase(it);	
+			} else {
+				(*it)->update_continuos(playHeadPosition);
+				it++;
+			}
+		}
+		
+		// per la classe 'Finger' utilizzo il vecchio metododi update 
+		// la classe 'Finger' infatti non ha il metodo 'isAlive'
 		for (vector<Finger*>::iterator it=dito_vec.begin(); it !=dito_vec.end(); ++it) 
 			(*it)->update_continuos();
-		
-		for (vector<Fid_Round*>::iterator it=rnd_vec.begin(); it !=rnd_vec.end(); ++it) 
-			(*it)->update_continuos(playHeadPosition);
-		
-		for (vector<Fid_Synth*>::iterator it=synth_vec.begin(); it !=synth_vec.end(); ++it) 
-			(*it)->update_continuos((float)time-last_croma_time);
-		
-		for (vector<Fid_Chords*>::iterator it=chords_vec.begin(); it !=chords_vec.end(); ++it) 
-			(*it)->update_continuos(playHeadPosition);
 		
 	
 		// DISEGNO DELLA PLAYHEAD -----------------------------------------
@@ -881,7 +948,7 @@ void testApp::exit()
 #endif
 	
 	vector<Fid_Rot*>::iterator it1=rot_vec.begin();
-	cout << "ROT_LIST: " << rot_vec.size() << " elementi ancora presenti\n";
+	cout << "ROT_LIST: " << rot_vec.size() << " puntatori ancora presenti nel vettore\n";
 	while( !rot_vec.empty() && it1!=rot_vec.end() ) {
 		delete *it1;
 		//(*it1)->removed();
@@ -893,7 +960,7 @@ void testApp::exit()
 	
 	
 	vector<Fid_Sqr*>::iterator it2=sqr_vec.begin();
-	cout << "SQR_LIST: " << sqr_vec.size() << " elementi ancora presenti\n";
+	cout << "SQR_LIST: " << sqr_vec.size() << " puntatori ancora presenti nel vettore\n";
 	while( !sqr_vec.empty() && it2!=sqr_vec.end() ) {
 		delete *it2;
 		//(*it2)->removed();
@@ -905,7 +972,7 @@ void testApp::exit()
 	
 	
 	vector<Finger*>::iterator it3=dito_vec.begin();
-	cout << "DITO_LIST: " << dito_vec.size() << " elementi ancora presenti\n";
+	cout << "DITO_LIST: " << dito_vec.size() << " puntatori ancora presenti nel vettore\n";
 	while( !dito_vec.empty() && it3!=dito_vec.end() ) {
 		delete *it3;
 		//(*it3)->removed();
@@ -917,7 +984,7 @@ void testApp::exit()
 	
 	
 	vector<Fid_Round*>::iterator it4=rnd_vec.begin();
-	cout << "RND_LIST: " << rnd_vec.size() << " elementi ancora presenti\n";
+	cout << "RND_LIST: " << rnd_vec.size() << " puntatori ancora presenti nel vettore\n";
 	while( !rnd_vec.empty() && it4!=rnd_vec.end() ) {
 		delete *it4;
 		//(*it4)->removed();
@@ -929,7 +996,7 @@ void testApp::exit()
 	
 	
 	vector<Fid_Synth*>::iterator it5=synth_vec.begin();
-	cout << "SINT_LIST: " << synth_vec.size() << " elementi ancora presenti\n";
+	cout << "SINT_LIST: " << synth_vec.size() << " puntatori ancora presenti nel vettore\n";
 	while( !synth_vec.empty() && it5!=synth_vec.end() ) {
 		delete *it5;
 		//(*it5)->removed();
@@ -941,7 +1008,7 @@ void testApp::exit()
 	
 	
 	vector<Fid_Chords*>::iterator it6=chords_vec.begin();
-	cout << "CHORDS_LIST: " << chords_vec.size() << " elementi ancora presenti\n";
+	cout << "CHORDS_LIST: " << chords_vec.size() << " puntatori ancora presenti nel vettore\n";
 	while( !chords_vec.empty() && it6!=chords_vec.end() ) {
 		delete *it6;
 		//(*it6)->removed();
@@ -1208,6 +1275,10 @@ void testApp::objectAdded(ofxTuioObject & tuioObject)
 			synth_vec.push_back(synth);
 			synth_vec.back()->setup(&pos, &centro, angolo, color_pads);
 			synth_vec.back()->added();
+			// setto il valore per 'f', 'T' e 't0' (e' necessario sottrarre 1 al valore della croma per non avere,
+			// nell'animazione del synth un effetto 'scattoso' nella parte iniziale dell'animazione )
+			synth_vec.back()->reset_internal_timer(n_crome-1);
+			//synth_vec.back()->update_continuos((float)time-last_croma_time); // setto il valore per 't'
 			
 			break;
 		}
@@ -1435,7 +1506,7 @@ void testApp::objectUpdated(ofxTuioObject & tuioObject)
 			}
 			
 			bpm = ofMap(memoria_bpm_angle, -FIDUCIAL_MER, FIDUCIAL_MER, 30, 260, true);
-			//Fid_Synth::synth_bpm = bpm; //questo metodo è stato sostituito da un sistema più efficiente un TestApp::update;
+			//Fid_Synth::synth_bpm = bpm; //questo metodo è stato sostituito da un sistema più efficiente in TestApp::update;
 			digit.set_bpm(bpm);
 			break;
 
@@ -1534,7 +1605,7 @@ void testApp::objectRemoved(ofxTuioObject & tuioObject)
 					break;
 				}
 			}
-			rnd_vec.erase(it);
+			//rnd_vec.erase(it);
 			
 			
 			break;
@@ -1553,7 +1624,7 @@ void testApp::objectRemoved(ofxTuioObject & tuioObject)
 					break;
 				}
 			}
-			sqr_vec.erase(it);
+			//sqr_vec.erase(it);
 			break;
 		}
 		case HIHAT:
@@ -1570,7 +1641,7 @@ void testApp::objectRemoved(ofxTuioObject & tuioObject)
 					break;
 				}
 			}
-			sqr_vec.erase(it);
+			//sqr_vec.erase(it);
 			break;
 		}
 		case BPM:
@@ -1585,7 +1656,7 @@ void testApp::objectRemoved(ofxTuioObject & tuioObject)
 					break;
 				}
 			}
-			rot_vec.erase(it);
+			//rot_vec.erase(it);
 			
 			break;
 		}
@@ -1614,7 +1685,7 @@ void testApp::objectRemoved(ofxTuioObject & tuioObject)
 					break;
 				}
 			}
-			bass_vec.erase(it);
+			//bass_vec.erase(it);
 			
 			break;
 			
@@ -1643,7 +1714,7 @@ void testApp::objectRemoved(ofxTuioObject & tuioObject)
 					break;
 				}
 			}
-			synth_vec.erase(it);
+			//synth_vec.erase(it);
 			
 			break;
 		}
@@ -1664,7 +1735,7 @@ void testApp::objectRemoved(ofxTuioObject & tuioObject)
 					break;
 				}
 			}
-			chords_vec.erase(it);
+			//chords_vec.erase(it);
 			
 			break;
 		}

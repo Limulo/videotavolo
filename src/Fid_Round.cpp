@@ -33,7 +33,7 @@
 // COSTRUTTORE /////////////////////////////////////////////////
 Fid_Round::Fid_Round(int _fid, int _sid)
 {
-	std::cout << "FID ROUND: Constructiong derived!" << std::endl;
+	//std::cout << "FID ROUND: Constructiong derived!" << std::endl;
 	
 	fid = _fid;
 	sid = _sid;
@@ -62,7 +62,7 @@ void Fid_Round::setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, of
 void Fid_Round::added(void)
 {
 	stato = FADE_IN;
-	alive = true;
+	bAlive = true;
 }
 
 
@@ -97,7 +97,7 @@ void Fid_Round::update_continuos(int playHeadPos_)
 		{
 			stato = STABLE;
 			transparency = 0;
-			alive = false;
+			bAlive = false;
 		} 
 		
 	} 
@@ -177,7 +177,8 @@ void Fid_Round::draw(void)
 		//ofSetHexColor(0x0000ee);
 		ofFill();
 		ofCircle(fid_pos, FIDUCIAL_R);
-		ofSetHexColor(0x000000);
+		//ofSetHexColor(0x000000);
+		ofSetColor(0, 0, 0, transparency);
 		ofNoFill();
 		ofCircle(fid_pos, FIDUCIAL_R);
 		
@@ -196,7 +197,7 @@ ofVec2f* Fid_Round::getFidPos()
 
 bool Fid_Round::isAlive() 
 {
-	return alive;
+	return bAlive;
 }
 
 
@@ -231,7 +232,7 @@ void Fid_Round::debug() {
 	
 	ofDrawBitmapString("f-id: " + ofToString((int)fid) + ";\t s-id: " + ofToString((int)sid), 0, 0);
 	
-	if (alive)
+	if (bAlive)
 		ofDrawBitmapString("alive!\n", 0, 13);
 	
 	switch (stato){

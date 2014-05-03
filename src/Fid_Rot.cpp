@@ -33,7 +33,7 @@
 // COSTRUTTORE /////////////////////////////////////////////////
 Fid_Rot::Fid_Rot(int _fid, int _sid)
 {
-	std::cout << "FID ROT: Constructiong derived!" << std::endl;
+	//std::cout << "FID ROT: Constructiong derived!" << std::endl;
 	
 	fid = _fid;
 	sid = _sid;
@@ -79,7 +79,7 @@ void Fid_Rot::setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, floa
 void Fid_Rot::added(void)
 {
 	stato = FADE_IN;
-	alive = true;
+	bAlive = true;
 }
 
 
@@ -159,7 +159,7 @@ void Fid_Rot::update_continuos(int playHeadPos_) {
 		{
 			stato = STABLE;
 			transparency = 0;
-			alive = false;
+			bAlive = false;
 		} 
 		
 	}
@@ -222,7 +222,8 @@ void Fid_Rot::draw(void)
 		ofSetColor(f_color);
 		ofFill();
 		ofCircle(fid_pos, FIDUCIAL_R);
-		ofSetHexColor(0x000000);
+		//ofSetHexColor(0x000000);
+		ofSetColor(0, 0, 0, transparency);
 		ofNoFill();
 		ofCircle(fid_pos, FIDUCIAL_R);
 	
@@ -245,7 +246,7 @@ ofVec2f* Fid_Rot::getFidPos()
 
 bool Fid_Rot::isAlive() 
 {
-	return alive;
+	return bAlive;
 }
 
 float Fid_Rot::get_lim_angle() 
@@ -304,7 +305,7 @@ void Fid_Rot::debug() {
 
 			ofDrawBitmapString("f-id: " + ofToString((int)fid) + ";\t s-id: " + ofToString((int)sid), 0, 0);
 	
-			if (alive)
+			if (bAlive)
 					ofDrawBitmapString("alive!\n", 0, 13);
 	
 			switch (stato){

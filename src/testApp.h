@@ -182,7 +182,6 @@ public:
 	
 	void	meshReset();
 
-
 	// variabili e strutture dati per la manipolazione dei fiducials
 	Fid_Rot		*rotativo;	
 	Fid_Sqr		*quadrato;	

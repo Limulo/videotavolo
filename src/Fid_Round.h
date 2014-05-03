@@ -30,10 +30,8 @@
 // Questa sottoclasse serve per dare una rappresentazione grafica ai fiducial cui è stata assegnata una forma rotonda
 // si tratta del fiducial KICK
 
-
 #ifndef _INC_FID_ROUND
 #define _INC_FID_ROUND
-
 
 #include "ofMain.h"
 #include <math.h>
@@ -42,13 +40,6 @@
 #include "Fid_Base.h"
 
 #define CIRCLE_RES		35		// risoluzione delcerchio
-
-//#define FIDUCIAL_FPS	60
-
-//#define STEP_IN			25		// velocità che impiega il fiducial a comparire sullo schermo
-//#define	STEP_OUT		12		// velocità che impiega il fiducial a scomparire dallo schermo
-//#define STEP_IN			int( 255 / ( FIDUCIAL_FPS * (170 / 1000) ) )
-//#define	STEP_OUT		int( 255 / ( FIDUCIAL_FPS * (354 / 1000) ) )
 
 
 class Fid_Round: virtual public Fid_Base 
@@ -65,7 +56,7 @@ protected:
 	
 public:
 	Fid_Round(int _fid, int _sid);
-	~Fid_Round() { cout << "FID ROUND: De-constructiong derived: Fid_Round" << endl; }
+	~Fid_Round() { /*cout << "FID ROUND: De-constructiong derived: Fid_Round" << endl;*/ }
 	
 	void setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, ofColor _fColor);
 	
