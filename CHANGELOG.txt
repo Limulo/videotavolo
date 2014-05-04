@@ -10,6 +10,7 @@ TODO
 - metti in line alcune funzioni per risparmiare tempo
 - utilizza la direttiva #undef per togliere la definizione alle macro nei punti in cui esse non servano più per lasciarle definite solo nelle porzioni di codice dove esse servano (vedi pg. 246 cpp)
 - tradurre la matrice multidimensionale TABLE in 2 differenti tabelle: una monodimensionale 3 x 8 x 1 di unsigned int per conservare i SID; l'altra tridimensionale (?) di 3 piani da 3 byte (3 char) l'uno in cui ciascun bit rappresenta lo stato dello strumento in quel particolare istante di tempo.
+- provare  a sfruttare l'opzione dei costruttori con valori impostati di default in modo tale da risparmiarsi la necessita' di usare un costruttore vuoto e poi dover chiamare il metodo INIT.
 
 videotavolo-v1.5.2 =================
 SOLVED
