@@ -1,40 +1,10 @@
-/*
- * videoTavolo
- * ===========
- *
- * INFO
- * ===========
- * videoTavolo è un prototipo di superficie interattiva. 
- * Vengono qui rilasciati i codici sorgente e le patches di PureData del progetto. 
- * Il progetto è curato da Limulo ( http://www.limulo.net ) con i seguenti contributi esterni:
- *
- * 1) ofxPd
- * Copyright (c) Dan Wilcox 2011-2013
- * BSD Simplified License.
- * https://github.com/danomatika/ofxPd
- * 
- * 2) ofxTuio
- * permette di creare e gestire direttamente nell'ambiente 
- * di sviluppo di openFrameworks un server e un client che 
- * comunicano tramite protocollo TUIO
- * https://github.com/patriciogonzalezvivo/ofxTuio
- * 
- * LICENZA
- * ===========
- * ad eccezione degli elementi elencati qui sopra, tutto il codice è rilasciato da Limulo secondo la licenza 
- * Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). Per prendere visione di una copia 
- * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
- * 
- */
-
 // INIT_PAUSA : fino alla versione 1.4.3 si trattava del numero di frame per cui il digit rimane in vista.
-//			il valore originale è pari a 120 ossia, dato 60 il valore di FPS nel programma originale, pari
-//			a 2 secondi.
+// il valore originale è pari a 120 ossia, dato 60 il valore di FPS nel programma originale, pari
+// a 2 secondi.
 
 #ifndef _DIGIT_INIT
 #define _DIGIT_INIT
-#define DIGIT_FPS 30
-
+#define DIGIT_FPS 60
 
 #include "ofMain.h"
 

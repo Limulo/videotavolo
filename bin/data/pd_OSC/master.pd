@@ -1,16 +1,16 @@
-#N canvas 545 27 696 166 10;
-#N canvas 200 22 849 524 mixer 0;
+#N canvas 575 355 713 180 10;
+#N canvas 188 142 1137 725 mixer 0;
 #X obj 10 10 cnv 20 420 160 empty mixer_cnv_r empty 20 12 0 14 -260818
 -262144 0;
 #X obj 40 60 vsl 15 100 0 0.9 0 0 empty empty cassa 0 -9 0 10 -257985
--1 -1 7300 1;
+-1 -1 6400 1;
 #X obj 40 28 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
 -1;
-#X obj 669 148 clip~ -1 1;
-#X obj 669 125 hip~ 4;
-#X obj 669 148 clip~ -1 1;
-#X obj 669 125 hip~ 4;
-#X obj 669 175 dac~;
+#X obj 749 301 clip~ -1 1;
+#X obj 749 278 hip~ 4;
+#X obj 749 301 clip~ -1 1;
+#X obj 749 278 hip~ 4;
+#X obj 749 328 dac~;
 #N canvas 177 163 468 525 cassa 0;
 #X msg 43 110 0;
 #X obj 43 134 pack 1 2;
@@ -29,7 +29,7 @@
 #X msg 230 84 \$1 20;
 #X obj 230 105 line~;
 #X obj 215 390 *~;
-#X floatatom 275 85 5 0 0 0 - - -;
+#X floatatom 275 85 5 0 0 0 - - -, f 5;
 #X obj 137 85 unpack 1 2;
 #X obj 68 0 inlet bang;
 #X obj 230 -1 inlet volume;
@@ -65,7 +65,7 @@
 #X connect 20 0 14 0;
 #X connect 21 0 16 0;
 #X connect 21 0 23 0;
-#X restore 15 167 pd cassa;
+#X restore 15 217 pd cassa;
 #N canvas 491 279 349 313 hihat 0;
 #X obj 108 71 noise~;
 #X obj 45 95 line~;
@@ -76,7 +76,7 @@
 #X msg 209 148 \$1 20;
 #X obj 209 172 line~;
 #X obj 194 241 *~;
-#X floatatom 255 148 5 0 0 0 - - -;
+#X floatatom 255 148 5 0 0 0 - - -, f 5;
 #X msg 45 70 1 \, 0 70;
 #X obj 46 13 inlet bang;
 #X obj 209 8 inlet volume;
@@ -97,14 +97,14 @@
 #X connect 11 0 10 0;
 #X connect 12 0 6 0;
 #X connect 12 0 9 0;
-#X restore 253 173 pd hihat;
+#X restore 178 217 pd hihat;
 #X obj 178 60 vsl 15 100 0 0.9 0 0 empty empty hihat 0 -9 0 10 -257985
--1 -1 4500 1;
+-1 -1 0 1;
 #X obj 178 28 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
 -1;
 #X obj 386 60 vsl 15 100 0 0.9 0 0 empty empty master 0 -9 0 10 -260097
--1 -1 9900 1;
-#X obj 669 100 *~;
+-1 -1 8000 1;
+#X obj 749 163 *~;
 #N canvas 425 140 800 477 rullante 0;
 #X obj 73 -95 noise~;
 #X obj 25 5 *~;
@@ -131,15 +131,15 @@
 #X msg 476 7 \$1 20;
 #X obj 476 31 line~;
 #X obj 476 -113 vsl 15 100 0 0.9 0 0 empty empty delay_volume 0 -9
-0 10 -232576 -1 -1 900 1;
-#X floatatom 522 6 5 0 0 0 - - -;
+0 10 -232576 -1 -1 0 1;
+#X floatatom 522 6 5 0 0 0 - - -, f 5;
 #X obj 185 171 *~;
 #X obj 103 133 *~ 1;
 #X msg 160 47 \$1 20;
 #X obj 160 71 line~;
 #X obj 160 -79 vsl 15 100 0 1000 0 0 empty empty delay_time(ms) 0 -9
-0 10 -232576 -1 -1 1237 1;
-#X floatatom 206 46 5 0 0 0 - - -;
+0 10 -232576 -1 -1 2475 1;
+#X floatatom 206 46 5 0 0 0 - - -, f 5;
 #X obj 25 -164 inlet bang;
 #X obj 384 -161 inlet volume;
 #X obj 46 83 *~;
@@ -175,14 +175,14 @@
 #X connect 20 0 23 0;
 #X connect 21 0 10 0;
 #X connect 22 0 16 0;
-#X restore 120 168 pd rullante;
+#X restore 82 217 pd rullante;
 #X obj 127 60 vsl 15 100 0 0.9 0 0 empty empty dly 0 -9 0 10 -232576
--1 -1 900 1;
+-1 -1 0 1;
 #X obj 82 60 vsl 15 100 0 0.9 0 0 empty empty rullo 0 -9 0 10 -257985
--1 -1 4200 1;
+-1 -1 0 1;
 #X obj 82 28 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -1
 -1;
-#N canvas 11 50 908 638 seq_bass 0;
+#N canvas 9 95 908 638 seq_bass 0;
 #X obj 247 265 select 0 1 2 3 4 5 6 7;
 #X obj 237 289 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -4034 -1;
@@ -218,7 +218,7 @@
 -1 -1;
 #X obj 387 265 select 8 9 10 11 12 13 14 15;
 #X obj 247 152 mod 16;
-#X floatatom 247 174 5 0 0 0 - - -;
+#X floatatom 247 174 5 0 0 0 - - -, f 5;
 #X obj 329 97 f 0;
 #X obj 357 97 + 1;
 #X msg 359 70 0;
@@ -229,7 +229,7 @@
 #X obj 27 48 unpack f f;
 #X obj 160 430 f;
 #X obj 347 354 spigot;
-#X obj 591 291 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 591 291 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 591 265 random 2;
 #X obj 347 376 random 100;
@@ -239,7 +239,7 @@
 #X obj 229 478 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 140 502 list prepend;
-#X floatatom 140 461 5 0 0 0 - - -;
+#X floatatom 140 461 5 0 0 0 - - -, f 5;
 #X obj 140 523 route 0 1;
 #X obj 164 545 - 12;
 #X obj 140 567 t f;
@@ -364,24 +364,24 @@ valori corrispondenti a loro volta a 16 crome = 2 battute musicali).
 #X connect 62 0 22 0;
 #X connect 63 0 64 0;
 #X connect 64 0 18 0;
-#X restore 431 -40 pd seq_bass;
+#X restore 451 190 pd seq_bass;
 #X obj 280 28 tgl 15 0 empty empty ON/OFF 0 -7 0 10 -262144 -1 -1 0
 1;
 #X obj 280 60 vsl 15 100 0 0.9 0 0 empty empty basso 0 -9 0 10 -257985
--1 -1 6800 1;
-#X obj 709 10 catch~ mono;
-#X obj 740 148 clip~ -1 1;
-#X obj 740 125 hip~ 4;
-#X obj 740 148 clip~ -1 1;
-#X obj 740 125 hip~ 4;
-#X obj 740 100 *~;
-#X obj 431 -88 r \$0-bass-notes;
+-1 -1 0 1;
+#X obj 789 123 catch~ mono;
+#X obj 840 301 clip~ -1 1;
+#X obj 840 278 hip~ 4;
+#X obj 840 301 clip~ -1 1;
+#X obj 840 278 hip~ 4;
+#X obj 840 163 *~;
+#X obj 451 -88 r \$0-bass-notes;
 #X obj 550 -40 r \$0-pads-notes;
 #N canvas 576 57 589 434 bass 0;
 #N canvas 175 104 969 531 bass_line 0;
 #X obj 119 491 outlet~;
 #X obj 119 125 mtof;
-#X floatatom 119 147 5 0 0 0 - - -;
+#X floatatom 119 147 5 0 0 0 - - -, f 5;
 #X msg 158 145 0;
 #X obj 119 425 *~;
 #X obj 119 89 t f b b b;
@@ -399,7 +399,7 @@ valori corrispondenti a loro volta a 16 crome = 2 battute musicali).
 #X msg 10 176 \$1 50;
 #X obj 385 18 inlet croma_time;
 #X obj 266 229 pipe 100;
-#X floatatom 385 42 5 0 0 0 - - -;
+#X floatatom 385 42 5 0 0 0 - - -, f 5;
 #X obj 385 142 t f f f f;
 #X obj 311 204 * 2;
 #X obj 216 196 t f b;
@@ -479,10 +479,10 @@ in unscita dall'adsr;
 #X obj 39 157 *~;
 #X msg 289 116 \$1 20;
 #X obj 289 137 line~;
-#X floatatom 333 117 5 0 0 0 - - -;
+#X floatatom 333 117 5 0 0 0 - - -, f 5;
 #X obj 289 20 inlet bass_vol;
 #X obj 117 247 r \$0-ms-per-frame;
-#X floatatom 176 331 5 0 0 0 - - -;
+#X floatatom 176 331 5 0 0 0 - - -, f 5;
 #X obj 176 383 s \$0-bass-lvl-to-OF;
 #X text 216 301 la sezione qui in fianco ha il compito di campionare
 il segnale audio per mandare il valore del livello alla patch di Open
@@ -495,7 +495,7 @@ Frameworks;
 #X obj 16 396 outlet~ audio;
 #X text 206 209 la sezione qui sopra allo scopo di produrre un fade-in
 o fade-out morbido quando il basso venga spento o acceso.;
-#X floatatom 155 268 5 0 0 0 - - -;
+#X floatatom 155 268 5 0 0 0 - - -, f 5;
 #X connect 0 0 12 0;
 #X connect 1 0 11 0;
 #X connect 1 0 21 0;
@@ -523,15 +523,15 @@ o fade-out morbido quando il basso venga spento o acceso.;
 #X connect 23 0 24 0;
 #X connect 24 0 25 0;
 #X connect 25 0 22 0;
-#X restore 431 174 pd bass;
-#X obj 141 -15 r \$0-croma_time;
-#X obj 329 28 tgl 15 0 empty empty ON_/_OFF 0 -7 0 10 -262144 -1 -1
-0 1;
+#X restore 451 217 pd bass;
+#X obj 106 -33 r \$0-croma_time;
+#X obj 329 28 tgl 15 0 empty empty ON/OFF 0 -7 0 10 -262144 -1 -1 0
+1;
 #X obj 328 60 vsl 15 100 0 0.9 0 0 empty empty pads 0 -9 0 10 -257985
--1 -1 8200 1;
-#X obj 669 -17 catch~ L;
-#X obj 740 -16 catch~ R;
-#N canvas 608 119 366 447 pads 0;
+-1 -1 0 1;
+#X obj 749 96 catch~ L;
+#X obj 840 97 catch~ R;
+#N canvas 606 134 569 553 pads 0;
 #N canvas 84 58 833 573 8_phasors 0;
 #X obj 53 9 inlet voices;
 #X obj 77 544 outlet~ ch1;
@@ -592,7 +592,7 @@ da riprodurre).;
 #X connect 21 0 1 0;
 #X connect 22 0 1 0;
 #X restore 87 137 pd 8_phasors;
-#N canvas 2 22 858 499 strange_fx_1 0;
+#N canvas 2 50 858 499 strange_fx_1 0;
 #X obj 3 14 inlet~ ch1;
 #X obj 271 17 inlet~ ch2;
 #X obj 222 222 delwrite~ pippo 100;
@@ -602,9 +602,9 @@ da riprodurre).;
 #X obj 10 101 / 100;
 #X obj 10 198 outlet;
 #X msg 10 34 bang;
-#X floatatom 24 123 5 0 0 0 - - -;
+#X floatatom 24 123 5 0 0 0 - - -, f 5;
 #X msg 10 140 \$1 1000;
-#X floatatom 56 200 5 0 0 0 - - -;
+#X floatatom 56 200 5 0 0 0 - - -, f 5;
 #X obj 10 163 line;
 #X obj 10 8 loadbang;
 #X text 114 7 ogni secondo viene estratto un numero casuale compreso
@@ -624,9 +624,9 @@ dall'ultimo valore che era stato mandato in uscita.;
 #X restore 495 17 pd one_second;
 #X obj 495 41 s \$0-var_line;
 #X obj 160 17 r \$0-var_line;
-#X floatatom 160 80 5 0 0 0 - - -;
+#X floatatom 160 80 5 0 0 0 - - -, f 5;
 #X obj 385 16 r \$0-var_line;
-#X floatatom 385 85 5 0 0 0 - - -;
+#X floatatom 385 85 5 0 0 0 - - -, f 5;
 #X obj 385 38 swap 1;
 #X obj 385 63 -;
 #X obj 357 197 vcf~ 500 1;
@@ -643,13 +643,13 @@ dall'ultimo valore che era stato mandato in uscita.;
 #X obj 289 402 *~;
 #X obj 206 403 *~;
 #X obj 221 265 r \$0-var_line;
-#X floatatom 221 287 5 0 0 0 - - -;
+#X floatatom 221 287 5 0 0 0 - - -, f 5;
 #X obj 221 351 sig~;
 #X obj 221 329 + 0.2;
 #X obj 221 306 * 0.7;
 #X obj 357 222 *~ 3;
 #X obj 131 218 *~ 3;
-#X floatatom 214 165 5 0 0 0 - - -;
+#X floatatom 214 165 5 0 0 0 - - -, f 5;
 #X obj 160 122 + 500;
 #X obj 160 99 * 100;
 #X obj 214 142 snapshot~;
@@ -658,7 +658,7 @@ dall'ultimo valore che era stato mandato in uscita.;
 #X obj 249 96 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 249 73 metro 100;
-#X floatatom 292 166 5 0 0 0 - - -;
+#X floatatom 292 166 5 0 0 0 - - -, f 5;
 #X obj 292 143 snapshot~;
 #X text 475 86 il suono in ingresso dallo stadio precedente √® mandato
 in ingresso a due filtri controllati in voltaggio. I due filtri sono
@@ -707,12 +707,12 @@ modula il volume facendolo oscillare da 0.2 a 0.9.;
 #X connect 36 0 39 0;
 #X connect 37 0 36 0;
 #X connect 39 0 38 0;
-#X restore 87 158 pd strange_fx_1;
-#N canvas 4 22 466 354 ping_pong_dly 0;
+#X restore 87 168 pd strange_fx_1;
+#N canvas 4 50 466 354 ping_pong_dly 0;
 #X obj 15 106 delwrite~ fx_L 2000;
 #X obj 99 82 delwrite~ fx_R 2000;
 #X obj 254 154 delread~ fx_L 2000;
-#X floatatom 254 63 5 0 0 0 - - -;
+#X floatatom 254 63 5 0 0 0 - - -, f 5;
 #X obj 254 114 line;
 #X msg 254 88 \$1 100;
 #X obj 282 179 delread~ fx_R 2000;
@@ -749,28 +749,28 @@ e \, con un feedback pari al 50% viene poi rimandato al buffer.;
 #X connect 16 0 7 0;
 #X connect 17 0 14 1;
 #X connect 17 0 15 1;
-#X restore 82 214 pd ping_pong_dly;
-#X msg 157 91 0;
-#X obj 121 68 sel 1;
-#X obj 213 231 *~;
-#X obj 213 204 vline~;
-#X msg 213 184 0 \, \$1 3000;
-#X obj 121 91 t b b;
-#X msg 213 163 1;
-#X obj 175 337 *~;
-#X obj 82 340 *~;
-#X obj 82 415 throw~ L;
-#X obj 175 415 throw~ R;
-#X obj 40 10 inlet chords;
-#X obj 121 10 inlet on_off;
-#X obj 82 390 *~;
-#X obj 175 392 *~;
-#X obj 121 116 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X restore 87 214 pd ping_pong_dly;
+#X msg 174 71 0;
+#X obj 127 48 sel 1;
+#X obj 273 374 *~;
+#X obj 273 347 vline~;
+#X msg 273 129 0 \, \$1 3000;
+#X obj 127 91 t b b;
+#X msg 273 108 1;
+#X obj 197 310 *~;
+#X obj 87 310 *~;
+#X obj 87 415 throw~ L;
+#X obj 197 415 throw~ R;
+#X obj 26 10 inlet chords;
+#X obj 127 10 inlet on_off;
+#X obj 87 390 *~;
+#X obj 197 391 *~;
+#X obj 127 116 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 292 184 \$1 20;
-#X obj 292 205 line~;
-#X floatatom 312 34 5 0 0 0 - - -;
-#X obj 292 11 inlet vol;
+#X msg 382 273 \$1 20;
+#X obj 382 294 line~;
+#X floatatom 402 34 5 0 0 0 - - -, f 5;
+#X obj 382 11 inlet vol;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 1 1 2 1;
@@ -800,11 +800,11 @@ e \, con un feedback pari al 50% viene poi rimandato al buffer.;
 #X connect 22 0 21 0;
 #X connect 22 0 19 0;
 #X restore 550 175 pd pads;
-#X obj 15 -18 r \$0-cassa-bang;
-#X obj 120 -38 r \$0-rullo-bang;
-#X obj 253 -56 r \$0-hihat-bang;
-#X obj 450 -17 r \$0-bass_onoff;
-#X obj 569 -16 r \$0-pads_onoff;
+#X obj 40 -72 r \$0-cassa-bang;
+#X obj 82 -52 r \$0-rullo-bang;
+#X obj 178 -14 r \$0-hihat-bang;
+#X obj 280 -77 r \$0-bass_onoff;
+#X obj 329 -57 r \$0-pads_onoff;
 #N canvas 712 414 557 200 drums_all 0;
 #X obj 12 -38 catch~ drums;
 #X obj 11 118 throw~ mono;
@@ -820,17 +820,17 @@ volta qui si sommano e il volume master è regolato dal volume master
 #X connect 3 0 4 0;
 #X connect 4 0 5 1;
 #X connect 5 0 1 0;
-#X restore 344 173 pd drums_all;
+#X restore 259 217 pd drums_all;
 #X obj 226 60 vsl 15 100 0 0.9 0 0 empty empty batteria 0 -9 0 10 -260097
--1 -1 9900 1;
-#X obj 446 -65 r \$0-column_num;
+-1 -1 3100 1;
+#X obj 466 -65 r \$0-column_num;
 #N canvas 729 476 351 214 recording_util 0;
 #X msg 272 131 stop;
 #X obj 181 31 loadbang;
 #X msg 168 53 0;
 #X obj 69 89 f 0;
 #X obj 99 89 + 1;
-#X floatatom 68 110 5 0 0 0 - - -;
+#X floatatom 68 110 5 0 0 0 - - -, f 5;
 #X obj 12 183 writesf~ 1;
 #X msg 68 131 open sounds/cassa_\$1.wav \, start;
 #X obj 12 8 inlet~ audio;
@@ -852,14 +852,14 @@ volta qui si sommano e il volume master è regolato dal volume master
 #X connect 10 0 9 0;
 #X connect 11 0 2 0;
 #X connect 12 0 0 0;
-#X restore 15 406 pd recording_util;
+#X restore 15 456 pd recording_util;
 #N canvas 729 476 351 214 recording_util 0;
 #X msg 272 131 stop;
 #X obj 181 31 loadbang;
 #X msg 168 53 0;
 #X obj 69 89 f 0;
 #X obj 99 89 + 1;
-#X floatatom 68 110 5 0 0 0 - - -;
+#X floatatom 68 110 5 0 0 0 - - -, f 5;
 #X obj 12 183 writesf~ 1;
 #X obj 12 8 inlet~ audio;
 #X obj 69 53 t b b;
@@ -881,14 +881,14 @@ volta qui si sommano e il volume master è regolato dal volume master
 #X connect 10 0 2 0;
 #X connect 11 0 0 0;
 #X connect 12 0 6 0;
-#X restore 119 384 pd recording_util;
+#X restore 81 434 pd recording_util;
 #N canvas 729 476 351 214 recording_util 0;
 #X msg 272 131 stop;
 #X obj 181 31 loadbang;
 #X msg 168 53 0;
 #X obj 69 89 f 0;
 #X obj 99 89 + 1;
-#X floatatom 68 110 5 0 0 0 - - -;
+#X floatatom 68 110 5 0 0 0 - - -, f 5;
 #X obj 12 183 writesf~ 1;
 #X obj 12 8 inlet~ audio;
 #X obj 69 53 t b b;
@@ -910,14 +910,14 @@ volta qui si sommano e il volume master è regolato dal volume master
 #X connect 10 0 2 0;
 #X connect 11 0 0 0;
 #X connect 12 0 6 0;
-#X restore 183 363 pd recording_util;
+#X restore 155 413 pd recording_util;
 #N canvas 729 476 351 214 recording_util 0;
 #X msg 272 131 stop;
 #X obj 181 31 loadbang;
 #X msg 168 53 0;
 #X obj 69 89 f 0;
 #X obj 99 89 + 1;
-#X floatatom 68 110 5 0 0 0 - - -;
+#X floatatom 68 110 5 0 0 0 - - -, f 5;
 #X obj 12 183 writesf~ 1;
 #X obj 12 8 inlet~ audio;
 #X obj 69 53 t b b;
@@ -939,14 +939,14 @@ volta qui si sommano e il volume master è regolato dal volume master
 #X connect 10 0 2 0;
 #X connect 11 0 0 0;
 #X connect 12 0 6 0;
-#X restore 253 339 pd recording_util;
+#X restore 178 389 pd recording_util;
 #N canvas 729 476 351 214 recording_util 0;
 #X msg 272 131 stop;
 #X obj 181 31 loadbang;
 #X msg 168 53 0;
 #X obj 69 89 f 0;
 #X obj 99 89 + 1;
-#X floatatom 68 110 5 0 0 0 - - -;
+#X floatatom 68 110 5 0 0 0 - - -, f 5;
 #X obj 12 183 writesf~ 1;
 #X obj 12 8 inlet~ audio;
 #X obj 69 53 t b b;
@@ -968,14 +968,14 @@ volta qui si sommano e il volume master è regolato dal volume master
 #X connect 10 0 2 0;
 #X connect 11 0 0 0;
 #X connect 12 0 6 0;
-#X restore 431 319 pd recording_util;
+#X restore 451 369 pd recording_util;
 #N canvas 729 476 351 214 recording_util 0;
 #X msg 272 131 stop;
 #X obj 181 31 loadbang;
 #X msg 168 53 0;
 #X obj 69 89 f 0;
 #X obj 99 89 + 1;
-#X floatatom 68 110 5 0 0 0 - - -;
+#X floatatom 68 110 5 0 0 0 - - -, f 5;
 #X obj 69 53 t b b;
 #X obj 93 9 r start;
 #X obj 168 9 r reset;
@@ -999,8 +999,17 @@ volta qui si sommano e il volume master è regolato dal volume master
 #X connect 11 0 10 0;
 #X connect 12 0 10 0;
 #X connect 13 0 10 1;
-#X restore 698 376 pd recording_util;
-#X msg 669 -84 \; mixer_cnv_r color 14;
+#X restore 918 114 pd recording_util;
+#X msg 749 56 \; mixer_cnv_r color 14;
+#X obj 386 28 tgl 15 0 empty empty MUTE 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 676 43 swap 1;
+#X obj 676 65 -;
+#X obj 840 215 *~;
+#X obj 749 215 *~;
+#X obj 690 112 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 676 197 sig~ 1;
 #X connect 1 0 8 1;
 #X connect 2 0 8 0;
 #X connect 3 0 7 0;
@@ -1012,7 +1021,7 @@ volta qui si sommano e il volume master è regolato dal volume master
 #X connect 11 0 9 0;
 #X connect 12 0 26 1;
 #X connect 12 0 13 1;
-#X connect 13 0 4 0;
+#X connect 13 0 55 0;
 #X connect 14 0 45 0;
 #X connect 14 1 46 0;
 #X connect 15 0 14 3;
@@ -1026,7 +1035,7 @@ volta qui si sommano e il volume master è regolato dal volume master
 #X connect 22 0 7 1;
 #X connect 23 0 22 0;
 #X connect 25 0 24 0;
-#X connect 26 0 23 0;
+#X connect 26 0 54 0;
 #X connect 27 0 18 0;
 #X connect 28 0 35 0;
 #X connect 29 0 48 0;
@@ -1044,11 +1053,20 @@ volta qui si sommano e il volume master è regolato dal volume master
 #X connect 40 0 31 0;
 #X connect 42 0 41 0;
 #X connect 43 0 18 1;
+#X connect 51 0 52 0;
+#X connect 52 0 53 0;
+#X connect 52 1 53 1;
+#X connect 53 0 56 0;
+#X connect 53 0 57 0;
+#X connect 54 0 23 0;
+#X connect 55 0 4 0;
+#X connect 57 0 55 1;
+#X connect 57 0 54 1;
 #X coords 0 0 1 1 420 160 2 10 10;
-#X restore 168 -332 pd mixer;
-#N canvas 193 22 581 339 chords_management 0;
+#X restore 178 12 pd mixer;
+#N canvas 191 95 698 511 chords_management 0;
 #X obj 29 215 list split 2;
-#N canvas 577 32 678 375 chords 0;
+#N canvas 577 50 678 375 chords 0;
 #X msg 36 75 55 50 50 58 60 65 70;
 #X msg 88 144 48 55 51 55 62 65 67;
 #X msg 53 97 50 45 53 57 60 65 72;
@@ -1095,173 +1113,173 @@ riprodotte dal pads.;
 lista vengono mandate al bass \, le restanti 6 ai pads;
 #X obj 163 11 loadbang;
 #X msg 163 33 0;
-#X obj 29 295 s \$0-bass-notes;
-#X obj 63 272 s \$0-pads-notes;
-#X obj 222 11 r \$0-accordi_num;
+#X obj 29 265 s \$0-bass-notes;
+#X obj 69 242 s \$0-pads-notes;
+#X obj 242 11 r \$0-accordi_num;
 #X obj 10 10 cnv 20 100 160 empty chords_management_cnv Am 5 15 0 24
 -260818 -258699 0;
-#X msg 236 132 Am;
-#X msg 265 132 Gmaj7;
-#X msg 306 132 Cmaj7;
-#X msg 380 132 Fmaj7;
-#X msg 422 132 Dsus4;
-#X obj 236 99 select 0 1 2 3 4 5;
-#X obj 236 180 prepend set;
-#X symbolatom 209 210 10 0 0 0 - - -;
+#X msg 210 132 Am;
+#X msg 249 132 Gmaj7;
+#X msg 300 132 Cmaj7;
+#X msg 394 132 Fmaj7;
+#X msg 446 132 Dsus4;
+#X obj 210 99 select 0 1 2 3 4 5;
 #X obj 29 56 vradio 15 1 0 6 empty empty empty 0 -8 0 10 -262144 -1
 -1 0;
 #X text 54 54 Am;
 #X text 54 70 Gmaj7;
 #X text 55 85 Cmaj7;
-#X text 55 101 Em7 add2;
+#X text 47 101 Em7 add2;
 #X text 55 117 Fmaj7;
 #X text 55 131 Dsus4;
-#X msg 209 237 \; chords_management_cnv label \$1;
-#X obj 210 72 t b f;
-#X msg 348 132 Em7;
-#X msg 209 273 \; chords_management_cnv color 14 13 \; chords_management_cnv
+#X msg 352 132 Em7;
+#X msg 210 273 \; chords_management_cnv color 14 13 \; chords_management_cnv
 label_font 0 24 \; \; chords_management_cnv color 14 13 \; chords_management_cnv
 label_font 0 24 \;;
+#X msg 210 237 \; chords_management_cnv label \$1;
+#X obj 210 195 symbol;
+#X obj 210 73 t a;
 #X connect 0 0 5 0;
 #X connect 0 1 6 0;
 #X connect 1 0 0 0;
 #X connect 3 0 4 0;
-#X connect 4 0 17 0;
-#X connect 7 0 17 0;
-#X connect 9 0 15 0;
-#X connect 10 0 15 0;
-#X connect 11 0 15 0;
-#X connect 12 0 15 0;
-#X connect 13 0 15 0;
+#X connect 4 0 15 0;
+#X connect 7 0 15 0;
+#X connect 9 0 25 0;
+#X connect 10 0 25 0;
+#X connect 11 0 25 0;
+#X connect 12 0 25 0;
+#X connect 13 0 25 0;
 #X connect 14 0 9 0;
 #X connect 14 1 10 0;
 #X connect 14 2 11 0;
-#X connect 14 3 26 0;
+#X connect 14 3 22 0;
 #X connect 14 4 12 0;
 #X connect 14 5 13 0;
-#X connect 15 0 16 0;
-#X connect 16 0 24 0;
-#X connect 17 0 1 0;
-#X connect 17 0 25 0;
-#X connect 25 0 16 0;
-#X connect 25 1 14 0;
-#X connect 26 0 15 0;
+#X connect 15 0 1 0;
+#X connect 15 0 26 0;
+#X connect 22 0 25 0;
+#X connect 25 0 24 0;
+#X connect 26 0 14 0;
 #X coords 0 -1 1 1 100 160 2 10 10;
-#X restore 592 -332 pd chords_management;
-#N canvas 48 157 658 414 dsp_osc_key_management 0;
+#X restore 602 12 pd chords_management;
+#N canvas 40 217 658 414 dsp_osc_key_management 0;
 #X obj 10 55 cnv 20 160 115 empty dsp_osc_key_mng_r empty 20 12 0 17
 -260818 -258699 0;
 #X obj 181 230 key;
-#X floatatom 181 276 5 0 0 0 - - -;
+#X floatatom 181 276 5 0 0 0 - - -, f 5;
 #X obj 181 295 select 113 119 101;
 #X obj 181 253 spigot;
 #X obj 181 369 s \$0-cassa-bang;
 #X obj 216 348 s \$0-rullo-bang;
 #X obj 251 327 s \$0-hihat-bang;
-#N canvas 106 106 919 572 osc_management 0;
+#N canvas 195 191 1129 645 osc_management 0;
 #X obj 54 217 tgl 15 0 empty empty verbose 17 7 0 10 -262144 -1 -1
 0 1;
 #X obj 21 238 spigot;
-#X obj 195 265 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 204 265 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 253 264 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 268 264 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 309 265 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 332 265 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X floatatom 126 484 5 0 0 2 durata_della_croma_(ms) - -;
-#X obj 126 507 s \$0-croma_time;
-#X msg 145 450 250;
-#X obj 145 425 loadbang;
-#X obj 185 335 s \$0-cassa-bang;
-#X obj 240 310 s \$0-rullo-bang;
-#X obj 295 286 s \$0-hihat-bang;
-#X obj 242 214 s \$0-bass_onoff;
-#X obj 300 188 s \$0-pads_onoff;
-#X obj 300 168 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X floatatom 126 454 5 0 0 2 durata_della_croma_(ms) - -, f 5;
+#X obj 126 477 s \$0-croma_time;
+#X msg 45 420 250;
+#X obj 45 395 loadbang;
+#X obj 194 335 s \$0-cassa-bang;
+#X obj 258 310 s \$0-rullo-bang;
+#X obj 322 286 s \$0-hihat-bang;
+#X obj 262 212 s \$0-bass_onoff;
+#X obj 330 188 s \$0-pads_onoff;
+#X obj 330 168 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 242 169 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 262 169 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 149 42 tgl 15 0 empty empty OSC 17 7 0 10 -4034 -1 -1 1 1;
-#X obj 21 63 spigot;
-#X text 159 74 questa patch serve per smistare i messaggi OSC in arrivo
+#X obj 149 16 tgl 15 0 empty empty OSC 17 7 0 10 -4034 -1 -1 1 1;
+#X obj 21 31 spigot;
+#X text 99 54 questa patch serve per smistare i messaggi OSC in arrivo
 da OpenFramewoks. All'occorrenza e' possibile suonare le varie parti
 della batteria cliccando sul toggle keyboard.;
-#X obj 542 1 loadbang;
-#X text 573 25 FPS;
-#X obj 542 47 swap 1000;
-#X obj 542 72 /;
-#X floatatom 542 94 5 0 0 0 - - -;
-#X text 542 134 il valore di ms per frame viene inviato agli oggetti
+#X obj 582 1 loadbang;
+#X text 613 25 FPS;
+#X obj 582 47 swap 1000;
+#X obj 582 72 /;
+#X floatatom 582 94 5 0 0 0 - - -, f 5;
+#X text 582 134 il valore di ms per frame viene inviato agli oggetti
 snapshots \, in modo tale che fotografino il valore di un segnale audio
 un numero suffiente di volte per averen una buona descrizione se si
 voglia associarlo a un qualcosa di grafico a schermo (che si aggiorni
 secondo il valore di FPS);
-#X obj 570 341 loadbang;
-#X obj 545 220 r \$0-bass-lvl-to-OF;
-#X obj 545 274 t f b;
-#X msg 545 296 send /bass/level \$1;
-#X obj 272 406 s \$0-column_num;
-#X obj 542 115 s \$0-ms-per-frame;
-#X obj 217 441 s \$0-fps;
-#X obj 486 1 r \$0-fps;
-#X obj 21 -9 OSC;
-#X obj 545 425 sendOSC;
-#X msg 581 389 disconnect;
-#X msg 570 364 connect localhost 9998;
+#X obj 610 371 loadbang;
+#X obj 585 220 r \$0-bass-lvl-to-OF;
+#X obj 585 274 t f b;
+#X msg 585 296 send /bass/level \$1;
+#X obj 296 406 s \$0-column_num;
+#X obj 582 115 s \$0-ms-per-frame;
+#X obj 211 407 s \$0-fps;
+#X obj 516 1 r \$0-fps;
+#X msg 621 419 disconnect;
+#X msg 610 394 connect localhost 9998;
 #X obj 21 263 print in:;
-#X obj 358 164 s \$0-accordi_num;
-#X obj 185 239 OSCroute /kick /snare /hihat;
-#X floatatom 486 24 5 0 0 0 - - -;
-#X obj 126 371 OSCroute /croma_time /fps /column_num;
+#X obj 357 164 s \$0-accordi_num;
+#X floatatom 516 24 5 0 0 0 - - -, f 5;
 #X obj 149 -8 inlet OSConOff;
-#X obj 126 133 OSCroute /transport /drums /bass /pads /chord_num;
-#X obj 21 24 dumpOSC 9997;
-#X obj 545 319 spigot;
-#X obj 545 246 change 0;
-#X msg 542 24 30;
+#X obj 585 319 spigot;
+#X obj 585 246 change 0;
+#X obj 585 455 udpsend;
+#X obj 585 341 packOSC;
+#X obj 126 371 routeOSC /croma_time /fps /column_num;
+#X obj 126 133 routeOSC /transport /drums /bass /pads /chord_num;
+#X obj 21 -8 udpreceive 9997;
+#X obj 21 60 unpackOSC;
+#X obj 194 239 routeOSC /kick /snare /hihat;
+#X msg 582 24 60;
 #X connect 0 0 1 1;
-#X connect 1 0 37 0;
+#X connect 1 0 35 0;
 #X connect 5 0 6 0;
 #X connect 7 0 5 0;
 #X connect 8 0 7 0;
 #X connect 14 0 13 0;
 #X connect 15 0 12 0;
 #X connect 16 0 17 1;
-#X connect 16 0 45 1;
-#X connect 17 0 43 0;
-#X connect 17 0 1 0;
-#X connect 19 0 47 0;
+#X connect 16 0 39 1;
+#X connect 17 0 46 0;
+#X connect 19 0 48 0;
 #X connect 21 0 22 0;
 #X connect 21 1 22 1;
 #X connect 22 0 23 0;
 #X connect 23 0 30 0;
-#X connect 25 0 36 0;
-#X connect 26 0 46 0;
+#X connect 25 0 34 0;
+#X connect 26 0 40 0;
 #X connect 27 0 28 0;
-#X connect 28 0 45 0;
-#X connect 32 0 40 0;
-#X connect 35 0 34 0;
-#X connect 36 0 34 0;
-#X connect 39 0 2 0;
-#X connect 39 0 9 0;
-#X connect 39 1 3 0;
-#X connect 39 1 10 0;
-#X connect 39 2 4 0;
-#X connect 39 2 11 0;
-#X connect 40 0 21 0;
-#X connect 41 0 5 0;
-#X connect 41 1 31 0;
-#X connect 41 2 29 0;
-#X connect 42 0 16 0;
-#X connect 43 0 41 0;
-#X connect 43 1 39 0;
-#X connect 43 2 15 0;
-#X connect 43 3 14 0;
-#X connect 43 4 38 0;
-#X connect 44 0 17 0;
-#X connect 45 0 34 0;
-#X connect 46 0 27 0;
-#X connect 47 0 21 0;
+#X connect 28 0 39 0;
+#X connect 32 0 37 0;
+#X connect 33 0 41 0;
+#X connect 34 0 41 0;
+#X connect 37 0 21 0;
+#X connect 38 0 16 0;
+#X connect 39 0 42 0;
+#X connect 40 0 27 0;
+#X connect 42 0 41 0;
+#X connect 43 0 5 0;
+#X connect 43 1 31 0;
+#X connect 43 2 29 0;
+#X connect 44 0 43 0;
+#X connect 44 1 47 0;
+#X connect 44 2 15 0;
+#X connect 44 3 14 0;
+#X connect 44 4 36 0;
+#X connect 45 0 17 0;
+#X connect 46 0 44 0;
+#X connect 46 0 1 0;
+#X connect 47 0 2 0;
+#X connect 47 0 9 0;
+#X connect 47 1 3 0;
+#X connect 47 1 10 0;
+#X connect 47 2 4 0;
+#X connect 47 2 11 0;
+#X connect 48 0 21 0;
 #X restore 423 213 pd osc_management;
 #X obj 180 10 select 1;
 #X obj 10 10 cnv 15 160 40 empty dsp_osc_key_mng_r DSP 20 12 0 17 -260818
@@ -1278,13 +1296,13 @@ secondo il valore di FPS);
 -1;
 #X obj 122 125 bng 15 250 50 0 empty empty STOP 17 7 0 10 -258113 -1
 -1;
-#X obj 23 369 s start;
-#X obj 73 369 s reset;
-#X obj 122 369 s stop;
+#X obj 23 329 s start;
+#X obj 73 309 s reset;
+#X obj 122 289 s stop;
 #X text 17 390 vedi "recording Utils". all'interno della main patch
 ;
 #N canvas 195 90 317 308 tables 0;
-#N canvas 0 22 450 300 (subpatch) 0;
+#N canvas 0 50 450 300 (subpatch) 0;
 #X array dbtorms 123 float 1;
 #A 0 0 0 1.25893e-05 1.41254e-05 1.58489e-05 1.77828e-05 1.99526e-05
 2.23872e-05 2.51189e-05 2.81838e-05 3.16228e-05 3.54813e-05 3.98107e-05
@@ -1383,5 +1401,5 @@ secondo il valore di FPS);
 #X connect 33 0 13 0;
 #X connect 33 0 12 0;
 #X coords 0 -1 1 1 160 160 2 10 10;
-#X restore 3 -332 pd dsp_osc_key_management;
-#X coords 0 166 1 165 85 60 0;
+#X restore 13 12 pd dsp_osc_key_management;
+#X coords 0 -1 1 1 100 100 2 10 10;

@@ -1,32 +1,3 @@
-/*
- * videoTavolo
- * ===========
- *
- * INFO
- * ===========
- * videoTavolo è un prototipo di superficie interattiva. 
- * Vengono qui rilasciati i codici sorgente e le patches di PureData del progetto. 
- * Il progetto è curato da Limulo ( http://www.limulo.net ) con i seguenti contributi esterni:
- *
- * 1) ofxPd
- * Copyright (c) Dan Wilcox 2011-2013
- * BSD Simplified License.
- * https://github.com/danomatika/ofxPd
- * 
- * 2) ofxTuio
- * permette di creare e gestire direttamente nell'ambiente 
- * di sviluppo di openFrameworks un server e un client che 
- * comunicano tramite protocollo TUIO
- * https://github.com/patriciogonzalezvivo/ofxTuio
- * 
- * LICENZA
- * ===========
- * ad eccezione degli elementi elencati qui sopra, tutto il codice è rilasciato da Limulo secondo la licenza 
- * Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). Per prendere visione di una copia 
- * di tale licenza visitate http://creativecommons.org/licenses/by-sa/4.0/ .
- * 
- */
-
 #include "Fid_Synth.h"
 
 
@@ -136,7 +107,7 @@ void Fid_Synth::update_continuos(float time_)
 	//    (passato alal funzione come argomento);
 	// 2) la frequenza 'f';
 	// Sia il valore 'f' e conseguentemente 't0' vengono calcolate ad intervalli regolari, una croma dopo l'altra
-	// (vedi metodo TestApp::update). L'algoritmo è pensato appositamente per risolvere la "issue01".
+	// (vedi metodo ofApp::update). L'algoritmo è pensato appositamente per risolvere la "issue01".
 	// Con queste nuove modifiche, variando il tempo 'bpm' tramite Fid_Rot, non si verificano bruschi
 	// cambiamenti nell'animazione dell'andamento oscillatorio del Fid_Synth.
 	// il valore passato come argomento alla funzione update_continuos "time_" è espresso in ms
@@ -180,9 +151,9 @@ void Fid_Synth::draw(void)
 		ofSetRectMode(OF_RECTMODE_CENTER);
 		ofSetColor(f_color);
 		ofFill();
-		ofRect(0, 0, FIDUCIAL_L + raggio, FIDUCIAL_L + raggio);
+		ofDrawRectangle(0, 0, FIDUCIAL_L + raggio, FIDUCIAL_L + raggio);
 		ofNoFill();
-		ofRect(0, 0, FIDUCIAL_L + raggio, FIDUCIAL_L + raggio);
+		ofDrawRectangle(0, 0, FIDUCIAL_L + raggio, FIDUCIAL_L + raggio);
 	}
 	
 	ofPopStyle();
