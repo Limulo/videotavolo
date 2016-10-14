@@ -1,0 +1,127 @@
+#N canvas 89 239 1276 604 10;
+#X obj 100 105 cnv 15 150 60 empty empty serial 5 12 0 14 -233017 -66577
+0;
+#X floatatom 525 467 10 0 0 1 baud - -, f 10;
+#X floatatom 621 498 3 0 0 3 parity - -, f 3;
+#X floatatom 652 498 3 0 0 2 stop - -, f 3;
+#X floatatom 685 497 3 0 0 3 data - -, f 3;
+#X floatatom 781 459 5 0 0 0 port - -, f 5;
+#X obj 717 463 tgl 15 0 empty empty rts/cts -10 20 1 11 -24198 -258699
+-1 0 1;
+#X obj 749 499 tgl 15 0 empty empty xon/xoff -14 20 1 11 -24198 -258699
+-1 0 1;
+#X text 464 497 serial packet format:;
+#X text 626 463 handshaking:;
+#X text 426 529 flow control inputs:;
+#X obj 557 529 tgl 15 0 empty empty dsr 0 20 1 11 -24198 -258699 -1
+0 1;
+#X obj 589 529 tgl 15 0 empty empty cts 0 20 1 11 -24198 -258699 -1
+0 1;
+#X obj 833 457 tgl 15 0 empty empty open -6 20 1 11 -24198 -258699
+-1 0 1;
+#X obj 865 504 print port_list;
+#X obj 962 460 print other;
+#X obj 897 457 tgl 15 0 empty empty hupcl -6 20 1 11 -24198 -258699
+-1 0 1;
+#X floatatom 929 480 10 0 0 1 rxerrors - -, f 10;
+#X obj 525 420 route baud dsr cts parity stop data rtscts xonxoff port
+open ports hupcl rxerrors;
+#X msg 389 366 info;
+#X msg 222 366 devices;
+#X msg 344 366 close;
+#X obj 222 403 comport;
+#X obj 222 477 outlet value;
+#X obj 283 303 f;
+#X msg 283 366 open \$1;
+#X text 551 207 data chunk of 8 bits;
+#X text 551 217 extra stop bit off;
+#X text 551 227 parity bit off;
+#X text 551 237 baud rate 9600;
+#X msg 488 386 ports;
+#X text 494 207 settings;
+#X obj 204 120 bng 15 250 50 0 empty empty dev? 17 7 0 10 -262144 -1
+-1;
+#X floatatom 204 147 5 0 100 2 port - -, f 5;
+#X obj 107 127 tgl 15 0 empty empty connect 17 7 0 10 -24198 -1 -1
+1 1;
+#X obj 107 219 sel 1;
+#X obj 12 10 inlet data-to-be-sent;
+#X msg 359 293 bits 8 \, stopbit 0 \, parity 0 \, baud 9600 \, hupcl
+0 \, verbose 0;
+#X obj 260 276 t b b b;
+#X obj 242 452 print from-Arduino;
+#X obj 312 236 t b b;
+#X obj 107 148 tgl 15 0 empty empty polling 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 169 10 key;
+#X floatatom 169 32 5 0 0 0 - - -, f 5;
+#X obj 449 420 route open;
+#X obj 449 11 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 470 26 sel 0;
+#X msg 497 77 color 16 22 22;
+#X msg 470 57 color 13 22 22 \, set 0;
+#X text 551 247 hang up off last close off;
+#X obj 789 505 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 107 269 sel 1;
+#X text 223 101 v05;
+#X msg 107 294 255 \, 1;
+#X text 164 295 (open);
+#X text 157 322 (close);
+#X msg 107 321 255 \, 0;
+#X obj 12 66 loadbang;
+#X obj 12 88 pipe 100;
+#X msg 12 110 0;
+#X connect 5 0 50 0;
+#X connect 18 0 1 0;
+#X connect 18 1 11 0;
+#X connect 18 2 12 0;
+#X connect 18 3 2 0;
+#X connect 18 4 3 0;
+#X connect 18 5 4 0;
+#X connect 18 6 6 0;
+#X connect 18 7 7 0;
+#X connect 18 8 5 0;
+#X connect 18 9 13 0;
+#X connect 18 10 14 0;
+#X connect 18 11 16 0;
+#X connect 18 12 17 0;
+#X connect 18 13 15 0;
+#X connect 19 0 22 0;
+#X connect 20 0 22 0;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 22 0 39 0;
+#X connect 22 1 44 0;
+#X connect 24 0 25 0;
+#X connect 25 0 22 0;
+#X connect 30 0 22 0;
+#X connect 32 0 20 0;
+#X connect 33 0 24 1;
+#X connect 34 0 35 0;
+#X connect 35 0 38 0;
+#X connect 35 1 40 0;
+#X connect 36 0 22 0;
+#X connect 37 0 22 0;
+#X connect 38 0 19 0;
+#X connect 38 1 24 0;
+#X connect 38 2 37 0;
+#X connect 40 0 19 0;
+#X connect 40 1 21 0;
+#X connect 41 0 51 0;
+#X connect 42 0 43 0;
+#X connect 44 0 45 0;
+#X connect 45 0 46 0;
+#X connect 46 0 48 0;
+#X connect 46 1 47 0;
+#X connect 47 0 34 0;
+#X connect 48 0 34 0;
+#X connect 51 0 53 0;
+#X connect 51 1 56 0;
+#X connect 53 0 22 0;
+#X connect 56 0 22 0;
+#X connect 57 0 58 0;
+#X connect 58 0 59 0;
+#X connect 59 0 34 0;
+#X coords 0 -1 1 1 150 70 2 100 100;

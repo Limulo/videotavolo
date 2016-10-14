@@ -1,0 +1,76 @@
+#N canvas 436 227 749 650 10;
+#X obj 100 100 cnv 15 190 150 empty empty Light_dimmer 5 12 0 14 -233017
+-66577 0;
+#X obj 306 396 s to-serial;
+#X obj 106 138 vsl 15 100 0 255 0 0 empty empty Master 0 -9 0 10 -262144
+-1 -1 7765 1;
+#X floatatom 306 241 5 0 0 0 - - -, f 5;
+#X obj 306 260 / 2;
+#X obj 306 281 i;
+#X floatatom 306 303 5 0 0 0 - - -, f 5;
+#X msg 306 371 128 \, \$1;
+#X obj 306 326 change;
+#X obj 396 396 s to-serial;
+#X obj 156 138 vsl 15 100 0 255 0 0 empty empty Source 0 -9 0 10 -262144
+-1 -1 9900 1;
+#X floatatom 396 241 5 0 0 0 - - -, f 5;
+#X obj 396 260 / 2;
+#X obj 396 281 i;
+#X floatatom 396 303 5 0 0 0 - - -, f 5;
+#X obj 396 326 change;
+#X obj 486 396 s to-serial;
+#X obj 206 138 vsl 15 100 0 255 0 0 empty empty Dest 0 -9 0 10 -262144
+-1 -1 1941 1;
+#X floatatom 486 241 5 0 0 0 - - -, f 5;
+#X obj 486 260 / 2;
+#X obj 486 281 i;
+#X floatatom 486 303 5 0 0 0 - - -, f 5;
+#X obj 486 326 change;
+#X msg 396 371 129 \, \$1;
+#X msg 486 371 130 \, \$1;
+#X obj 2 21 loadbang;
+#X msg 2 119 200;
+#X msg 36 119 255;
+#X msg 69 119 50;
+#X obj 230 176 bng 15 250 50 0 empty empty clear 0 -7 0 10 -262144
+-1 -1;
+#X obj 306 214 s to-serial;
+#X msg 306 191 240 \, 1;
+#X text 248 229 v0.1;
+#X obj 230 136 bng 15 250 50 0 empty empty reset 17 7 0 10 -262144
+-1 -1;
+#X obj 230 21 t b b b;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
+#X connect 7 0 1 0;
+#X connect 8 0 7 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 23 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 20 0 21 0;
+#X connect 21 0 22 0;
+#X connect 22 0 24 0;
+#X connect 23 0 9 0;
+#X connect 24 0 16 0;
+#X connect 25 0 28 0;
+#X connect 25 0 27 0;
+#X connect 25 0 26 0;
+#X connect 26 0 2 0;
+#X connect 27 0 10 0;
+#X connect 28 0 17 0;
+#X connect 29 0 31 0;
+#X connect 31 0 30 0;
+#X connect 33 0 34 0;
+#X connect 34 0 26 0;
+#X connect 34 1 27 0;
+#X connect 34 2 28 0;
+#X coords 0 -1 1 1 190 150 2 100 100;
