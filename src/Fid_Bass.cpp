@@ -46,13 +46,16 @@ void Fid_Bass::update_continuos(int bass_level_)
 	// la variabile A serve per ammorbidire ulteriormente l'animazione in ingresso e in uscita.
 	// La grandezza del disegno del basso è data da un valore fisso ( 'FIDUCIAL_R' )
 	// e da un valore variabile pari a 'bass_level_ * BASS_MAX_AMP' .
-	// La variabile 'A', proporzionale alla trasparenza, la quale varia in accordo con il tempo di 'Fade in' e 'Fade out'
-	// ( cui sono legati anche i valori di 'STEP_IN' e 'STEP_OUT' ), scala ulterioremente il valore variabile tra 0 e 1
-	// Quando il fiducial è posizionato sulla superficie (ci troviamo in FADE_IN) l'ampiezza del disegno è pari alla sola ampiezza fissa, 
-	// anche se il suono del basso è ad un suo picco massimo di ampiezza, questa viene scalata per la variabile 'A' che, in accordo con il 
-	// progressivo aumentare della trasparenza tra 0 e 255, varia gradualmente fino ad assesarsi su 1 nello stato STABLE.
-	// in questo stato il rapporto tra dilatazione e suono in ingresso è di 1:1.
-	// Il procedimento simile ed opposto si verifica nel caso contrario in cui 'A' varia da 1 a 0 come transparency varia da 255 a 1	
+	// La variabile 'A', proporzionale alla trasparenza, la quale varia in accordo con il tempo 
+    // di 'Fade in' e 'Fade out' ( cui sono legati anche i valori di 'STEP_IN' e 'STEP_OUT' ), 
+	// scala ulterioremente il valore variabile tra 0 e 1.
+	// Quando il fiducial è posizionato sulla superficie (ci troviamo in FADE_IN) l'ampiezza del disegno 
+	// è pari alla sola ampiezza fissa, anche se il suono del basso è ad un suo picco massimo di ampiezza, 
+	// questa viene scalata per la variabile 'A' che, in accordo con il progressivo aumentare 
+	// della trasparenza tra 0 e 255, varia gradualmente fino ad assestarsi su 1 nello stato STABLE.
+	// In questo stato il rapporto tra dilatazione e suono in ingresso è di 1:1.
+	// Il procedimento simile ed opposto si verifica nel caso contrario in cui 'A' varia da 1 a 0 
+	// come transparency varia da 255 a 1.
 	
 	float A = 1.0;
 	// STATE UPDATE -----------------------------------------------
@@ -156,14 +159,17 @@ void Fid_Bass::debug() {
 	// RIQUADRO 1 -----------------------------------------------
 	ofPushMatrix(); 
 	ofTranslate(-50, -120 , 0);
-	ofDrawBitmapString("BASS\nFid_Pos X: " + ofToString(fid_pos.x) + "\nFid_Pos Y: " + ofToString(fid_pos.y) + "\nFid_Angle: " + ofToString(fid_angle), 0, 0);
+	ofDrawBitmapString("BASS\nFid_Pos X: " + ofToString(fid_pos.x) + 
+					   "\nFid_Pos Y: " + ofToString(fid_pos.y) + 
+					   "\nFid_Angle: " + ofToString(fid_angle), 0, 0);
 	ofPopMatrix();
 	
 	// RIQUADRO 4 -----------------------------------------------
 	ofPushMatrix();
 	ofTranslate(-50, 80 , 0);
 	
-	ofDrawBitmapString("f-id: " + ofToString((int)fid) + ";\t s-id: " + ofToString((int)sid), 0, 0);
+	ofDrawBitmapString("f-id: " + ofToString((int)fid) + 
+					   ";  s-id: " + ofToString((int)sid), 0, 0);
 	
 	if (bAlive)
 		ofDrawBitmapString("alive!\n", 0, 13);

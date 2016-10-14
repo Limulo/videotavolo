@@ -89,6 +89,7 @@ public:
 	long unsigned int	time;
 	static unsigned int bpm;
 	static int			croma_time;
+	int			old_croma_time;
 	static float		chord_number;
 	int					n_crome;
 	int					last_croma_time;
@@ -103,21 +104,21 @@ public:
 	float memoria_bpm_angle;
 	
 		
-	// variabili e utilità per correggere la distorsione introdotta dal proiettore 
-	//
-	//		/------- FBO --------\
-	//		|					 |
-	//		|	 /----------\	 |
-	//		|	 |			|	 |
-	//		|	 |			|	 |
-	//		|	 |  Quadro  |    |
-	//		|	 |			|	 |
-	//		|	 |			|	 |
-	//		|	 \----------/    |
-	//		|					 |
-	//		\--------------------/
-	//
-	//
+	/* variabili e utilità per correggere la distorsione introdotta dal proiettore 
+	* 
+	*		/------- FBO --------\
+	*		|					 |
+	*		|	 /----------\	 |
+	*		|	 |			|	 |
+	*		|	 |			|	 |
+	*		|	 |  Quadro  |    |
+	*		|	 |			|	 |
+	*		|	 |			|	 |
+	*		|	 \----------/    |
+	*		|					 |
+	*		\--------------------/
+	*
+	*/
 	ofTexture	text;
 	ofMesh		mesh;
 	ofFbo		fbo;

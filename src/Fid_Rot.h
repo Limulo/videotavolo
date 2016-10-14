@@ -30,15 +30,16 @@ protected:
 	float	c_outerRadius;		// raggio della corona circolare (bordo più interno)
 	float	c_fill_angle;		// angolo della corona circolare di riempimento
 	
-	ofColor	c_color;			// 
+	ofColor	c_color;			// 	
+	int fr, fg, fb;				// fiducial color (colore del tondo pieno)
+	int cr, cg, cb;				// corona color (colore della corona circolare)
+	
 	ofPath	c_fill;				// corona circolare: a riempimento
 	ofPath	c_bordo;			// corona circolare: bordo esterno
 	ofVec3f	z_axis;				// asse-z
 	
 	float	fid_limited_angle;	// conserva il dato di rotazione passato da TUIO, limitato tra i valori (-FIDUCIAL_MER, FIDUCIAL_MER)
-	
-	int fr, fg, fb;				// fiducial color (colore del tondo pieno)
-	int cr, cg, cb;				// corona color (colore della corona circolare)
+
 	
 public:
 	Fid_Rot(int _fid, int _sid);

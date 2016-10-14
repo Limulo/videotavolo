@@ -32,7 +32,7 @@ ofColor color_hihat		= c7;
 ofColor color_sfondo	= c1;
 ofColor color_playhead	= c8;
 ofColor color_bpm		= c5;
-ofColor color_bpm_corona = c4;
+ofColor color_bpm_corona= c4;
 ofColor color_bass		= c9;
 ofColor color_pads		= c2;
 
@@ -79,6 +79,7 @@ void ofApp::setup()
 	bpm = 120;					// BPM di default
 	Fid_Synth::synth_bpm = bpm; // BPM di default
 	croma_time=(60000 / (bpm*2)); // tempo di una croma in millisecondi 
+	old_croma_time = croma_time;
 	// 1 minuto = 60000 ms; 
 	// 60000 ms / bpm = tempo di 1 semiminima; 
 	// 60000 ms / (bpm*2) = tempo di 1 croma
@@ -240,8 +241,10 @@ void ofApp::update()
 			play(n_crome);
 			
 			// aggiorno i valori per la visualizzazione corretta dell'animazione del Fid Synth
-			// questo avviene in corrispondenza delle sole crome
+			// mentre questo aggiornamento prima veniva effettauto ad ogno fiducial update, ora 
+			// il procedimento è ripeturo in corrispondenza di ogni croma
 			Fid_Synth::synth_bpm = bpm;
+			
 			for (vector<Fid_Synth*>::iterator it=synth_vec.begin(); it !=synth_vec.end(); ++it) 
 				(*it)->reset_internal_timer(n_crome);
 			
@@ -249,10 +252,16 @@ void ofApp::update()
 			n_crome++;
 		}
 		
-		ofxOscMessage m;
-		m.setAddress("/transport/croma_time");
-		m.addFloatArg((float)croma_time);
-		sender.sendMessage(m);
+		if( old_croma_time != croma_time ) {
+		  // il messaggio OSC indirizzato a PD per aggiornare la durata della croma
+		  // in millisecondi, viene inviato solo quando strettamente necessario, quando ciò
+		  // varia rispetto ad un valore precedente.
+		  ofxOscMessage m;
+		  m.setAddress("/transport/croma_time");
+		  m.addFloatArg((float)croma_time);
+		  sender.sendMessage(m);
+		  old_croma_time = croma_time;
+		}
 
 		// CENTER: update della posizione del contro tavolo -----------
 		centro.x = wQuadro/2.0f;
@@ -262,7 +271,6 @@ void ofApp::update()
 		for (vector<Fid_Bass*>::iterator it=bass_vec.begin(); it !=bass_vec.end(); )
 		{ 
 			
-			
 			//cout << "INIZIO il controllo dei messaggi OSC:" << endl;
 			while( receiver.hasWaitingMessages() ){		    
 				// get the next message
@@ -270,21 +278,24 @@ void ofApp::update()
 				receiver.getNextMessage(&m);
 		
 				// check for bass level message
-				if(m.getAddress() == "/bass/level") {
-					// il messaggio OSC che ricevo da PureData potrebbe essere un valore FLOAT o INT
-					// faccio un controllo sul tipo di messaggio per operare la corretta conversione
-					// (in realtà non sarebbe necessario visto che  i metodi 'getArgAs...' della classe
-					// 'ofxOscMessage' già operano lo stesso tipo di controllo ).
-					//cout << "\tecco un messaggio in attesa d'essere processato - arg di tipo "<< m.getArgTypeName( 0 ) << " ( "<< m.getArgType( 0 ) << " ) - " << endl;
-					if( m.getArgType( 0 ) == 1 ) {
-						livello_audio_basso = (float)m.getArgAsInt32(0);
-					} else {
-						livello_audio_basso = m.getArgAsFloat(0);
-					}
-					//cout << "\timposto la variabile 'livello_audio_basso' al valore: " << livello_audio_basso << endl;
-				}
-					
+				if(m.getAddress() == "/bass/level") 
+				{
+				  // il messaggio OSC che ricevo da PureData potrebbe essere un valore FLOAT o INT
+				  // faccio un controllo sul tipo di messaggio per operare la corretta conversione
+				  // (in realtà non sarebbe necessario visto che i metodi 'getArgAs...' della classe
+				  // 'ofxOscMessage' già operano lo stesso tipo di controllo ).
+				  //cout << "\tecco un messaggio in attesa d'essere processato - arg di tipo "<< m.getArgTypeName( 0 ) << " ( "<< m.getArgType( 0 ) << " ) - " << endl;
+				  // 105 indica un argomento di tipo INT
+				  // 102 indica un argomento di tipo FLOAT				  
+				  if( m.getArgType( 0 ) == 105 ) {
+					livello_audio_basso = (float)m.getArgAsInt32(0);
+				  } else {
+					livello_audio_basso = m.getArgAsFloat(0);
+				  }
+				  //cout << "\timposto la variabile 'livello_audio_basso' al valore: " << livello_audio_basso << endl;
+				}	
 			}
+			
 			//if(livello_audio_basso == 0)
 			//	cout << "\n" << endl;
 			
@@ -824,7 +835,7 @@ void ofApp::draw()
 
 	
 	// CARICO I DATI NELLA TEXTURE //
-	text = fbo.getTextureReference();
+	text = fbo.getTexture();
 	
 	// DISEGNO LA MESH CON LA TEXTURE BINDATA //
 	ofPushStyle();
@@ -1148,23 +1159,24 @@ float ofApp::TUIOscaleX( float TUIOx )
 {
   	float scaled = TUIOx;
 	
-	// Now we calculate the fiducial position to be able to draw it on screen.
-	// Remember: reacTIVision coordinates (that are sent to OF via TUIO protocol)
-	// are 0-1 normalized according to the reacTIVision calibrated grid dimensions.
-	// However our game surface covers only a part of the entire grid in a way that 
-	// we only have to consider objects of X coordinates between 0.125 and 0.875.
-	//
-	//  0  0.125            0.875 1
-	//	/-- I==|==|==|==|==|==I --\
-	//	|-- I--|--|--|--|--|--I --|
-	//	|-- I--|--|--|--|--|--I --|
-	//	|-- I--|--|--|--|--|--I --|
-	//	|-- I--|--|--|--|--|--I --|
-	//	|-- I--|--|--|--|--|--I --|
-	//	\-- I==|==|==|==|==|==I --/
-	//
-	// so, to correctly render the object on screen, we use a mathematical expression:
-	// (tuioObject.getX() - 0.125 )/0.75 ---> (8*tuioObject.getX() - 1)/6
+	/* Now we calculate the fiducial position to be able to draw it on screen.
+	*  Remember: reacTIVision coordinates (that are sent to OF via TUIO protocol)
+	*  are 0-1 normalized according to the reacTIVision calibrated grid dimensions.
+	*  However our game surface covers only a part of the entire grid in a way that 
+	*  we only have to consider objects of X coordinates between 0.125 and 0.875.
+	* 
+	*   0  0.125            0.875 1
+	*	/-- I==|==|==|==|==|==I --\
+	*	|-- I--|--|--|--|--|--I --|
+	*	|-- I--|--|--|--|--|--I --|
+	*	|-- I--|--|--|--|--|--I --|
+	*	|-- I--|--|--|--|--|--I --|
+	*	|-- I--|--|--|--|--|--I --|
+	*	\-- I==|==|==|==|==|==I --/
+	*
+	*  so, to correctly render the object on screen, we use a mathematical expression:
+	*  (tuioObject.getX() - 0.125 )/0.75 ---> (8*tuioObject.getX() - 1)/6
+	*/
 	
 	scaled = (8*scaled - 1) / 6; 
 	
@@ -1261,9 +1273,11 @@ void ofApp::objectAdded(ofxTuioObject & tuioObject)
 			rot_vec.back()->setup(&pos, &centro, angolo, memoria_bpm_angle, color_bpm, color_bpm_corona);
 			rot_vec.back()->added();
 			rot_vec.back()->update_interrupt(&pos, &centro, angolo, rot_vel); 
-			// aggiorno la memoria dell'angolo per poterlo riutilizzare la prossima creazione di uno setsso tipo d'oggetto
+			// aggiorno la memoria dell'angolo per poterlo riutilizzare la prossima 
+			// creazione di uno setsso tipo d'oggetto
 			memoria_bpm_angle = rot_vec.back()->get_lim_angle(); 
-			digit.set_bpm(bpm); // mostro i digit non appena posiziono il Fid_Rod per avere un riscontro immediato
+			// mostro i digit non appena posiziono il Fid_Rod per avere un riscontro immediato
+			digit.set_bpm(bpm); 
 			break;
 
 		}
@@ -1500,12 +1514,11 @@ void ofApp::objectUpdated(ofxTuioObject & tuioObject)
 				if ( (*it)->get_s_id() == session_id) 
 				{
 					(*it)->update_interrupt(&pos, &centro, angolo, rot_vel);
-					// aggiorno la mamoria dell'angolo per poterlo riutilizzare la porssima creazione di uno stsso tipo d'oggetto
+					// aggiorno la mamoria dell'angolo per poterlo riutilizzare 
+					// la porssima creazione di uno stsso tipo d'oggetto
 					memoria_bpm_angle = rot_vec.back()->get_lim_angle(); 
-					
 					break;
 				}
-				
 			}
 			
 			bpm = ofMap(memoria_bpm_angle, -FIDUCIAL_MER, FIDUCIAL_MER, 30, 260, true);
@@ -1926,6 +1939,8 @@ void ofApp::rvReset()
 
 
 //----------------------------------------------------------
+// metodo per creare una immagine contenente logotipi e loghi da mostrare sulla
+// superficie del tavolo.
 void ofApp::fboLogosFilling(int w_, int h_) 
 {
 	int w = w_;
@@ -1933,21 +1948,27 @@ void ofApp::fboLogosFilling(int w_, int h_)
 	
 	int imgA_scale = 4.5;
 	int imgB_scale = 3;
+	int imgC_scale = 2.5	;
 	
 	float d = 15;
 	
 	fboLogos.allocate(w, h, GL_RGB);
 		
 	// immagini normali
-	imgA.loadImage("images/logoTipo_white.png");
-	//imgA.loadImage("images/logoTipo_transparency.png");
-	imgB.loadImage("images/Limulo_quadro_LOW_RES_fondo_bianco.tif");
+	imgA.load("images/logoTipo_white.png");
+	//imgA.load("images/logoTipo_transparency.png");
+	imgB.load("images/Limulo_quadro_LOW_RES_fondo_bianco.tif");
+	ofImage imgC;
+	imgC.load("images/linuxday_foot.png");
 	
 	imgA.resize(imgA.getWidth()/imgA_scale, imgA.getHeight()/imgA_scale);
 	imgB.resize(imgB.getWidth()/imgB_scale, imgB.getHeight()/imgB_scale);
+	imgC.resize(imgC.getWidth()/imgC_scale, imgC.getHeight()/imgC_scale); 
 	
 	imgA.setAnchorPercent(0.88, 0.5);
 	imgB.setAnchorPercent(0.5, 0.5);
+	
+	imgC.setAnchorPercent(0.5, 0.5);
 	
 	// immagini girate
 	imgA_180.clone(imgA);
@@ -1966,7 +1987,8 @@ void ofApp::fboLogosFilling(int w_, int h_)
 		
 		ofPushStyle();
 		ofPushMatrix();
-		ofTranslate(w * 0.5, hQuadro * 0.5);
+		//ofTranslate(w * 0.5, hQuadro * 0.5);
+		ofTranslate(w * 0.5, h * 0.5);
 			ofPushMatrix();
 			ofTranslate(w * margine * -1, h * margine);
 				imgB.draw( 0, 0 );
@@ -1987,6 +2009,12 @@ void ofApp::fboLogosFilling(int w_, int h_)
 			ofTranslate(w * margine * -1, h * margine * -1);
 				imgA_180.draw( 0, 0 );
 			ofPopMatrix();
+			
+			ofPushMatrix();
+			ofRotate(15);
+			  imgC.draw(0, 0);			
+			ofPopMatrix();
+			
 		ofPopMatrix();
 		ofPopStyle();
 	fboLogos.end();

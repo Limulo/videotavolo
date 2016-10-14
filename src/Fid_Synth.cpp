@@ -45,7 +45,7 @@ void Fid_Synth::setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, of
 	t  = 0.0f;
 	t0 = 0.0f;
 	f  = 0.0;
-	float T = 0.0;
+	//float T = 0.0;
 	numero_croma = 0;
 	
 }
@@ -202,7 +202,8 @@ void Fid_Synth::debug()
 	ofPushMatrix();
 	ofTranslate(-50, 100 , 0);
 	
-	ofDrawBitmapString("f-id: " + ofToString((int)fid) + ";\t s-id: " + ofToString((int)sid), 0, 0);
+	ofDrawBitmapString("f-id: " + ofToString((int)fid) + 
+					   ";  s-id: " + ofToString((int)sid), 0, 0);
 	
 	if (bAlive)
 		ofDrawBitmapString("alive!\n", 0, 13);

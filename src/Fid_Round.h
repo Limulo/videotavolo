@@ -16,14 +16,13 @@
 class Fid_Round: virtual public Fid_Base 
 {
 private:
-	
+	int r, g, b;				// fiducial color (colore del tondo pieno)
+  
 protected:
 	float	c_innerRadius;
 	
 	ofColor	c_color;
 	ofVec3f	z_axis;				// asse-z
-	
-	int fr, fg, fb;				// fiducial color (colore del tondo pieno)
 	
 public:
 	Fid_Round(int _fid, int _sid);

@@ -77,7 +77,7 @@ void Fid_Chords::update_continuos(int playHeadPos_) {
 	c_fill.clear();
 	c_fill.setFillColor(c_color);
 	c_fill.setFilled(true);
-	c_fill.setArcResolution(CORONA_RES);
+	c_fill.setCircleResolution(CORONA_RES);
 	c_fill.setMode(c_fill.POLYLINES); 
 	c_fill.arc(0, 0, c_outerRadius, c_outerRadius, 0, CORONA_CHORDS_A); 
 	c_fill.arcNegative(0, 0, c_innerRadius, c_innerRadius, CORONA_CHORDS_A, 0);
@@ -89,7 +89,7 @@ void Fid_Chords::update_continuos(int playHeadPos_) {
 	c_bordo.setStrokeColor(c_color);
 	c_bordo.setStrokeWidth(0.7f);
 	c_bordo.setFilled(false);
-	c_bordo.setArcResolution(CORONA_RES);
+	c_bordo.setCircleResolution(CORONA_RES);
 	c_bordo.setMode(c_bordo.POLYLINES); 
 	c_bordo.arc(0, 0, c_outerRadius, c_outerRadius, 0, CORONA_CHORDS_A); 
 	c_bordo.arcNegative(0, 0, c_innerRadius, c_innerRadius, CORONA_CHORDS_A, 0);
@@ -165,7 +165,8 @@ void Fid_Chords::inside(ofVec2f *p)
 
 
 void Fid_Chords::debug() {
-	char * nome_accordo;
+	//char * nome_accordo;
+	string nome_accordo;
 	
 	// TESTO a schermo ------------------------------------------
 	ofPushMatrix();
@@ -201,14 +202,18 @@ void Fid_Chords::debug() {
 				nome_accordo = "Am";
 				break;
 	}
-	ofDrawBitmapString("FIDUCIAL CHORDS (" + ofToString(nome_accordo) + ")\nFid_Pos X: " + ofToString(fid_pos.x) + "\nFid_Pos Y: " + ofToString(fid_pos.y) + "\nFid_Angle: " + ofToString(fid_angle), 0, 0);
+	ofDrawBitmapString("FIDUCIAL CHORDS (" + ofToString(nome_accordo) + 
+					   ")\nFid_Pos X: " + ofToString(fid_pos.x) + 
+					   "\nFid_Pos Y: " + ofToString(fid_pos.y) + 
+					   "\nFid_Angle: " + ofToString(fid_angle), 0, 0);
 	ofPopMatrix();
 
 	// RIQUADRO 4 -----------------------------------------------
 	ofPushMatrix();
 	ofTranslate(-50, 120 , 0);
 	
-	ofDrawBitmapString("f-id: " + ofToString((int)fid) + ";\t s-id: " + ofToString((int)sid), 0, 0);
+	ofDrawBitmapString("f-id: " + ofToString((int)fid) + 
+					   ";  s-id: " + ofToString((int)sid), 0, 0);
 	
 	if (bAlive)
 		ofDrawBitmapString("alive!\n", 0, 13);

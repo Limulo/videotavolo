@@ -43,7 +43,6 @@ void Fid_Rot::setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, floa
 	cb = _cColor.b;
 	
 	ofSetCircleResolution(CORONA_RES);
-	
 }
 
 // ADDED ///////////////////////////////////////////////////////
@@ -121,7 +120,6 @@ void Fid_Rot::update_continuos(int playHeadPos_) {
 			transparency = 255;
 			stato = STABLE;
 		} 
-		
 	} 
 	else if (stato == FADE_OUT) 
 	{
@@ -132,7 +130,6 @@ void Fid_Rot::update_continuos(int playHeadPos_) {
 			transparency = 0;
 			bAlive = false;
 		} 
-		
 	}
 	
 	c_color.set(cr, cg, cb, transparency);
@@ -143,7 +140,7 @@ void Fid_Rot::update_continuos(int playHeadPos_) {
 	c_fill.clear();
 	c_fill.setFillColor(c_color);
 	c_fill.setFilled(true);
-	c_fill.setArcResolution(CORONA_RES);
+	c_fill.setCircleResolution(CORONA_RES);
 	c_fill.setMode(c_fill.POLYLINES); 
 	c_fill.arc(0, 0, c_outerRadius, c_outerRadius, 0, c_fill_angle); 
 	c_fill.arcNegative(0, 0, c_innerRadius, c_innerRadius, c_fill_angle, 0);
@@ -153,10 +150,20 @@ void Fid_Rot::update_continuos(int playHeadPos_) {
 	// PATH C_BORDO -----------------------------------------------
 	// disegno il bordo ti tutta la corona
 	c_bordo.clear();
-	c_bordo.setStrokeColor(0x000000);
+	//c_bordo.setStrokeColor(0x000000); //nero
+	
+	// il colore di contorno è calcolato a partire da quello di 
+	// riempimento scurendolo leggermente del valore 'diff'
+	bc.r = c_color.r + diff;
+	bc.g = c_color.g + diff;
+	bc.b = c_color.b + diff;
+
+	
+	//c_bordo.setStrokeColor(0x000000);
+	c_bordo.setStrokeColor( bc );
 	c_bordo.setStrokeWidth(0.7f);
 	c_bordo.setFilled(false);
-	c_bordo.setArcResolution(CORONA_RES);
+	c_bordo.setCircleResolution(CORONA_RES);
 	c_bordo.setMode(c_bordo.POLYLINES);
 	c_bordo.arc(0, 0, c_outerRadius, c_outerRadius, 0, CORONA_A); 
 	c_bordo.arcNegative(0, 0, c_innerRadius, c_innerRadius, CORONA_A, 0);
@@ -171,7 +178,6 @@ void Fid_Rot::update_continuos(int playHeadPos_) {
 	c_bordo.translate(fid_pos);
 	
 }
-
 
 
 // REMOVED /////////////////////////////////////////////////////
@@ -194,13 +200,25 @@ void Fid_Rot::draw(void)
 		ofFill();
 		ofDrawCircle(fid_pos, FIDUCIAL_R);
 		//ofSetHexColor(0x000000);
-		ofSetColor(0, 0, 0, transparency);
+		
+		// il colore di contorno è calcolato a partire da quello di 
+		// riempimento scurendolo leggermente del valore 'diff'
+		bc.r = f_color.r + diff;
+		bc.g = f_color.g + diff;
+		bc.b = f_color.b + diff;
+		
+		ofSetColor(bc, transparency);
 		ofNoFill();
 		ofDrawCircle(fid_pos, FIDUCIAL_R);
 	
 		// FIDUCIAL: disegno della corona ---------------------------
-		c_fill.draw(); //ha il colore già impostato dall'update
-		ofSetColor(0, 0, 0, transparency);
+		c_fill.draw(); //ha il colore già impostato dall'update (anche se nonsembra andare)
+
+		bc.r = c_color.r + diff;
+		bc.g = c_color.g + diff;
+		bc.b = c_color.b + diff;
+		
+		ofSetColor(bc, transparency);
 		c_bordo.getOutline().begin()->draw();
 	}
 		
@@ -255,26 +273,32 @@ void Fid_Rot::debug() {
 		// RIQUADRO 1 -----------------------------------------------
 		ofPushMatrix(); 
 			ofTranslate(-50, -180 , 0);
-			ofDrawBitmapString("FIDUCIAL ROTATIVO (BPM)\nFid_Pos X: " + ofToString(fid_pos.x) + "\nFid_Pos Y: " + ofToString(fid_pos.y) + "\nFid_Angle: " + ofToString(fid_angle), 0, 0);
+			ofDrawBitmapString("FIDUCIAL ROTATIVO (BPM)\nFid_Pos X: " + ofToString(fid_pos.x) + 
+							   "\nFid_Pos Y: " + ofToString(fid_pos.y) +
+							   "\nFid_Angle: " + ofToString(fid_angle), 0, 0);
 		ofPopMatrix();
 	
 		// RIQUADRO 2 -----------------------------------------------
 		ofPushMatrix();
 			ofTranslate(-50, -100 , 0);
-			ofDrawBitmapString("fid_cateto: " + ofToString((int)fid_cateto) + "\nfid_ctr_angle: " + ofToString((int)fid_ctr_angle) + "\nrel_rot:" + ofToString((int)rel_rot), 0, 0);
+			ofDrawBitmapString("fid_cateto: " + ofToString((int)fid_cateto) + 
+							   "\nfid_ctr_angle: " + ofToString((int)fid_ctr_angle) + 
+							   "\nrel_rot:" + ofToString((int)rel_rot), 0, 0);
 		ofPopMatrix();
 	
 		// RIQUADRO 3 -----------------------------------------------
 		ofPushMatrix();
 			ofTranslate(-50, 100 , 0);
-			ofDrawBitmapString("fid_limited_angle: " + ofToString((float)fid_limited_angle) + "\nc_fill_angle: " + ofToString((int)c_fill_angle), 0, 0);
+			ofDrawBitmapString("fid_limited_angle: " + ofToString((float)fid_limited_angle) + 
+							   "\nc_fill_angle: " + ofToString((int)c_fill_angle), 0, 0);
 		ofPopMatrix();
 	
 		// RIQUADRO 4 -----------------------------------------------
 		ofPushMatrix();
 			ofTranslate(-50, 150 , 0);
 
-			ofDrawBitmapString("f-id: " + ofToString((int)fid) + ";\t s-id: " + ofToString((int)sid), 0, 0);
+			ofDrawBitmapString("f-id: " + ofToString((int)fid) + 
+							   ";  s-id: " + ofToString((int)sid), 0, 0);
 	
 			if (bAlive)
 					ofDrawBitmapString("alive!\n", 0, 13);

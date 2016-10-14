@@ -114,7 +114,6 @@ void Fid_Sqr::draw(void)
 	{
 		if(bTrigger) 
 		{
-			
 			int t = ofGetFrameNum() - startFrame;
 			
 			if(bExpand) 
@@ -133,7 +132,6 @@ void Fid_Sqr::draw(void)
 				if (raggio < 0.01) 
 				{
 					bCollapse = false;
-					
 				}
 			} 
 		}
@@ -147,20 +145,26 @@ void Fid_Sqr::draw(void)
 		ofDrawRectangle(0, 0, FIDUCIAL_L + raggio*aTrigger, FIDUCIAL_L + raggio*aTrigger);
 		
 		// FIDUCIAL: disegno del fiducial --------------------------
+		// riempimento
 		ofSetColor(f_color);
-		//ofSetHexColor(0x0000ee);
 		ofFill();
 		ofDrawRectangle(0, 0, FIDUCIAL_L, FIDUCIAL_L);
-		//ofSetHexColor(0x000000);
-		ofSetColor(0, 0, 0, transparency);
+		
+		// contorno
+		//ofSetColor(0, 0, 0, transparency);
+		//ofSetColor(f_color);
+		bc.r = r + diff;
+		bc.g = g + diff;
+		bc.b = b + diff;
+			
+		ofSetColor(bc, transparency);
 		ofNoFill();
 		ofDrawRectangle(0, 0, FIDUCIAL_L, FIDUCIAL_L);
 	}
 	
 	ofPopStyle();
 	ofPopMatrix();
-	ofDisableAlphaBlending();
-		 
+	ofDisableAlphaBlending();	 
 }
 
 // GETTERS /////////////////////////////////////////////////////
@@ -191,14 +195,17 @@ void Fid_Sqr::debug()
 		// RIQUADRO 1 -----------------------------------------------
 		ofPushMatrix(); 
 			ofTranslate(-50, -120 , 0);
-			ofDrawBitmapString("FIDUCIAL QUADRATO\nFid_Pos X: " + ofToString(fid_pos.x) + "\nFid_Pos Y: " + ofToString(fid_pos.y) + "\nFid_Angle: " + ofToString(fid_angle), 0, 0);
+			ofDrawBitmapString("FIDUCIAL QUADRATO\nFid_Pos X: " + ofToString(fid_pos.x) + 
+							   "\nFid_Pos Y: " + ofToString(fid_pos.y) + 
+							   "\nFid_Angle: " + ofToString(fid_angle), 0, 0);
 		ofPopMatrix();
 	
 		// RIQUADRO 4 -----------------------------------------------
 		ofPushMatrix();
 			ofTranslate(-50, 100 , 0);
 	
-			ofDrawBitmapString("f-id: " + ofToString((int)fid) + ";\t s-id: " + ofToString((int)sid), 0, 0);
+			ofDrawBitmapString("f-id: " + ofToString((int)fid) + 
+							   ";\ts-id: " + ofToString((int)sid), 0, 0);
 	
 			if (bAlive)
 				ofDrawBitmapString("alive!\n", 0, 13);

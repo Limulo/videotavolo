@@ -24,9 +24,9 @@ void Fid_Round::setup(ofVec2f *_fid_pos, ofVec2f *_ctr_pos, float _fid_angle, of
 	fid_angle = _fid_angle;
 	ofSetCircleResolution(CIRCLE_RES);
 	
-	fr = _fColor.r;
-	fg = _fColor.g;
-	fb = _fColor.b;
+	r = _fColor.r;
+	g = _fColor.g;
+	b = _fColor.b;
 }
 
 // ADDED ///////////////////////////////////////////////////////
@@ -87,17 +87,14 @@ void Fid_Round::update_continuos(int playHeadPos_)
 	}
 	
 	
-	f_color.set(fr, fg, fb, transparency);
+	f_color.set(r, g, b, transparency);
 }
-
-
 
 // REMOVED /////////////////////////////////////////////////////
 void Fid_Round::removed(void)
 {
 	stato = FADE_OUT;
 }
-
 
 // DRAW ////////////////////////////////////////////////////////
 void Fid_Round::draw(void)
@@ -144,12 +141,19 @@ void Fid_Round::draw(void)
 		
 		
 		// FIDUCIAL: disegno del fiducial --------------------------
+		// riempimento
 		ofSetColor(f_color);
-		//ofSetHexColor(0x0000ee);
 		ofFill();
 		ofDrawCircle(fid_pos, FIDUCIAL_R);
-		//ofSetHexColor(0x000000);
-		ofSetColor(0, 0, 0, transparency);
+
+		// contorno
+		//ofSetColor(0, 0, 0, transparency);
+		//ofSetColor(f_color);
+		bc.r = r + diff;
+		bc.g = g + diff;
+		bc.b = b + diff;
+		
+		ofSetColor(bc, transparency);
 		ofNoFill();
 		ofDrawCircle(fid_pos, FIDUCIAL_R);
 		
@@ -158,7 +162,6 @@ void Fid_Round::draw(void)
 	ofDisableAlphaBlending();
 	ofPopStyle();
 }
-
 
 // GETTERS /////////////////////////////////////////////////////
 ofVec2f* Fid_Round::getFidPos() 
@@ -172,14 +175,11 @@ bool Fid_Round::isAlive()
 }
 
 
-
 // OTHER ///////////////////////////////////////////////////////
 void Fid_Round::inside(ofVec2f *p)
 {
 	// non usato
 }
-
-
 
 void Fid_Round::debug() {
 	
@@ -193,7 +193,9 @@ void Fid_Round::debug() {
 	// RIQUADRO 1 -----------------------------------------------
 	ofPushMatrix(); 
 	ofTranslate(-50, -120 , 0);
-	ofDrawBitmapString("FIDUCIAL ROTONDO (kick)\nFid_Pos X: " + ofToString(fid_pos.x) + "\nFid_Pos Y: " + ofToString(fid_pos.y) + "\nFid_Angle: " + ofToString(fid_angle), 0, 0);
+	ofDrawBitmapString("FIDUCIAL ROTONDO (kick)\nFid_Pos X: " + ofToString(fid_pos.x) + 
+					   "\nFid_Pos Y: " + ofToString(fid_pos.y) + 
+					   "\nFid_Angle: " + ofToString(fid_angle), 0, 0);
 	ofPopMatrix();
 	
 	 
@@ -201,7 +203,8 @@ void Fid_Round::debug() {
 	ofPushMatrix();
 	ofTranslate(-50, 80 , 0);
 	
-	ofDrawBitmapString("f-id: " + ofToString((int)fid) + ";\t s-id: " + ofToString((int)sid), 0, 0);
+	ofDrawBitmapString("f-id: " + ofToString((int)fid) + 
+					   ";  s-id: " + ofToString((int)sid), 0, 0);
 	
 	if (bAlive)
 		ofDrawBitmapString("alive!\n", 0, 13);

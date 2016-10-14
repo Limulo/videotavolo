@@ -12,10 +12,7 @@
 
 class Fid_Sqr: virtual public Fid_Base {
 private:
-	int r;
-	int g;
-	int b;
-	
+	int r, g, b;
 	
 public:
 	Fid_Sqr(int _fid, int _sid);

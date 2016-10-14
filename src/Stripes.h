@@ -1,8 +1,9 @@
-//	Questa classe ha il compito di identificare e gestire una porzione verticale di schermo
-//  Lavorando in simbiosi con la playhead, restituisci l'impressione che questa, muovendosi, lasci una scia colorata
-// fadeStep : è il valore che viene sottratto al valore alfa di ogni striscia frame per frame. Ad esempio, se fadeStep 
-//			vale 20, significa che, per un FPS pari a 60 come da programma originale, il tempo che la striscia impiega 
-//			a dissolversi è di circa 212ms.
+// Questa classe ha il compito di identificare e gestire una porzione verticale di schermo
+// Lavorando in simbiosi con la playhead, restituisci l'impressione che questa, muovendosi, 
+// lasci una scia colorata.
+// fadeStep : è il valore che viene sottratto al valore alfa di ogni striscia frame per frame. 
+// 			Ad esempio, se fadeStep vale 20, significa che, per un FPS pari a 60 come da programma 
+// 			originale, il tempo che la striscia impiega a dissolversi è di circa 212ms.
 
 
 #ifndef _INC_STRIPES

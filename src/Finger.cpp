@@ -125,7 +125,8 @@ void Finger::debug()
 		// RIQUADRO 1 -----------------------------------------------
 		ofPushMatrix(); 
 			ofTranslate(-50, -100 , 0);
-			ofDrawBitmapString("Finger_Pos X: " + ofToString(fing_pos.x) + "\nFinger_Pos Y: " + ofToString(fing_pos.y), 0, 0);
+			ofDrawBitmapString("Finger_Pos X: " + ofToString(fing_pos.x) + 
+							   "\nFinger_Pos Y: " + ofToString(fing_pos.y), 0, 0);
 		ofPopMatrix();
 	
 		// RIQUADRO 4 -----------------------------------------------

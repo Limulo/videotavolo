@@ -56,6 +56,8 @@ class Fid_Base
 		float	rel_rot;			// rotazione relativa degli elementi grafici associati al fiducial, calcolato su base di fid_cateto e fid_ctr_angle (GRADI)
 	
 		ofColor f_color;			// colore di riempimento del fiducial
+		ofColor bc; 				// colore di supporto per il colore scuro dei contorni
+		int diff = -40;				// differenza di luminosità tra colore di riempimento e di contorno
 	
 		// enumeratore che etichetta gli stati in cui si viene a trovare il fiducial
 		enum State 

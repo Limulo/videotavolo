@@ -10,7 +10,11 @@ void Digit::setup() {
 	cout << "\tDIGIT SETUP: setup" << endl;
 	
 	ofTrueTypeFont::setGlobalDpi(72);
-	digitFont.loadFont("DS-DIGII.ttf", 80, true, true);
+	
+	//digitFont.loadFont("DS-DIGII.ttf", 80, true, true);
+	//digitFont.loadFont("Segment7Standard.otf", 80, true, true);
+	digitFont.load("Segment7Standard.otf", 80, true, true);
+	
 	digitFont.setLineHeight(18.0f);
 	digitFont.setLetterSpacing(1.037);
 	
@@ -52,34 +56,34 @@ void Digit::draw(int lpos_) {
 	int centinaia = (bpmValue %1000) /100;
 	
 	ofPushStyle();
-	ofSetColor(0, 255, 0, (int)digit_alpha/4);
+	//ofSetColor(0, 255, 0, (int)digit_alpha/4);
+	ofSetColor(0, 255, 0, (int)digit_alpha/6);
 	
 	ofPushMatrix();
 	ofTranslate(lpos_ - digit_string_width, 100, 0);
+	
 	digitFont.drawString("0", 0, 0);
 	digitFont.drawString("0", digit_char_width + digit_letter_space, 0);
 	digitFont.drawString("0", digit_char_width + digit_letter_space + digit_char_width, 0);
 	
+	int space = 0;
+	
 	ofSetColor(0, 255, 0, digit_alpha);
-	if(centinaia == 1)		digitFont.drawString(ofToString(centinaia), 24, 0);
+	if(centinaia == 1)		digitFont.drawString(ofToString(centinaia), space, 0);
 	else if(centinaia != 0)	digitFont.drawString(ofToString(centinaia), 0, 0);
 	
-	if(decine == 1)	digitFont.drawString(ofToString(decine), digit_char_width + digit_letter_space + 24, 0);
+	if(decine == 1)	digitFont.drawString(ofToString(decine), digit_char_width + digit_letter_space + space, 0);
 	else			digitFont.drawString(ofToString(decine), digit_char_width + digit_letter_space, 0);
 	
 	if(unita == 1)	digitFont.drawString(ofToString(unita), digit_char_width + digit_letter_space + digit_char_width + 24, 0);
 	else			digitFont.drawString(ofToString(unita), digit_char_width + digit_letter_space + digit_char_width, 0);
 	
 	ofPopMatrix();				
-	ofPopStyle();
-	
-	
+	ofPopStyle();	
 }
 
 void Digit::set_bpm(int bpm_) {
 	bpmValue = bpm_;
 	digit_pausa = INIT_PAUSA;
 	digit_alpha = 255;
-	
-	
 }
