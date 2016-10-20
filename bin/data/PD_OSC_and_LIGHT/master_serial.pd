@@ -1,4 +1,4 @@
-#N canvas 89 239 1276 604 10;
+#N canvas 64 125 1276 604 10;
 #X obj 100 105 cnv 15 150 60 empty empty serial 5 12 0 14 -233017 -66577
 0;
 #X floatatom 525 467 10 0 0 1 baud - -, f 10;
@@ -45,7 +45,7 @@ open ports hupcl rxerrors;
 #X obj 107 127 tgl 15 0 empty empty connect 17 7 0 10 -24198 -1 -1
 1 1;
 #X obj 107 219 sel 1;
-#X obj 12 10 inlet data-to-be-sent;
+#X obj 292 10 inlet data-to-be-sent;
 #X msg 359 293 bits 8 \, stopbit 0 \, parity 0 \, baud 9600 \, hupcl
 0 \, verbose 0;
 #X obj 260 276 t b b b;
@@ -73,6 +73,7 @@ open ports hupcl rxerrors;
 #X obj 12 66 loadbang;
 #X obj 12 88 pipe 100;
 #X msg 12 110 0;
+#X obj 292 191 spigot 0;
 #X connect 5 0 50 0;
 #X connect 18 0 1 0;
 #X connect 18 1 11 0;
@@ -102,7 +103,7 @@ open ports hupcl rxerrors;
 #X connect 34 0 35 0;
 #X connect 35 0 38 0;
 #X connect 35 1 40 0;
-#X connect 36 0 22 0;
+#X connect 36 0 60 0;
 #X connect 37 0 22 0;
 #X connect 38 0 19 0;
 #X connect 38 1 24 0;
@@ -113,6 +114,7 @@ open ports hupcl rxerrors;
 #X connect 42 0 43 0;
 #X connect 44 0 45 0;
 #X connect 45 0 46 0;
+#X connect 45 0 60 1;
 #X connect 46 0 48 0;
 #X connect 46 1 47 0;
 #X connect 47 0 34 0;
@@ -124,4 +126,5 @@ open ports hupcl rxerrors;
 #X connect 57 0 58 0;
 #X connect 58 0 59 0;
 #X connect 59 0 34 0;
+#X connect 60 0 22 0;
 #X coords 0 -1 1 1 150 70 2 100 100;
