@@ -36,7 +36,7 @@
 #define FPS 60	// frame per seconds
 
 // fiducial IDs
-#define KICK	0		
+#define KICK	0
 #define SNARE	13
 #define HIHAT	49
 #define BASS	15
@@ -66,10 +66,10 @@ public:
 	void exit();
 	void keyPressed  (int key);
 	void windowResized(int w, int h);
-	
+
 	ofxOscSender sender;
 	ofxOscReceiver receiver;
-	
+
 	// funzioni di callback per TUIO
 	// oggetti
 	void objectAdded(ofxTuioObject & tuioObject);
@@ -79,11 +79,11 @@ public:
 	void cursorAdded(ofxTuioCursor & tuioCursor);
 	void cursorRemoved(ofxTuioCursor & tuioCursor);
 	void cursorUpdated(ofxTuioCursor & tuioCursor);
-	
+
 	// funzioni e variabili per la gestione della riproduzione audio
 	void play(int colonna);
 	void time_control();
-			
+
 	long unsigned int	initial_time;
 	long unsigned int	actual_time;
 	long unsigned int	time;
@@ -93,19 +93,19 @@ public:
 	static float		chord_number;
 	int					n_crome;
 	int					last_croma_time;
-	
+
 	// variabili di utilità per la resa grafica e la gestione della playhead
 	Stripe striscie[NCOLUMNS];
 	int playHeadPosition;	// posizione della playHead
 	float stripe_w;
-	
+
 	// variabili per la gestione del BPM e della resa grafica dello stesso
-	float bpm_fid;		
+	float bpm_fid;
 	float memoria_bpm_angle;
-	
-		
-	/* variabili e utilità per correggere la distorsione introdotta dal proiettore 
-	* 
+
+
+	/* variabili e utilità per correggere la distorsione introdotta dal proiettore
+	*
 	*		/------- FBO --------\
 	*		|					 |
 	*		|	 /----------\	 |
@@ -131,27 +131,27 @@ public:
 	bool	bSetup;
 	float	meshRotationX, meshRotationY, meshRotationZ;
 	float	meshCenterX, meshCenterY, meshCenterZ;
-	
+
 	void	meshReset();
-	
+
 	// variabili e utilità per compensare eventuali distorsioni
 	// o incongruenze tra i dati di posizione ricevuti da reacTIVision
 	// e le grafiche renderizzate da OF
 	//float rvTranslateX, rvTranslateY;
 	//float rvScaleX, rvScaleY;
 	//float rvRotateZ;
-	
+
 	//void rvReset();
 
 	// variabili e strutture dati per la manipolazione dei fiducials
-	Fid_Rot		*rotativo;	
-	Fid_Sqr		*quadrato;	
-	Fid_Round	*rotondo;	
-	Fid_Bass	*basso;		
-	Fid_Synth	*synth;		
-	Fid_Chords	*accordo;	
-	Finger		*dito;		
-	
+	Fid_Rot		*rotativo;
+	Fid_Sqr		*quadrato;
+	Fid_Round	*rotondo;
+	Fid_Bass	*basso;
+	Fid_Synth	*synth;
+	Fid_Chords	*accordo;
+	Finger		*dito;
+
 	vector<Fid_Rot*>	rot_vec;
 	vector<Fid_Sqr*>	sqr_vec;
 	vector<Fid_Round*>	rnd_vec;
@@ -159,57 +159,57 @@ public:
 	vector<Fid_Synth*>	synth_vec;
 	vector<Finger*>		dito_vec;
 	vector<Fid_Chords*> chords_vec;
-	// vedi CHANGE LOG - issuo05
+	// vedi CHANGE LOG - issue05
 	float livello_audio_basso;
-	
-	
+
+
 	// calibrazione rettangolare **********************************************
 	//   _______________________
 	//  |  |  |  |  |  |  |  |  |
-	//  |  |  |  |  |  |  |  |  | 
-	//  |  |  |  |  |  |  |  |  | 
-	//  |  |  |  |  |  |  |  |  | 
+	//  |  |  |  |  |  |  |  |  |
+	//  |  |  |  |  |  |  |  |  |
+	//  |  |  |  |  |  |  |  |  |
 	//  |__|__|__|__|__|__|__|__|
 	// 0.0                      1.0
-	// 
-	// Con la calibrazione rettangolare abbiamo alcuni problemi 
+	//
+	// Con la calibrazione rettangolare abbiamo alcuni problemi
 	// vedi issue02. Con la calibrazione quadrata i problemi si risolvono
-	// unica modifica da introdurre è un algoritmo che corregge la coordinata x 
+	// unica modifica da introdurre è un algoritmo che corregge la coordinata x
 	// restituita da TUIO.
 	// La coordinata x TUIO varia tra 0.125 e 0.875. Occore rimapparla
 	// tra 0.0 e 1.0 per ottenere un funzionamento corretto
-	// 
+	//
 	// calibrazione quadrata **************************************************
 	//   _______________________
 	//  |  |  |  |  |  |  |  |  |
-	//  |  |  |  |  |  |  |  |  | 
-	//  |  |  |  |  |  |  |  |  | 
-	//  |  |  |  |  |  |  |  |  | 
+	//  |  |  |  |  |  |  |  |  |
+	//  |  |  |  |  |  |  |  |  |
+	//  |  |  |  |  |  |  |  |  |
 	//  |__|__|__|__|__|__|__|__|
 	//    0.125             0.875
 	// rimappando otteniamo
 	//    0.0               1.0
 	//
-	//	
+	//
 	ofVec2f		centro;	// centro del tavolo
 	ofVec2f		pos;	// posizione (x, y) del fiducial nella resa grafica a display
 	float		angolo;
 	float		rot_vel;
-	
+
 	float TUIOscaleX( float _TUIOx );
 	float TUIOscaleY( float _TUIOy );
-	
-	
+
+
 	// utilità per mostrare i loghi
 	void fboLogosFilling(int w_, int h_);
 	ofFbo	fboLogos;
 	ofImage imgA, imgA_180;
 	ofImage imgB, imgB_180;
 	ofImage newLogosImage;
-	
-	
+
+
 	// utility varie
-	bool bDebug; 
+	bool bDebug;
 	void backgroundGradient(const ofColor& start, const ofColor& end, int w_, int h_); // funzione per disegnare lo sfondo
 	// per il salvataggio delle impostazioni su file
 	//FILE* fp;
@@ -218,7 +218,7 @@ public:
 	int hours;
 	int minutes;
 	int seconds;
-	
+
 	Digit			digit;
 	ofxTuioClient	tuio;
 	Table			matrice;
