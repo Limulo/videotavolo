@@ -502,7 +502,7 @@ void SettingsManager::saveSettings()
     XML.setTo("background");
   }
   XML.setAttribute("r", ofToString( customs.aspect.background.r ) );
-  XML.setAttribute("f", ofToString( customs.aspect.background.g ) );
+  XML.setAttribute("g", ofToString( customs.aspect.background.g ) );
   XML.setAttribute("b", ofToString( customs.aspect.background.b ) );
   XML.setToParent();
 
@@ -514,7 +514,7 @@ void SettingsManager::saveSettings()
     XML.setTo("fbo");
   }
   XML.setAttribute("r", ofToString( customs.aspect.fbo.r ) );
-  XML.setAttribute("f", ofToString( customs.aspect.fbo.g ) );
+  XML.setAttribute("g", ofToString( customs.aspect.fbo.g ) );
   XML.setAttribute("b", ofToString( customs.aspect.fbo.b ) );
   XML.setToParent();
 
@@ -526,7 +526,7 @@ void SettingsManager::saveSettings()
     XML.setTo("playhead");
   }
   XML.setAttribute("r", ofToString( customs.aspect.playhead.r ) );
-  XML.setAttribute("f", ofToString( customs.aspect.playhead.g ) );
+  XML.setAttribute("g", ofToString( customs.aspect.playhead.g ) );
   XML.setAttribute("b", ofToString( customs.aspect.playhead.b ) );
   XML.setToParent();
 

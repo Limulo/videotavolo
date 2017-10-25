@@ -28,7 +28,7 @@ void SurfaceManager::setup(int _windowWidth, int _windowHeight,
 	minutes = 0;
 	hours = 0;
 
-	playgroundSize = 500;
+	playgroundSize = 1024;
   fboSize = playgroundSize * 3.0 / 2.0;
   fbo.allocate( fboSize, fboSize, GL_RGB);
   //fboSize.set( fboSize, fboSize );

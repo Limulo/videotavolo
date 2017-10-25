@@ -14,7 +14,7 @@ The `Timing Thread` will use it to update the reproduction speed/rythm, etc... w
 a list of thing to be done:
 * modify the way sequencer gets its reference to the OscManager (pass by reference instead). (similar for SurfaceManager, FiducialsManager)
 * _TimingThread_ is usign `sleep()`. Is that the best way to achieve our target?
-* is a `vector< FiducialBase* >` (FiducialBase pointers vector) the best way to do this? Can a _list_ do the job? 
+* is a `vector< FiducialBase* >` (FiducialBase pointers vector) the best way to do this? Can a _list_ do the job?
 * is it possible to access vector elements with a simple _array synthax_: `for(int i=0; i<vectro,size(); i++)`.
 * give a name to the App Window (use `ofSetWindowTitle("gianni")`);
 * give a name to threads
@@ -39,6 +39,15 @@ a list of thing to be done:
 
 ---
 
+## 2017-10-25
+
+Using _soundFace_ w/ _reacTIVision 1.5.1_ and a bunch of chuck scripts: everything seems to work fine!
+The oF app is working continuously for 2h w/o any problem (60 FPS fixed).
+* reacTIVision ig working at a constatn 30 FPS framerate;
+* timing is going on in perfect sync;
+* OSC messages are sent and received correctly;
+* there are a total of 4 threads running the most computationally-heavy of which is occupying the 13% CPU time maximum;
+
 ## 2017-10-11
 * some modification to the code: trying to create somethinf to have a meter for the Metro fiducial;
 * test display moved inside surface manager
@@ -50,8 +59,8 @@ a list of thing to be done:
 * moved some debug routine to the base class;
 * implemented rotation for all the fiducials;
 There are 2 different way to see if a fiducial is of type percussion
-* if( dynamic_cast<FiducialPercussion *> (*it) )
-* if( (*it)->getFid() == FID_KICK || (*it)->getFid() == FID_SNARE || (*it)->getFid() == FID_HIHAT  )
+* `if( dynamic_cast<FiducialPercussion *> (*it) )`
+* `if( (*it)->getFid() == FID_KICK || (*it)->getFid() == FID_SNARE || (*it)->getFid() == FID_HIHAT  )`
 
 ## 2017-10-06
 
