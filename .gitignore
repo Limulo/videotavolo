@@ -1,5 +1,5 @@
 # ignore these files / paths
 
 obj/
-bin/*.*
-\!bin/data/
+bin/libs/
+
