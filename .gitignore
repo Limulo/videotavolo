@@ -1,6 +1,4 @@
 # ignore these files / paths
 
-obj             # discard anything inside the obj folder
-bin/            # discard anything inside the bin folder
-\!bin/data/     # except fo the data folder and its content
-
+obj/
+bin/*.*
