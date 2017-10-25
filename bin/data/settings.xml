@@ -1,0 +1,59 @@
+<settings>
+	<bpm max="200" min="30" value="60"/>
+	<OSC host="localhost" listen="9998" send="9997" status="on"/>
+	<TUIO listen="3333" status="on"/>
+	<aspect>
+		<background b="244" f="200" r="200"/>
+		<fbo b="160" f="160" r="160"/>
+		<playhead b="255" f="0" r="255"/>
+		<distorsion moveX="0" moveY="0" rotX="0" rotZ="0" scale="1"/>
+	</aspect>
+	<fiducials size="30">
+		<fadetime in="100" out="250"/>
+		<percussions>
+			<triggertime in="10" out="100"/>
+			<kick fid="0">
+				<color b="50" g="50" r="50"/>
+			</kick>
+			<snare fid="13">
+				<color b="120" g="50" r="50"/>
+			</snare>
+			<hihat fid="49">
+				<color b="75" g="200" r="50"/>
+			</hihat>
+		</percussions>
+		<metro fid="67">
+			<color b="68" g="193" r="255"/>
+			<meter angleRange="2" angleGap="0.5" radius="40" w="15">
+				<backColor b="255" g="68" r="193"/>
+				<frontColor b="193" g="255" r="68"/>
+			</meter>
+		</metro>
+		<bass fid="15">
+			<color b="0" g="255" r="0"/>
+		</bass>
+		<pad fid="26">
+			<color b="0" g="0" r="255"/>
+		</pad>
+		<chords>
+			<chord1 fid="39">
+				<color b="0" g="0" r="0"/>
+			</chord1>
+			<chord2 fid="47">
+				<color b="45" g="20" r="70"/>
+			</chord2>
+			<chord3 fid="60">
+				<color b="40" g="40" r="40"/>
+			</chord3>
+			<chord4 fid="63">
+				<color b="60" g="60" r="60"/>
+			</chord4>
+			<chord5 fid="79">
+				<color b="80" g="80" r="80"/>
+			</chord5>
+			<chord6 fid="84">
+				<color b="100" g="100" r="100"/>
+			</chord6>
+		</chords>
+	</fiducials>
+</settings>

@@ -1,0 +1,1518 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="284.46457"
+   height="303.95276"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="distorsion-study.svg"
+   inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-1.png"
+   inkscape:export-xdpi="118.87299"
+   inkscape:export-ydpi="118.87299">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient5160">
+      <stop
+         style="stop-color:#ff0000;stop-opacity:0"
+         offset="0"
+         id="stop5162" />
+      <stop
+         style="stop-color:#ff9191;stop-opacity:1"
+         offset="1"
+         id="stop5164" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4886">
+      <stop
+         style="stop-color:#c4ffff;stop-opacity:0;"
+         offset="0"
+         id="stop4888" />
+      <stop
+         id="stop4894"
+         offset="0.81176472"
+         style="stop-color:#c4ffff;stop-opacity:0.49803922;" />
+      <stop
+         style="stop-color:#c4ffff;stop-opacity:1;"
+         offset="1"
+         id="stop4890" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend"
+       style="overflow:visible">
+      <path
+         id="path3870"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mstart"
+       style="overflow:visible">
+      <path
+         id="path3867"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mstart-3"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3867-6"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.4,0,0,0.4,4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-7"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3870-5"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4511"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4513"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.4,0,0,0.4,4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4515"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4517"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mstart-6"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3867-2"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.4,0,0,0.4,4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-9"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3870-1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mstart-2"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3867-7"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.4,0,0,0.4,4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-0"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3870-9"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4886"
+       id="radialGradient4892"
+       cx="141.90559"
+       cy="900.64996"
+       fx="141.90559"
+       fy="900.64996"
+       r="142.23228"
+       gradientTransform="matrix(1,0,0,1.0685083,0,-61.702016)"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="pad" />
+    <marker
+       inkscape:stockid="Arrow1Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mstart-0"
+       style="overflow:visible">
+      <path
+         id="path3867-62"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.4,0,0,0.4,4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend-6"
+       style="overflow:visible">
+      <path
+         id="path3870-18"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5160"
+       id="linearGradient5166"
+       x1="147.70392"
+       y1="-67.906876"
+       x2="158.84227"
+       y2="-67.906875"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5160"
+       id="linearGradient5221"
+       gradientUnits="userSpaceOnUse"
+       x1="147.70392"
+       y1="-67.906876"
+       x2="158.84227"
+       y2="-67.906875" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5160"
+       id="linearGradient5231"
+       gradientUnits="userSpaceOnUse"
+       x1="147.70392"
+       y1="-67.906876"
+       x2="158.84227"
+       y2="-67.906875" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="126.95723"
+     inkscape:cy="286.36713"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g4199"
+     showgrid="false"
+     units="cm"
+     inkscape:snap-to-guides="false"
+     inkscape:snap-grids="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1440"
+     inkscape:window-height="834"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <sodipodi:guide
+       orientation="1,0"
+       position="283.67448,171.48472"
+       id="guide3765" />
+    <sodipodi:guide
+       position="0.32668526,0.26385823"
+       orientation="0,744.09448"
+       id="guide3767" />
+    <sodipodi:guide
+       position="744.42117,1052.626"
+       orientation="0,-744.09448"
+       id="guide3771" />
+    <sodipodi:guide
+       position="0.32668526,1052.626"
+       orientation="1052.3622,0"
+       id="guide3773" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="-81.637601,7.3174296"
+       id="guide3775" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="10.996328,108.56743"
+       id="guide3837" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="42.179364,252.14419"
+       id="guide5023" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="247.89365,210.00133"
+       id="guide5025" />
+    <sodipodi:guide
+       position="0,0"
+       orientation="0,284.46457"
+       id="guide5090" />
+    <sodipodi:guide
+       position="284.46457,303.95276"
+       orientation="0,-284.46457"
+       id="guide5094" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="10.996328,88.767155"
+       id="guide5100" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="141.92643,290.41886"
+       id="guide3109" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="172.23101,332.34019"
+       id="guide3982" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="internal-space"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0.32668526,-748.67358)"
+     style="display:inline">
+    <rect
+       style="fill:url(#radialGradient4892);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-opacity:1"
+       id="rect2993"
+       width="283.46457"
+       height="302.95276"
+       x="0.17331474"
+       y="749.17358"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-ydpi="300.42758" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="wood-pieces"
+     style="display:inline"
+     transform="translate(0.32668526,-748.67329)">
+    <rect
+       style="fill:#c87137;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="rect3809"
+       width="102.02541"
+       height="7.0535889"
+       x="0"
+       y="1045.3086"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-ydpi="300.42758" />
+    <rect
+       y="1038.0123"
+       x="-0.0012238341"
+       height="7.0535889"
+       width="10.669643"
+       id="rect3835"
+       style="fill:#c87137;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-ydpi="300.42758" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="projector"
+     style="display:none"
+     transform="translate(0.32668526,-748.67329)">
+    <rect
+       style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="rect3833"
+       width="35.481609"
+       height="81.524178"
+       x="0"
+       y="963.78442"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+       inkscape:export-xdpi="119.03465"
+       inkscape:export-ydpi="119.03465" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer5"
+       inkscape:label="optimal-projection"
+       style="display:none">
+      <path
+         style="fill:#d4e6f6;fill-opacity:0.70588235;stroke:#4f9add;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 566.91655,609.43807 -435.75584,0 -113.571424,354.34636 z"
+         id="path3853"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccc" />
+      <text
+         xml:space="preserve"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         x="286.77634"
+         y="598.99988"
+         id="text3847"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan3849"
+           x="286.77634"
+           y="598.99988">a:100cm c:160cm h:123cm</tspan></text>
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.99921262;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend);display:inline"
+         d="m 719.17689,608.99993 0,354.34636"
+         id="path3855"
+         inkscape:connector-curvature="0" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4487"
+         y="963.34625"
+         x="641.96613"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         xml:space="preserve"><tspan
+           y="963.34625"
+           x="641.96613"
+           id="tspan4489"
+           sodipodi:role="line">100cm</tspan></text>
+      <path
+         style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+         d="M -24.571429,609.0669 744,609.0669"
+         id="path4629"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+         d="m -26.709631,963.27061 768.571431,0"
+         id="path4633-3"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="layer6"
+       inkscape:label="@60cm"
+       style="display:none">
+      <path
+         style="fill:#d4e5f6;fill-opacity:0.70588235;stroke:#4f98dd;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 17.589286,963.78443 60.357143,-214.97309 262.222441,0 z"
+         id="path4627"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+         inkscape:export-xdpi="119.03465"
+         inkscape:export-ydpi="119.03465" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4491"
+         d="m 569.16588,751.38314 0,212.34636"
+         style="fill:none;stroke:#000000;stroke-width:0.99921262;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend);display:inline"
+         sodipodi:nodetypes="cc"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+         inkscape:export-xdpi="119.03465"
+         inkscape:export-ydpi="119.03465" />
+      <text
+         xml:space="preserve"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         x="481.9552"
+         y="963.72949"
+         id="text4493"
+         sodipodi:linespacing="125%"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+         inkscape:export-xdpi="119.03465"
+         inkscape:export-ydpi="119.03465"><tspan
+           sodipodi:role="line"
+           id="tspan4495"
+           x="481.9552"
+           y="963.72949">60.5cm</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4616"
+         y="740.16431"
+         x="290.9104"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         xml:space="preserve"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+         inkscape:export-xdpi="119.03465"
+         inkscape:export-ydpi="119.03465"><tspan
+           y="740.16431"
+           x="290.9104"
+           id="tspan4618"
+           sodipodi:role="line">a:60cm c:96cm h:74</tspan></text>
+      <path
+         style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+         d="m -25.28106,747.55632 768.57143,0"
+         id="path4653"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+         inkscape:export-xdpi="119.03465"
+         inkscape:export-ydpi="119.03465" />
+      <path
+         style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+         d="m -25.428573,964.36218 768.571433,0"
+         id="path4633-3-3"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+         inkscape:export-xdpi="119.03465"
+         inkscape:export-ydpi="119.03465" />
+    </g>
+    <text
+       sodipodi:linespacing="80.000001%"
+       id="text4564"
+       y="995.93414"
+       x="18.226854"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+       xml:space="preserve"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+       inkscape:export-xdpi="119.03465"
+       inkscape:export-ydpi="119.03465"><tspan
+         style="font-size:20px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#ffffff"
+         id="tspan4572"
+         y="995.93414"
+         x="18.226854"
+         sodipodi:role="line">23</tspan><tspan
+         style="font-size:20px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#ffffff"
+         y="1011.9341"
+         x="23.226854"
+         sodipodi:role="line"
+         id="tspan4583">x </tspan><tspan
+         style="font-size:20px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#ffffff"
+         y="1027.9342"
+         x="18.226854"
+         sodipodi:role="line"
+         id="tspan4585">10</tspan></text>
+  </g>
+  <g
+     transform="translate(0.32668526,-748.67329)"
+     style="display:none"
+     inkscape:label="projector copy"
+     id="g4914"
+     inkscape:groupmode="layer">
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:export-ydpi="300.42758"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       inkscape:connector-curvature="0"
+       id="path4950"
+       d="M -25.580501,748.67328 532.53045,660.48319"
+       style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline" />
+    <path
+       inkscape:export-ydpi="300.42758"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       inkscape:connector-curvature="0"
+       id="path4938"
+       d="M 17.353143,961.04289 43.616028,739.30726 302.6613,698.6114 z"
+       style="fill:#d4e5f6;fill-opacity:0.70588235;stroke:#4f98dd;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline" />
+    <rect
+       inkscape:export-ydpi="300.42758"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       y="952.09174"
+       x="-149.59634"
+       height="81.524178"
+       width="35.481609"
+       id="rect4916"
+       style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       transform="matrix(0.98788371,-0.15519593,0.15519593,0.98788371,0,0)" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:export-ydpi="300.42758"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       inkscape:connector-curvature="0"
+       id="path4952"
+       d="M -25.053843,968.28978 532.53045,880.48318"
+       style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline" />
+    <text
+       inkscape:export-ydpi="300.42758"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+       x="-131.36949"
+       y="984.24139"
+       id="text4954"
+       sodipodi:linespacing="80.000001%"
+       transform="matrix(0.98788371,-0.15519593,0.15519593,0.98788371,0,0)"><tspan
+         sodipodi:role="line"
+         x="-131.36949"
+         y="984.24139"
+         id="tspan4956"
+         style="font-size:20px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#ffffff">23</tspan><tspan
+         id="tspan4958"
+         sodipodi:role="line"
+         x="-126.36949"
+         y="1000.2414"
+         style="font-size:20px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#ffffff">x </tspan><tspan
+         id="tspan4960"
+         sodipodi:role="line"
+         x="-131.36949"
+         y="1016.2414"
+         style="font-size:20px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#ffffff">10</tspan></text>
+    <g
+       style="display:none"
+       inkscape:label="optimal-projection"
+       id="g4918"
+       inkscape:groupmode="layer">
+      <path
+         sodipodi:nodetypes="cccc"
+         inkscape:connector-curvature="0"
+         id="path4920"
+         d="m 566.91655,609.43807 -435.75584,0 -113.571424,354.34636 z"
+         style="fill:#d4e6f6;fill-opacity:0.70588235;stroke:#4f9add;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4922"
+         y="598.99988"
+         x="286.77634"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         xml:space="preserve"><tspan
+           y="598.99988"
+           x="286.77634"
+           id="tspan4924"
+           sodipodi:role="line">a:100cm c:160cm h:123cm</tspan></text>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4926"
+         d="m 719.17689,608.99993 0,354.34636"
+         style="fill:none;stroke:#000000;stroke-width:0.99921262;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend);display:inline" />
+      <text
+         xml:space="preserve"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         x="641.96613"
+         y="963.34625"
+         id="text4928"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan4930"
+           x="641.96613"
+           y="963.34625">100cm</tspan></text>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4932"
+         d="M -24.571429,609.0669 744,609.0669"
+         style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4934"
+         d="m -26.709631,963.27061 768.571431,0"
+         style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline" />
+    </g>
+    <g
+       style="display:inline"
+       inkscape:label="@60cm"
+       id="g4936"
+       inkscape:groupmode="layer" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer8"
+       inkscape:label="other"
+       style="display:inline">
+      <path
+         style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+         d="m -25.62946,748.73692 556.96349,-0.0516"
+         id="path4633"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+         d="m -24.433036,963.91044 556.963486,-0.0516"
+         id="path4633-6"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758"
+         sodipodi:nodetypes="cc" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4491-7"
+         d="m 0,611.91176 41.852679,0"
+         style="fill:none;stroke:#000000;stroke-width:0.99921262;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend);display:inline"
+         sodipodi:nodetypes="cc"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758" />
+      <path
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         sodipodi:nodetypes="cc"
+         style="fill:none;stroke:#000000;stroke-width:0.99921262;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend);display:inline"
+         d="m 247.56696,611.91176 35.78083,0"
+         id="path5059"
+         inkscape:connector-curvature="0" />
+      <text
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         sodipodi:linespacing="125%"
+         id="text5061"
+         y="589.76886"
+         x="251.56697"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         xml:space="preserve"><tspan
+           y="589.76886"
+           x="251.56697"
+           id="tspan5063"
+           sodipodi:role="line">10cm ca.</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         x="1.5669708"
+         y="589.76886"
+         id="text5086"
+         sodipodi:linespacing="125%"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758"><tspan
+           sodipodi:role="line"
+           id="tspan5088"
+           x="1.5669708"
+           y="589.76886">10cm ca.</tspan></text>
+      <g
+         id="g5141"
+         transform="matrix(0,-1,1,0,-975.83802,915.06172)"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758">
+        <path
+           inkscape:export-ydpi="119.03465"
+           inkscape:export-xdpi="119.03465"
+           inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+           inkscape:connector-curvature="0"
+           id="path4633-2"
+           d="m -48.797171,975.83802 514.293911,0"
+           style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+           sodipodi:nodetypes="cc" />
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:export-ydpi="119.03465"
+           inkscape:export-xdpi="119.03465"
+           inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+           inkscape:connector-curvature="0"
+           id="path4950-0"
+           d="M -48.748205,975.77439 465.49674,895.15419"
+           style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline" />
+        <path
+           sodipodi:nodetypes="cc"
+           style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+           d="m 166.38843,1017.6907 145.10831,0.1473"
+           id="path5248"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+           inkscape:export-xdpi="119.03465"
+           inkscape:export-ydpi="119.03465" />
+        <path
+           inkscape:export-ydpi="119.03465"
+           inkscape:export-xdpi="119.03465"
+           inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+           inkscape:connector-curvature="0"
+           id="path5250"
+           d="m 166.38843,1223.6907 145.10831,0.1473"
+           style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+           sodipodi:nodetypes="cc" />
+        <path
+           sodipodi:nodetypes="cc"
+           style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+           d="m 166.38843,1259.6907 145.10831,0.1473"
+           id="path5252"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+           inkscape:export-xdpi="119.03465"
+           inkscape:export-ydpi="119.03465" />
+      </g>
+      <g
+         id="g5208"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758">
+        <path
+           sodipodi:end="0.17217293"
+           sodipodi:start="0"
+           transform="matrix(16.97567,0,0,-2.8766808,-2191.6803,730.19815)"
+           d="m 158.84227,-81.225815 a 29.735121,155.48288 0 0 1 -0.43964,26.63788 l -29.29548,-26.63788 z"
+           sodipodi:ry="155.48288"
+           sodipodi:rx="29.735121"
+           sodipodi:cy="-81.225815"
+           sodipodi:cx="129.10715"
+           id="path5150"
+           style="fill:url(#linearGradient5166);fill-opacity:1;fill-rule:nonzero;stroke:none"
+           sodipodi:type="arc" />
+        <text
+           xml:space="preserve"
+           style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+           x="485.38583"
+           y="934.23749"
+           id="text5168"
+           sodipodi:linespacing="80.000001%"
+           inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+           inkscape:export-xdpi="119.03465"
+           inkscape:export-ydpi="119.03465"><tspan
+             sodipodi:role="line"
+             x="485.38583"
+             y="934.23749"
+             id="tspan5174"
+             style="font-size:24px;text-align:end;line-height:80.00000119%;text-anchor:end;fill:#ffffff">ß</tspan></text>
+      </g>
+      <path
+         sodipodi:end="0.17217293"
+         sodipodi:start="0"
+         transform="matrix(-0.04506939,-16.97561,-2.8766707,0.00763741,-227.84114,3156.1519)"
+         d="m 158.84227,-81.225815 a 29.735121,155.48288 0 0 1 -0.43964,26.63788 l -29.29548,-26.63788 z"
+         sodipodi:ry="155.48288"
+         sodipodi:rx="29.735121"
+         sodipodi:cy="-81.225815"
+         sodipodi:cx="129.10715"
+         id="path5215"
+         style="fill:url(#linearGradient5221);fill-opacity:1;fill-rule:nonzero;stroke:none"
+         sodipodi:type="arc"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758" />
+      <text
+         xml:space="preserve"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         x="-33.525143"
+         y="493.58896"
+         id="text5217"
+         sodipodi:linespacing="80.000001%"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758"
+         transform="matrix(0.99999648,-0.00265494,0.00265494,0.99999648,0,0)"><tspan
+           sodipodi:role="line"
+           x="-33.525143"
+           y="493.58896"
+           id="tspan5219"
+           style="font-size:24px;text-align:end;line-height:80.00000119%;text-anchor:end;fill:#ffffff">ß</tspan></text>
+      <g
+         id="g5223"
+         transform="translate(0,-216)"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758">
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#linearGradient5231);fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path5225"
+           sodipodi:cx="129.10715"
+           sodipodi:cy="-81.225815"
+           sodipodi:rx="29.735121"
+           sodipodi:ry="169.52896"
+           d="m 158.84227,-81.225815 a 29.735121,169.52896 0 0 1 -0.43964,29.044304 l -29.29548,-29.044304 z"
+           transform="matrix(16.97567,0,0,-2.8766808,-2191.6803,730.19815)"
+           sodipodi:start="0"
+           sodipodi:end="0.17217293" />
+        <text
+           inkscape:export-ydpi="119.03465"
+           inkscape:export-xdpi="119.03465"
+           inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+           sodipodi:linespacing="80.000001%"
+           id="text5227"
+           y="934.23749"
+           x="485.38583"
+           style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+           xml:space="preserve"><tspan
+             style="font-size:24px;text-align:end;line-height:80.00000119%;text-anchor:end;fill:#ffffff"
+             id="tspan5229"
+             y="934.23749"
+             x="485.38583"
+             sodipodi:role="line">ß</tspan></text>
+      </g>
+      <path
+         sodipodi:nodetypes="cc"
+         style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+         d="m 141.59974,1049.6934 0,-514.29395"
+         id="path3111"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758" />
+      <text
+         xml:space="preserve"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         x="141.59975"
+         y="517.64703"
+         id="text3131"
+         sodipodi:linespacing="80.000001%"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758"><tspan
+           sodipodi:role="line"
+           id="tspan3133"
+           x="141.59975"
+           y="517.64703"
+           style="font-size:16px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#787878;fill-opacity:1">table</tspan><tspan
+           sodipodi:role="line"
+           x="141.59975"
+           y="530.44702"
+           id="tspan3135"
+           style="font-size:16px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#787878;fill-opacity:1">center</tspan></text>
+      <text
+         transform="matrix(0.99997612,0.00691121,-0.00691121,0.99997612,0,0)"
+         xml:space="preserve"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         x="98.550552"
+         y="766.98877"
+         id="text4029"
+         sodipodi:linespacing="80.000001%"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758"><tspan
+           sodipodi:role="line"
+           x="98.550552"
+           y="766.98877"
+           id="tspan4031"
+           style="font-size:16px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#787878;fill-opacity:1">distorted image</tspan></text>
+    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="layer7"
+       inkscape:label="projected-image"
+       style="display:inline">
+      <g
+         style="display:inline"
+         id="g3984"
+         transform="translate(1.2602727,40.002716)"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758">
+        <path
+           inkscape:connector-curvature="0"
+           id="path3977"
+           d="M 41.852679,698.46861 302.71907,657.05235"
+           style="fill:none;stroke:#000000;stroke-width:5.31496048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <path
+           style="fill:#00ffff;stroke:#ff0000;stroke-width:3.54330707;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="m 170.90494,670.94128 2.07081,13.04332"
+           id="path3980"
+           inkscape:connector-curvature="0" />
+      </g>
+      <text
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         sodipodi:linespacing="80.000001%"
+         id="text3988"
+         y="720.02881"
+         x="253.40298"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         xml:space="preserve"
+         transform="matrix(0.99268638,-0.12072183,0.12072183,0.99268638,0,0)"><tspan
+           style="font-size:16px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#787878;fill-opacity:1"
+           id="tspan3992"
+           y="720.02881"
+           x="253.40298"
+           sodipodi:role="line">projected image</tspan></text>
+    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="layer9"
+       inkscape:label="distorted-image"
+       style="display:inline">
+      <g
+         style="display:inline"
+         transform="matrix(0.98798516,0.15454878,-0.15454878,0.98798516,106.34734,52.096463)"
+         id="g3996"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:5.31496048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="M 44.829511,714.36194 268.58378,641.1765"
+           id="path3998"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path4000"
+           d="m 152.26887,673.54107 5.11639,12.17534"
+           style="fill:#00ffff;stroke:#ff0000;stroke-width:3.54330707;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      </g>
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M 171.78571,-28.904385 17.857143,212.16704"
+         id="path4063"
+         inkscape:connector-curvature="0"
+         transform="translate(-0.32668526,748.67329)"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758" />
+      <g
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         id="g4077"
+         transform="matrix(0.99987918,-0.01554407,0.01554407,0.99987918,-23.196523,90.161825)"
+         style="display:inline"
+         inkscape:transform-center-x="7.1581366"
+         inkscape:transform-center-y="1.586477">
+        <path
+           sodipodi:nodetypes="cc"
+           inkscape:connector-curvature="0"
+           id="path4079"
+           d="M 50.720939,693.46785 260.2571,663.54671"
+           style="fill:none;stroke:#000000;stroke-width:5.31496048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <path
+           style="fill:#00ffff;stroke:#ff0000;stroke-width:3.54330707;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="m 153.39334,672.46457 2.07081,13.04332"
+           id="path4081"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <path
+       style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+       d="M -25.580501,792.67328 532.53045,704.48319"
+       id="path4073"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-ydpi="300.42758"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:export-ydpi="300.42758"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       inkscape:connector-curvature="0"
+       id="path4075"
+       d="M -25.580501,774.67328 532.53045,686.48319"
+       style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="g4083"
+     inkscape:label="projector copy copy"
+     style="display:inline"
+     transform="translate(0.32668526,-748.67329)">
+    <path
+       style="fill:#d4e5f6;fill-opacity:0.70588235;stroke:#4f98dd;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
+       d="M 17.353143,961.04289 43.616028,739.30726 302.6613,698.6114 z"
+       id="path4087"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-ydpi="300.42758" />
+    <rect
+       transform="matrix(0.98788371,-0.15519593,0.15519593,0.98788371,0,0)"
+       style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="rect4089"
+       width="35.481609"
+       height="81.524178"
+       x="-149.59634"
+       y="952.09174"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-ydpi="300.42758" />
+    <path
+       style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+       d="M -25.053843,968.28978 532.53045,880.48318"
+       id="path4091"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-ydpi="300.42758"
+       sodipodi:nodetypes="cc" />
+    <text
+       transform="matrix(0.98788371,-0.15519593,0.15519593,0.98788371,0,0)"
+       sodipodi:linespacing="80.000001%"
+       id="text4093"
+       y="984.24139"
+       x="-131.36949"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+       xml:space="preserve"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-ydpi="300.42758"><tspan
+         style="font-size:20px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#ffffff"
+         id="tspan4095"
+         y="984.24139"
+         x="-131.36949"
+         sodipodi:role="line">23</tspan><tspan
+         style="font-size:20px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#ffffff"
+         y="1000.2414"
+         x="-126.36949"
+         sodipodi:role="line"
+         id="tspan4097">x </tspan><tspan
+         style="font-size:20px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#ffffff"
+         y="1016.2414"
+         x="-131.36949"
+         sodipodi:role="line"
+         id="tspan4099">10</tspan></text>
+    <g
+       inkscape:groupmode="layer"
+       id="g4119"
+       inkscape:label="@60cm"
+       style="display:inline" />
+    <g
+       style="display:none"
+       inkscape:label="other"
+       id="g4121"
+       inkscape:groupmode="layer">
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:connector-curvature="0"
+         id="path4123"
+         d="m -25.62946,748.73692 556.96349,-0.0516"
+         style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:connector-curvature="0"
+         id="path4125"
+         d="m -24.433036,963.91044 556.963486,-0.0516"
+         style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline" />
+      <path
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         sodipodi:nodetypes="cc"
+         style="fill:none;stroke:#000000;stroke-width:0.99921262;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend);display:inline"
+         d="m 0,611.91176 41.852679,0"
+         id="path4127"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path4129"
+         d="m 247.56696,611.91176 35.78083,0"
+         style="fill:none;stroke:#000000;stroke-width:0.99921262;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Mstart);marker-end:url(#Arrow1Mend);display:inline"
+         sodipodi:nodetypes="cc"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758" />
+      <text
+         xml:space="preserve"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         x="251.56697"
+         y="589.76886"
+         id="text4131"
+         sodipodi:linespacing="125%"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758"><tspan
+           sodipodi:role="line"
+           id="tspan4133"
+           x="251.56697"
+           y="589.76886">10cm ca.</tspan></text>
+      <text
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         sodipodi:linespacing="125%"
+         id="text4135"
+         y="589.76886"
+         x="1.5669708"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         xml:space="preserve"><tspan
+           y="589.76886"
+           x="1.5669708"
+           id="tspan4137"
+           sodipodi:role="line">10cm ca.</tspan></text>
+      <g
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         transform="matrix(0,-1,1,0,-975.83802,915.06172)"
+         id="g4139">
+        <path
+           sodipodi:nodetypes="cc"
+           style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+           d="m -48.797171,975.83802 514.293911,0"
+           id="path4141"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+           inkscape:export-xdpi="119.03465"
+           inkscape:export-ydpi="119.03465" />
+        <path
+           style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+           d="M -48.748205,975.77439 465.49674,895.15419"
+           id="path4143"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+           inkscape:export-xdpi="119.03465"
+           inkscape:export-ydpi="119.03465"
+           sodipodi:nodetypes="cc" />
+        <path
+           inkscape:export-ydpi="119.03465"
+           inkscape:export-xdpi="119.03465"
+           inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+           inkscape:connector-curvature="0"
+           id="path4145"
+           d="m 166.38843,1017.6907 145.10831,0.1473"
+           style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+           sodipodi:nodetypes="cc" />
+        <path
+           sodipodi:nodetypes="cc"
+           style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+           d="m 166.38843,1223.6907 145.10831,0.1473"
+           id="path4147"
+           inkscape:connector-curvature="0"
+           inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+           inkscape:export-xdpi="119.03465"
+           inkscape:export-ydpi="119.03465" />
+        <path
+           inkscape:export-ydpi="119.03465"
+           inkscape:export-xdpi="119.03465"
+           inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+           inkscape:connector-curvature="0"
+           id="path4149"
+           d="m 166.38843,1259.6907 145.10831,0.1473"
+           style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+           sodipodi:nodetypes="cc" />
+      </g>
+      <g
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         id="g4151">
+        <path
+           sodipodi:type="arc"
+           style="fill:url(#linearGradient5166);fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path4153"
+           sodipodi:cx="129.10715"
+           sodipodi:cy="-81.225815"
+           sodipodi:rx="29.735121"
+           sodipodi:ry="155.48288"
+           d="m 158.84227,-81.225815 a 29.735121,155.48288 0 0 1 -0.43964,26.63788 l -29.29548,-26.63788 z"
+           transform="matrix(16.97567,0,0,-2.8766808,-2191.6803,730.19815)"
+           sodipodi:start="0"
+           sodipodi:end="0.17217293" />
+        <text
+           inkscape:export-ydpi="119.03465"
+           inkscape:export-xdpi="119.03465"
+           inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+           sodipodi:linespacing="80.000001%"
+           id="text4155"
+           y="934.23749"
+           x="485.38583"
+           style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+           xml:space="preserve"><tspan
+             style="font-size:24px;text-align:end;line-height:80.00000119%;text-anchor:end;fill:#ffffff"
+             id="tspan4157"
+             y="934.23749"
+             x="485.38583"
+             sodipodi:role="line">ß</tspan></text>
+      </g>
+      <path
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         sodipodi:type="arc"
+         style="fill:url(#linearGradient5221);fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path4159"
+         sodipodi:cx="129.10715"
+         sodipodi:cy="-81.225815"
+         sodipodi:rx="29.735121"
+         sodipodi:ry="155.48288"
+         d="m 158.84227,-81.225815 a 29.735121,155.48288 0 0 1 -0.43964,26.63788 l -29.29548,-26.63788 z"
+         transform="matrix(-0.04506939,-16.97561,-2.8766707,0.00763741,-227.84114,3156.1519)"
+         sodipodi:start="0"
+         sodipodi:end="0.17217293" />
+      <text
+         transform="matrix(0.99999648,-0.00265494,0.00265494,0.99999648,0,0)"
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         sodipodi:linespacing="80.000001%"
+         id="text4161"
+         y="493.58896"
+         x="-33.525143"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         xml:space="preserve"><tspan
+           style="font-size:24px;text-align:end;line-height:80.00000119%;text-anchor:end;fill:#ffffff"
+           id="tspan4163"
+           y="493.58896"
+           x="-33.525143"
+           sodipodi:role="line">ß</tspan></text>
+      <g
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         transform="translate(0,-216)"
+         id="g4165">
+        <path
+           sodipodi:end="0.17217293"
+           sodipodi:start="0"
+           transform="matrix(16.97567,0,0,-2.8766808,-2191.6803,730.19815)"
+           d="m 158.84227,-81.225815 a 29.735121,169.52896 0 0 1 -0.43964,29.044304 l -29.29548,-29.044304 z"
+           sodipodi:ry="169.52896"
+           sodipodi:rx="29.735121"
+           sodipodi:cy="-81.225815"
+           sodipodi:cx="129.10715"
+           id="path4167"
+           style="fill:url(#linearGradient5231);fill-opacity:1;fill-rule:nonzero;stroke:none"
+           sodipodi:type="arc" />
+        <text
+           xml:space="preserve"
+           style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+           x="485.38583"
+           y="934.23749"
+           id="text4169"
+           sodipodi:linespacing="80.000001%"
+           inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-2.png"
+           inkscape:export-xdpi="119.03465"
+           inkscape:export-ydpi="119.03465"><tspan
+             sodipodi:role="line"
+             x="485.38583"
+             y="934.23749"
+             id="tspan4171"
+             style="font-size:24px;text-align:end;line-height:80.00000119%;text-anchor:end;fill:#ffffff">ß</tspan></text>
+      </g>
+      <path
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:connector-curvature="0"
+         id="path4173"
+         d="m 141.59974,1049.6934 0,-514.29395"
+         style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+         sodipodi:nodetypes="cc" />
+      <text
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         sodipodi:linespacing="80.000001%"
+         id="text4175"
+         y="517.64703"
+         x="141.59975"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         xml:space="preserve"><tspan
+           style="font-size:16px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#787878;fill-opacity:1"
+           y="517.64703"
+           x="141.59975"
+           id="tspan4177"
+           sodipodi:role="line">table</tspan><tspan
+           style="font-size:16px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#787878;fill-opacity:1"
+           id="tspan4179"
+           y="530.44702"
+           x="141.59975"
+           sodipodi:role="line">center</tspan></text>
+      <text
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         sodipodi:linespacing="80.000001%"
+         id="text4181"
+         y="766.98877"
+         x="98.550552"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         xml:space="preserve"
+         transform="matrix(0.99997612,0.00691121,-0.00691121,0.99997612,0,0)"><tspan
+           style="font-size:16px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#787878;fill-opacity:1"
+           id="tspan4183"
+           y="766.98877"
+           x="98.550552"
+           sodipodi:role="line">distorted image</tspan></text>
+    </g>
+    <g
+       style="display:none"
+       inkscape:label="projected-image"
+       id="g4185"
+       inkscape:groupmode="layer">
+      <g
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         transform="translate(1.2602727,40.002716)"
+         id="g4187"
+         style="display:inline">
+        <path
+           style="fill:none;stroke:#000000;stroke-width:5.31496048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           d="M 41.852679,698.46861 302.71907,657.05235"
+           id="path4189"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path4191"
+           d="m 170.90494,670.94128 2.07081,13.04332"
+           style="fill:#00ffff;stroke:#ff0000;stroke-width:3.54330707;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      </g>
+      <text
+         transform="matrix(0.99268638,-0.12072183,0.12072183,0.99268638,0,0)"
+         xml:space="preserve"
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+         x="253.40298"
+         y="720.02881"
+         id="text4193"
+         sodipodi:linespacing="80.000001%"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-ydpi="300.42758"><tspan
+           sodipodi:role="line"
+           x="253.40298"
+           y="720.02881"
+           id="tspan4195"
+           style="font-size:16px;text-align:center;line-height:80.00000119%;text-anchor:middle;fill:#787878;fill-opacity:1">projected image</tspan></text>
+    </g>
+    <g
+       style="display:inline"
+       inkscape:label="distorted-image"
+       id="g4197"
+       inkscape:groupmode="layer">
+      <g
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         id="g4199"
+         transform="matrix(0.98798516,0.15454878,-0.15454878,0.98798516,106.34734,52.096463)"
+         style="display:inline">
+        <g
+           id="g4217">
+          <path
+             style="fill:none;stroke:#000000;stroke-width:5.31496048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+             d="M 44.829511,714.36194 268.58378,641.1765"
+             id="path4201"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cc" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path4203"
+             d="m 153.93574,671.256 5.11639,12.17534"
+             style="fill:#00ffff;stroke:#ff0000;stroke-width:3.54330707;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        </g>
+      </g>
+      <path
+         inkscape:export-ydpi="300.42758"
+         inkscape:export-xdpi="300.42758"
+         inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+         transform="translate(-0.32668526,748.67329)"
+         inkscape:connector-curvature="0"
+         id="path4205"
+         d="M 171.78571,-28.904385 17.857143,212.16704"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+    <path
+       style="fill:none;stroke:#c8c8c8;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3, 3;stroke-dashoffset:0;display:inline"
+       d="M -25.580501,774.67328 532.53045,686.48319"
+       id="path4215"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/_projector-study/projector-5.png"
+       inkscape:export-xdpi="300.42758"
+       inkscape:export-ydpi="300.42758"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="texts"
+     style="display:none"
+     transform="translate(0.32668526,-748.67329)">
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+       x="279.93253"
+       y="994.8266"
+       id="text3780"
+       sodipodi:linespacing="80.000001%"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-3.png"
+       inkscape:export-xdpi="300.418"
+       inkscape:export-ydpi="300.418"><tspan
+         sodipodi:role="line"
+         x="279.93253"
+         y="994.8266"
+         id="tspan3786"
+         style="font-size:16px;text-align:end;line-height:80.00000119%;text-anchor:end">internal space</tspan><tspan
+         sodipodi:role="line"
+         x="279.93253"
+         y="1007.6266"
+         id="tspan3788"
+         style="font-size:16px;text-align:end;line-height:80.00000119%;text-anchor:end">w: 80cm</tspan><tspan
+         sodipodi:role="line"
+         x="279.93253"
+         y="1020.4266"
+         id="tspan3784"
+         style="font-size:16px;text-align:end;line-height:80.00000119%;text-anchor:end">h: 85.5cm</tspan></text>
+    <text
+       sodipodi:linespacing="80.000001%"
+       id="text3790"
+       y="1048.2194"
+       x="139.56345"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:80.00000119%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+       xml:space="preserve"
+       inkscape:export-filename="/home/nicola/openFrameworks/of_v0.9.8_linux64_release/apps/myApps/projector-3.png"
+       inkscape:export-xdpi="300.418"
+       inkscape:export-ydpi="300.418"><tspan
+         style="font-size:16px;text-align:center;line-height:80.00000119%;text-anchor:middle"
+         id="tspan3798"
+         y="1048.2194"
+         x="143.56345"
+         sodipodi:role="line">edge: 2cm </tspan></text>
+  </g>
+</svg>
